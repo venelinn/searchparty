@@ -1,0 +1,222 @@
+@import "functions";
+@import "variables"; // Breakpoints are there
+@import "mixins";
+@import "typo";
+@import "normalize";
+
+@import url('https://use.typekit.net/buj6oun.css');
+
+:root {
+	/* Colors */
+	--color-blue: #000A3B;
+	--color-grey: #3C3D3C;
+	--color-yellow: #FFD100;
+	--color-light-grey: #E0E0E0;
+	--color-lighter-grey: #fafafa;
+
+	--color-white: #fff;
+	--color-black: #000;
+	--color-error: #B10000;
+	--color-error-bgr: #FFF4F4;
+
+	--swiper-navigation-color: var(--color-blue);
+	--swiper-pagination-color: var(--color-blue);
+
+  --font-primary: 'proxima-nova', sans-serif;
+	--page-max-width: #{rem($large3)};
+	--padding-desktop: #{rem($padding-desktop)};
+  --padding-mobile: 1rem;
+
+	/* Font Weight */
+	--font-light: 100;
+	--font-regular: 400;
+	--font-bold: 700;
+	--font-black: 900;
+
+	/* Typography */
+	--font-base: 1rem;
+	--font-line-height: 1.3;
+
+    /* Heading */
+	// --font-ui-medium: #{rem(14px)};
+	// --font-ui-small: #{rem(12px)};
+
+	// --box-shadow: 0px #{rem(10px)} #{rem(30px)} #868E9629;
+	--border-radius: 5px;
+	--link-line-space: 3px;
+
+	// Animations
+	--anim-line-speed: 300ms;
+  --anim-line: cubic-bezier(0.42, 0.63, 0.13, 0.99);
+	--ease-in: cubic-bezier(0.43, 0.045, 0.1, 0.95);
+	--text-in: cubic-bezier(.31,.11,.12,.99);
+}
+
+html,
+body {
+	height: 100%;
+}
+
+/* Document
+========================================================================== */
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-ms-overflow-style: scrollbar;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(var(--color-ocean), 0.15);
+	-webkit-text-size-adjust: 100%;
+	margin: 0;
+	padding: 0;
+  scroll-padding-top: var(--navigation-height);
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+}
+
+body {
+	@include ui-body;
+	background-color: var(--color-black);
+	color: var(--color-white);
+	font-family: var(--font-primary);
+}
+
+#__next {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	> header {
+		flex: 0 0 auto;
+	}
+	.page {
+		flex: 1 0 auto;
+	}
+}
+
+/* ==========================================================================
+    Global
+========================================================================== */
+
+.rel {
+	position: relative;
+}
+
+.u-visuallyHidden {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+}
+
+.u-overflow--hidden {
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.hide,
+.hidden {
+  display: none;
+}
+
+.hidden-visible {
+	visibility: hidden;
+}
+
+.flex {
+	display: flex;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+small {
+	@include ui-meta;
+}
+
+[data-slider] {
+	.swiper-button-next,
+	.swiper-button-prev {
+		z-index: 2;
+		--swiper-navigation-color: var(--color-blue);
+		--swiper-navigation-size: 1rem;
+		--swiper-navigation-top-offset: 0;
+		--swiper-navigation-sides-offset: 40px;
+		font-weight: var(--font-black);
+		&:before {
+			content: '';
+			border: 1px solid currentColor;
+			border-radius: 50%;
+			width: 2rem;
+			height: 2rem;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		&:after {
+			position: absolute;
+			top: 50%;
+			left: 12px;
+		}
+	}
+	.swiper-button-prev {
+		--swiper-navigation-sides-offset: auto;
+    right: 80px
+	}
+}
+
+
+
+// LINK
+.link {
+	--line-space: var(--link-line-space);
+  display: inline-flex;
+	color: var(--link-color, var(--color-sapphire));
+  &__text {
+		padding-bottom: var(--line-space);
+    @include linkHover();
+  }
+  &--active {
+    &:not(:hover) {
+      .link__text {
+        &:before {
+          --link-width: 100%;
+        }
+      }
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        .link__text {
+          &:before {
+            @include link-hover-anim;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes activeLink {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

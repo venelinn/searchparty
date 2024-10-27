@@ -1,0 +1,11 @@
+{
+	"extends": [
+			"next/core-web-vitals"
+			//"plugin:storybook/recommended"
+	],
+	"rules": {
+			"react/no-unescaped-entities": 0,
+			"@next/next/no-img-element": "off",
+			"quotes": [ "warn", "double" ]
+	}
+}

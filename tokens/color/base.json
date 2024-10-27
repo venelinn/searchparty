@@ -1,0 +1,75 @@
+{
+	"color": {
+		"tl": {
+			"100": { "value": "#024e49" },
+			"200": { "value": "#017f7c" },
+			"300": { "value": "#00aaa6" },
+			"400": { "value": "#cceeed" },
+			"500": { "value": "#e5f2f3" }
+		},
+		"bl": {
+			"100": { "value": "#01172e" },
+			"200": { "value": "#00203e" },
+			"300": { "value": "#003c71" },
+			"400": { "value": "#adc5d9" },
+			"500": { "value": "#e4ebf2" }
+		},
+		"n": {
+			"100": { "value": "#333333" },
+			"200": { "value": "#666666" },
+			"300": { "value": "#b2b5b6" },
+			"400": { "value": "#dbdcdc" },
+			"500": { "value": "#f7f7f7" }
+		},
+		"rd": {
+			"100": { "value": "#3f000c" },
+			"200": { "value": "#6a0114" },
+			"300": { "value": "#b00121" },
+			"400": { "value": "#e3a4af" },
+			"500": { "value": "#f9ebed" }
+		},
+		"gr": {
+			"100": { "value": "#1b2d00" },
+			"200": { "value": "#2c4c01" },
+			"300": { "value": "#4a7e01" },
+			"400": { "value": "#bed1a4" },
+			"500": { "value": "#f1f5eb" }
+		},
+		"gs": {
+			"100": { "value": "#111e29" },
+			"200": { "value": "#333f49" },
+			"300": { "value": "#444f59" },
+			"400": { "value": "#a9b2ba" },
+			"500": { "value": "#bac2ca" }
+		},
+		"blk": {
+			"100": { "value": "#000000" },
+			"200": { "value": "#010d1a" }
+		},
+		"wh": { "value": "#ffffff" },
+		"primary": {
+			"light": { "value": "#a7e1f4", "comment": "Deprecated" },
+			"base": { "value": "#008fbf", "comment": "Deprecated" },
+			"dark": { "value": "#0f2541", "comment": "Deprecated" }
+		},
+		"accent": {
+			"base": { "value": "#bef564", "comment": "Deprecated" }
+		},
+		"grey": {
+			"light": { "value": "#f2f2f2", "comment": "Deprecated" },
+			"medium": { "value": "#999999", "comment": "Deprecated" },
+			"dark": { "value": "#444444", "comment": "Deprecated" },
+			"base": { "value": "{color.grey.medium.value}", "comment": "Deprecated" },
+			"background": { "value": "{color.grey.light.value}", "comment": "Deprecated" },
+			"border": { "value": "#cccccc", "comment": "Deprecated" }
+		},
+		"base": {
+			"blue": {
+				"light": { "value": "#a7e1f4", "comment": "Deprecated" },
+				"medium": { "value": "#008fbf", "comment": "Deprecated" },
+				"dark": { "value": "#0f2541", "comment": "Deprecated" },
+				"base": { "value": "{color.base.blue.medium.value}", "comment": "Deprecated" }
+			}
+		}
+	}
+}

@@ -1,0 +1,53 @@
+
+.color-root {
+	display: grid;
+	gap: 2rem;
+
+	.text-white {
+		color: white;
+	}
+}
+
+.color-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+
+	&__title {
+		flex: 0 0 100%;
+	}
+}
+
+.color {
+	&__box {
+		display: grid;
+		gap: 0.5rem;
+		margin-bottom: 0.5rem;
+
+		font-size: 80%;
+
+		&__sq {
+			display: grid;
+			align-items: center;
+			justify-items: center;
+			width: 150px;
+			height: 100px;
+			background-color: var(--box-bgr);
+			border-radius: 4px 4px 30px;
+
+			&.bg--error,
+			&.bg--blue-dark,
+			&.bg--blue,
+			&.bg--cherry,
+			&.bg--cherry-dark,
+			&.bg--grey,
+			&.bg--grey-dark,
+			&.bg--facebook,
+			&.bg--youtube,
+			&.bg--pinterest,
+			&.bg--success {
+				color: white;
+			}
+		}
+	}
+}

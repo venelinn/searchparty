@@ -1,0 +1,11 @@
+{
+	"color": {
+		"social": {
+			"facebook": { "value": "#6081c4" },
+			"x": { "value": "#43bdef" },
+			"pinterest": { "value": "#e62b33" },
+			"youtube": { "value": "#f00" },
+			"instagram": { "value": "#f09433" }
+		}
+	}
+}

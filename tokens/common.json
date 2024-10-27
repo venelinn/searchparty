@@ -1,0 +1,8 @@
+{
+	"border-radius": {
+		"base": { "value": "4px" }
+	},
+	"page-width": {
+		"base": { "value": "1140px" }
+	}
+}

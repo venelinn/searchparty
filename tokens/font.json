@@ -1,0 +1,26 @@
+{
+	"font": {
+		"family": {
+			"base": {
+				"value": "'Noto Sans', sans-serif"
+			},
+			"serif": {
+				"value": "'Noto Serif', serif"
+			},
+			"monospace": {
+				"value": "'Fira Code', monospace"
+			}
+		},
+		"size": {
+			"base": { "value": "14px" }
+		},
+		"weight": {
+			"extra-light": { "value": 200 },
+			"light": { "value": 300 },
+			"normal": { "value": 400 },
+			"semi-bold": { "value": 600 },
+			"base": { "value": "{font.weight.normal.value}" },
+			"bold": { "value": "{font.weight.semi-bold.value}" }
+		}
+	}
+}

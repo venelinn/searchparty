@@ -1,0 +1,5532 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "imageContent",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.032Z",
+        "updatedAt": "2024-05-30T03:20:22.437Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2024-05-30T03:20:22.437Z",
+        "firstPublishedAt": "2024-02-13T22:45:32.177Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 8,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/imageContent"
+      },
+      "displayField": "title",
+      "name": "Image Content",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "heading"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "subHeading",
+          "name": "Sub Heading",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "button",
+          "name": "Button",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "button"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "isContentFirst",
+          "name": "Is Content First",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "fullHeight",
+          "name": "Full height",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "isolation",
+          "name": "Isolation",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "button",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.048Z",
+        "updatedAt": "2024-02-13T22:45:30.566Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:30.566Z",
+        "firstPublishedAt": "2024-02-13T22:45:30.566Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/button"
+      },
+      "displayField": "title",
+      "name": "Button",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "label",
+          "name": "Label",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "URL",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "theme",
+          "name": "Theme",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "primary",
+                "secondary"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-CA": "primary"
+          },
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "siteConfig",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.053Z",
+        "updatedAt": "2024-05-30T21:51:49.662Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2024-05-30T21:51:49.662Z",
+        "firstPublishedAt": "2024-02-13T22:45:30.958Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/siteConfig"
+      },
+      "displayField": "headerText",
+      "name": "Site Configuration",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "headerText",
+          "name": "Header Text",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "footer",
+          "name": "Footer",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "footer"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "siteId",
+          "name": "Site ID",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "sunwingvacationsgroup",
+                "bdj"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "logo",
+          "name": "Logo",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "hero",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.128Z",
+        "updatedAt": "2024-05-13T03:25:34.774Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-05-13T03:25:34.774Z",
+        "firstPublishedAt": "2024-02-13T22:45:31.787Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/hero"
+      },
+      "displayField": "title",
+      "name": "Hero",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "headingAlignment",
+          "name": "Heading alignment",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "center",
+                "right"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Object",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "media",
+          "name": "Media",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "brands",
+          "name": "Brands",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "brands"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "link",
+          "name": "Link",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "button"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "theme",
+          "name": "Theme",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "theme"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "animationID",
+          "name": "Animation ID",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "page",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.137Z",
+        "updatedAt": "2024-02-13T22:45:30.180Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:30.180Z",
+        "firstPublishedAt": "2024-02-13T22:45:30.180Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/page"
+      },
+      "displayField": "title",
+      "name": "Page",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pageName",
+          "name": "Page Name",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "sections",
+          "name": "Sections",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "metaData",
+          "name": "Meta Data",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "metaData"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "isNavigationVisible",
+          "name": "Navigation Visibility",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "defaultValue": {
+            "en-CA": true
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "location",
+          "name": "Location",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "header",
+                "footer",
+                "hide"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-CA": "header"
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "order",
+          "name": "Order",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "heading",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.858Z",
+        "updatedAt": "2024-02-13T22:45:32.999Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:32.999Z",
+        "firstPublishedAt": "2024-02-13T22:45:32.999Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/heading"
+      },
+      "displayField": "title",
+      "name": "Heading",
+      "description": "Global: With options to add different type of headings",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "as",
+          "name": "Heading As",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "div"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-CA": "h2"
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "size",
+          "name": "Heading Size",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "base"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-CA": "h2"
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "alignment",
+          "name": "Alignment",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "left",
+                "center"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "uppercase",
+          "name": "Uppercase",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "animationID",
+          "name": "Animation ID",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "cloudinaryAsset",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:27.905Z",
+        "updatedAt": "2024-02-13T22:45:34.821Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:34.821Z",
+        "firstPublishedAt": "2024-02-13T22:45:34.821Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/cloudinaryAsset"
+      },
+      "displayField": "title",
+      "name": "Cloudinary Asset",
+      "description": "Global: Cloudinary Asset to get the image with option to add ALT",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "alt",
+          "name": "Alt",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "image",
+          "name": "Image",
+          "type": "Object",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "invert",
+          "name": "Invert",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "link",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:28.890Z",
+        "updatedAt": "2024-05-30T01:11:51.565Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-05-30T01:11:51.565Z",
+        "firstPublishedAt": "2024-02-13T22:45:37.031Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/link"
+      },
+      "displayField": "title",
+      "name": "Link",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "URL",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "iconName",
+          "name": "Icon name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Instagram",
+                "LinkedIn",
+                "Facebook"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "external",
+          "name": "External",
+          "type": "Boolean",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "footer",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:28.910Z",
+        "updatedAt": "2024-02-13T22:45:36.635Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:36.635Z",
+        "firstPublishedAt": "2024-02-13T22:45:36.635Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/footer"
+      },
+      "displayField": "title",
+      "name": "Footer",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "copyright",
+          "name": "Copyright",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "fineprint",
+          "name": "Fineprint",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "social",
+          "name": "Social",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "link"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "theme",
+          "name": "Theme",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "theme"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "generic",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:29.823Z",
+        "updatedAt": "2024-02-13T22:45:39.845Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:39.845Z",
+        "firstPublishedAt": "2024-02-13T22:45:39.845Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/generic"
+      },
+      "displayField": "title",
+      "name": "Generic",
+      "description": "Global: Generic template",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "heading",
+          "name": "Heading",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "heading"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "content",
+          "name": "Content",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold"
+              ],
+              "message": "Only bold marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "blockquote",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline",
+                "embedded-entry-block"
+              ],
+              "message": "Only quote, link to Url, link to entry, link to asset, inline entry, and block entry nodes are allowed"
+            },
+            {
+              "nodes": {
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "heading",
+                      "button",
+                      "cloudinaryAsset"
+                    ],
+                    "message": null
+                  }
+                ]
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "metaData",
+        "type": "ContentType",
+        "createdAt": "2024-02-13T22:45:29.869Z",
+        "updatedAt": "2024-02-13T22:45:40.378Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:45:40.378Z",
+        "firstPublishedAt": "2024-02-13T22:45:40.378Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/metaData"
+      },
+      "displayField": "title",
+      "name": "Meta Data",
+      "description": "Global",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pageTitle",
+          "name": "Page Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "pageDescription",
+          "name": "Page Description",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "keywords",
+          "name": "Keywords",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "portfolio",
+        "type": "ContentType",
+        "createdAt": "2024-05-29T04:43:48.204Z",
+        "updatedAt": "2024-05-29T04:43:48.617Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-05-29T04:43:48.617Z",
+        "firstPublishedAt": "2024-05-29T04:43:48.617Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/portfolio"
+      },
+      "displayField": "title",
+      "name": "Portfolio",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "Slug",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "cover",
+          "name": "Cover",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        },
+        {
+          "id": "images",
+          "name": "Images",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Asset"
+          }
+        },
+        {
+          "id": "date",
+          "name": "Date",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "contacts",
+        "type": "ContentType",
+        "createdAt": "2024-05-30T22:04:09.069Z",
+        "updatedAt": "2024-05-30T22:10:00.618Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 9,
+        "publishedAt": "2024-05-30T22:10:00.618Z",
+        "firstPublishedAt": "2024-05-30T22:04:09.766Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 5,
+        "version": 10,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/contacts"
+      },
+      "displayField": "title",
+      "name": "Contacts",
+      "description": "Contact form",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "message",
+          "name": "Message",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "errorMessage",
+          "name": "Error Message",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "customLinks",
+        "type": "ContentType",
+        "createdAt": "2024-06-07T11:34:28.603Z",
+        "updatedAt": "2024-06-07T11:34:28.907Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-06-07T11:34:28.907Z",
+        "firstPublishedAt": "2024-06-07T11:34:28.907Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/content_types/customLinks"
+      },
+      "displayField": "title",
+      "name": "Custom Links",
+      "description": "",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "text",
+          "name": "Text",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "URL",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "target",
+          "name": "Target",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "_blank",
+                "_self"
+              ]
+            }
+          ],
+          "defaultValue": {
+            "en-CA": "_self"
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "location",
+          "name": "Location",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "header",
+                "footer"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "order",
+          "name": "Order",
+          "type": "Integer",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 16,
+        "createdAt": "2024-02-13T22:45:32.320Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-30T03:20:22.906Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "imageContent",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "heading",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "subHeading",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "button",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "isContentFirst",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "fullHeight",
+          "settings": {
+            "helpText": "Section full height",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "isolation",
+          "settings": {
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:30.704Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:44.186Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "button",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "label",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "theme",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 14,
+        "createdAt": "2024-02-13T22:45:31.094Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-30T21:51:50.222Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "siteConfig",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "headerText",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "footer",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "siteId",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "logo",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2024-02-13T22:45:31.934Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-13T03:25:35.320Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "hero",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "heading",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "headingAlignment",
+          "settings": {
+            "helpText": "Clear or no value to align to left"
+          },
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "zjcnWgBknf9zB7IM9HZjE",
+          "widgetNamespace": "app"
+        },
+        {
+          "fieldId": "media",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "brands",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "link",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "theme",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "animationID",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:30.310Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:45.224Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "page",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pageName",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "settings": {
+            "helpText": "it should start with backslash /"
+          },
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "sections",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metaData",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "isNavigationVisible",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "settings": {
+            "helpText": "Navigation item in menu"
+          },
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "order",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:33.116Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:46.238Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "heading",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "heading",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "as",
+          "settings": {
+            "helpText": "Represent as"
+          },
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "size",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "alignment",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "uppercase",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "animationID",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:34.937Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:46.194Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "cloudinaryAsset",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "alt",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "image",
+          "widgetId": "zjcnWgBknf9zB7IM9HZjE",
+          "widgetNamespace": "app"
+        },
+        {
+          "fieldId": "invert",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2024-02-13T22:45:37.166Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-30T01:11:52.085Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "link",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "iconName",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "external",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:36.774Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:46.200Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "footer",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "copyright",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "fineprint",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "social",
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "theme",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:40.070Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:48.218Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "generic",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "heading",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "content",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-02-13T22:45:40.506Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-02-13T22:45:48.225Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "metaData",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pageTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "pageDescription",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "keywords",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2024-05-29T04:43:48.732Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-29T04:43:49.151Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "portfolio",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "cover",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "images",
+          "widgetId": "assetLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "date",
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 10,
+        "createdAt": "2024-05-30T22:04:09.877Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-30T22:10:01.119Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "contacts",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "message",
+          "settings": {
+            "helpText": "Success message"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "errorMessage",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "cktp0gqtqb5p",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 7,
+        "createdAt": "2024-06-07T11:34:29.074Z",
+        "createdBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-06-07T11:34:30.492Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1YIlhtOZnFv87xMbodOoQO",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "customLinks",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "text",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "target",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "order",
+          "settings": {
+            "helpText": "Enter a number to set the order of items. The lowest number represents the highest priority."
+          },
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "clT0bZUvCgK9wF4SBox1j",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:45:57.715Z",
+        "updatedAt": "2024-05-30T01:13:58.863Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2024-05-30T01:13:58.863Z",
+        "firstPublishedAt": "2024-02-13T22:46:30.278Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "link"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/clT0bZUvCgK9wF4SBox1j"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Facebook"
+        },
+        "name": {
+          "en-CA": "Facebook",
+          "fr-CA": "Facebook"
+        },
+        "url": {
+          "en-CA": "https://www.facebook.com/TsvetkovaPhotography",
+          "fr-CA": "https://www.facebook.com/TsvetkovaPhotography"
+        },
+        "iconName": {
+          "en-CA": "Facebook"
+        },
+        "external": {
+          "en-CA": true
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "2KHBPR3PJQWR5awvG1QxLS",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:45:58.682Z",
+        "updatedAt": "2024-05-30T01:10:30.082Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-05-30T01:10:30.082Z",
+        "firstPublishedAt": "2024-02-13T22:46:30.587Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "link"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/2KHBPR3PJQWR5awvG1QxLS"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Instagram"
+        },
+        "name": {
+          "en-CA": "Instagram",
+          "fr-CA": "Instagram"
+        },
+        "url": {
+          "en-CA": "https://www.instagram.com/tsvetkova.photography/",
+          "fr-CA": "https://www.instagram.com/tsvetkova.photography/?hl=fr"
+        },
+        "iconName": {
+          "en-CA": "Instagram"
+        },
+        "external": {
+          "en-CA": true
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "4LCX21Ep4yMWNClNaxU5vf",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:03.688Z",
+        "updatedAt": "2024-02-13T22:46:42.644Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:46:42.644Z",
+        "firstPublishedAt": "2024-02-13T22:46:42.644Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "generic"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/4LCX21Ep4yMWNClNaxU5vf"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Privacy Policy"
+        },
+        "content": {
+          "en-CA": {
+            "nodeType": "document",
+            "data": {
+            },
+            "content": [
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Each brand within ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": "Sunwing Vacations Group",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": " has adopted a privacy policy applicable to personal information collected in connection with the business conducted under that brand. Each privacy policy may be accessed by clicking on the following links: ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "data": {
+                      "uri": "https://www.sunwing.ca/en/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "Sunwing Vacations",
+                        "marks": [
+                        ],
+                        "data": {
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ", ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "data": {
+                      "uri": "https://www.westjet.com/en-ca/legal/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "WestJet Vacations",
+                        "marks": [
+                        ],
+                        "data": {
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ", ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "data": {
+                      "uri": "https://www.vacationexpress.com/privacy/"
+                    },
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "Vacation Express",
+                        "marks": [
+                        ],
+                        "data": {
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ", ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "data": {
+                      "uri": "https://www.selloffvacations.com/en/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "SellOffVacations",
+                        "marks": [
+                        ],
+                        "data": {
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": " and ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  },
+                  {
+                    "nodeType": "hyperlink",
+                    "data": {
+                      "uri": "https://luxedestinationweddings.com/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "nodeType": "text",
+                        "value": "Luxe Destination Weddings",
+                        "marks": [
+                        ],
+                        "data": {
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "nodeType": "text",
+                    "value": ".",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Cookies",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "\rWhen you visit our Website, we or one of our third party service providers may place a text file called a “cookie” in the browser directory of your computer’s hard drive. A cookie is a small piece of information that a website can store on your web browser and later retrieve information. The cookie cannot be read by any website other than the one that placed the cookie. Some browsers can be set to reject all cookies. If you choose to modify your browser in this manner, some pages of this Website may not function properly.\r",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "Upon your activation, these third party service providers may use cookies on our behalf to collect and store Internet log information, such as what time the visits occurred, whether the visitor has been to this site before, and what site referred the visitor to the web page. Geographic data may also determined by the IP Address of the visitor’s computer. If you activate such function, this information collected by the cookie may be transmitted to our third party service providers and may then be used to evaluate visitors’ behaviour and to generate statistical reports for the website activity on Sunwing Vacations Group’s Website and may be used for marketing purposes.\r",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              },
+              {
+                "nodeType": "paragraph",
+                "data": {
+                },
+                "content": [
+                  {
+                    "nodeType": "text",
+                    "value": "You can choose to disable cookies in your browser at any time by following the procedure described in the Tools or Preferences menu in your browser. If you choose to modify your browser in this manner, some pages of the Website may not function properly. ",
+                    "marks": [
+                    ],
+                    "data": {
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "fr-CA": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Chaque marque du Groupe de Vacances Sunwing a adopté une politique de confidentialité applicable aux renseignements personnels recueillis dans le cadre des activités menées sous cette marque. Toutes les politiques de confidentialité peuvent être consultées en cliquant sur les liens suivants : ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://www.sunwing.ca/fr/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Vacances Sunwing",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://www.westjet.com/fr-ca/legal/politique-confidentialite"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Vacances WestJet",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://www.vacationexpress.com/privacy/"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Vacation Express",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ", ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://www.selloffvacations.com/fr/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "VacancesSellOff",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": " et ",
+                    "nodeType": "text"
+                  },
+                  {
+                    "data": {
+                      "uri": "https://luxedestinationweddings.com/privacy-policy"
+                    },
+                    "content": [
+                      {
+                        "data": {
+                        },
+                        "marks": [
+                        ],
+                        "value": "Mariages à destination LUXE",
+                        "nodeType": "text"
+                      }
+                    ],
+                    "nodeType": "hyperlink"
+                  },
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": ".",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ],
+                    "value": "Témoins",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "\rLorsque vous visitez notre Site Web, nous, ou l’un de nos fournisseurs de services tiers, pouvons placer un fichier texte appelé « témoin » dans le répertoire de votre navigateur, sur le disque dur de votre ordinateur. Un témoin est un petit élément d’information qu’un site Web peut stocker sur votre navigateur pour récupérer ultérieurement des informations. Un témoin ne peut être lu par un autre site Web que celui qui l’a créé. Certains navigateurs sont configurés pour rejeter tout témoin. Si vous décidez de modifier votre navigateur à cet effet, certaines pages de ce site Web pourraient ne pas fonctionner correctement.",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Lorsque les témoins sont activés, les fournisseurs de services tiers peuvent utiliser des témoins en notre nom pour recueillir et stocker des informations relatives à la navigation, comme les heures de visites, l’historique de visites de la personne sur le site (le cas échéant) et le site qui redirige le visiteur vers la page Web. Les données géographiques peuvent également être déterminées par l’adresse IP de l’ordinateur du visiteur. Si vous activez cette fonction, l’information recueillie par le témoin pourrait être transmise à nos fournisseurs de services tiers, puis être utilisée pour évaluer le comportement du visiteur et générer des rapports statistiques sur l’activité du Site Web du groupe de Vacances Sunwing. De telles informations pourraient servir à des fins de commercialisation.\r",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              },
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Vous pouvez choisir de désactiver les témoins sur votre navigateur à tout moment en suivant la procédure décrite dans le menu Outils ou Préférences du navigateur. Si vous décidez de modifier votre navigateur à cet effet, certaines pages du Site Web pourraient ne pas fonctionner correctement.\r\n",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "5NS3uzlU4ASoZjKCh7cRka",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:04.711Z",
+        "updatedAt": "2024-02-13T22:46:45.702Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:46:45.702Z",
+        "firstPublishedAt": "2024-02-13T22:46:45.702Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "metaData"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/5NS3uzlU4ASoZjKCh7cRka"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Home"
+        },
+        "pageTitle": {
+          "en-CA": "Sunwing Vacations Group - North America's Largest Travel Brands",
+          "fr-CA": "Groupe de Vacances Sunwing – Les plus grandes marques de vacances en Amérique du Nord"
+        },
+        "pageDescription": {
+          "en-CA": "Welcome to Sunwing Vacations Group. Discover dream destinations, exceptional service, and embark on a journey of unparalleled travel experiences.",
+          "fr-CA": "Bienvenue chez le Groupe de Vacances Sunwing. Découvrez des destinations de rêve et un service exceptionnel et lancez-vous dans des aventures sans égales."
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "7wKszrarjNiVYk9jSlMWl2",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:07.674Z",
+        "updatedAt": "2024-02-13T22:46:53.645Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:46:53.645Z",
+        "firstPublishedAt": "2024-02-13T22:46:53.645Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "metaData"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/7wKszrarjNiVYk9jSlMWl2"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "About us"
+        },
+        "pageTitle": {
+          "en-CA": "Discover Our Story - Sunwing Vacations Group",
+          "fr-CA": "Découvrez notre histoire – Groupe de Vacances Sunwing"
+        },
+        "pageDescription": {
+          "en-CA": "Learn about Sunwing Vacations Group and our history, values and commitment to delivering exceptional vacations that exceed your expectations.",
+          "fr-CA": "Apprenez-en plus sur le Groupe de Vacances Sunwing, notre histoire, nos valeurs et notre engagement à offrir des vacances exceptionnelles qui dépassent vos attentes."
+        },
+        "keywords": {
+          "en-CA": " About us - Vacation Packages, Luxury Resorts, Travel Destinations, Family Getaways, Beach Holidays, Adventure Travel, All-Inclusive Resorts, Tropical Escapes, Exotic Adventures, Holiday Planning.",
+          "fr-CA": "Forfaits vacances, Complexes hôteliers de luxe, Destinations de voyage, Escapades en famille, Vacances à la plage, Voyage d'aventure, Complexes hôteliers tout compris, Escapades tropicales, Aventures exotiques, Planification des vacances."
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "5M5xKW3JalygeEXNcsdD71",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:17.708Z",
+        "updatedAt": "2024-05-30T01:08:04.063Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2024-05-30T01:08:04.063Z",
+        "firstPublishedAt": "2024-02-13T22:47:18.819Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "footer"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/5M5xKW3JalygeEXNcsdD71"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Footer"
+        },
+        "copyright": {
+          "en-CA": "Copyright",
+          "fr-CA": "Droits d'auteur"
+        },
+        "fineprint": {
+          "en-CA": "TsvetkovaPhotography.com"
+        },
+        "social": {
+          "en-CA": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2KHBPR3PJQWR5awvG1QxLS"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "clT0bZUvCgK9wF4SBox1j"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "2fOae4R9pYc85bdMEJsE6z",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:19.680Z",
+        "updatedAt": "2024-05-30T21:57:19.105Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2024-05-30T21:52:31.198Z",
+        "firstPublishedAt": "2024-02-13T22:47:25.945Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 13,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "changed",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "siteConfig"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/2fOae4R9pYc85bdMEJsE6z"
+      },
+      "fields": {
+        "headerText": {
+          "en-CA": "Tsvetkova Photography",
+          "fr-CA": "Tsvetkova Photography"
+        },
+        "footer": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5M5xKW3JalygeEXNcsdD71"
+            }
+          }
+        },
+        "logo": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4Ga3DA7cC5VcTHRkfRX8sO"
+            }
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "4NAH9GqPm2W4eYXXEa35mg",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:19.683Z",
+        "updatedAt": "2024-05-30T22:10:33.647Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 8,
+        "publishedAt": "2024-05-30T22:10:33.647Z",
+        "firstPublishedAt": "2024-02-13T22:47:25.196Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 9,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "page"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/4NAH9GqPm2W4eYXXEa35mg"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Page: About"
+        },
+        "pageName": {
+          "en-CA": "About",
+          "fr-CA": "À propos"
+        },
+        "slug": {
+          "en-CA": "/about-us",
+          "fr-CA": "/about-us"
+        },
+        "sections": {
+          "en-CA": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "4JEuuaZM2ULPQYK8LFZ7eb"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "2xMdwfVmloI162WzuB1Mn5"
+              }
+            }
+          ]
+        },
+        "metaData": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "7wKszrarjNiVYk9jSlMWl2"
+            }
+          }
+        },
+        "isNavigationVisible": {
+          "en-CA": true
+        },
+        "location": {
+          "en-CA": "header"
+        },
+        "order": {
+          "en-CA": 1
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "4pQBscyvi608EAd3KNoxt9",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:19.685Z",
+        "updatedAt": "2024-05-29T22:53:56.958Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-29T22:53:56.958Z",
+        "firstPublishedAt": "2024-02-13T22:47:25.583Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "page"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/4pQBscyvi608EAd3KNoxt9"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Page : Home page"
+        },
+        "pageName": {
+          "en-CA": "Home",
+          "fr-CA": "Accueil"
+        },
+        "slug": {
+          "en-CA": "/",
+          "fr-CA": "/"
+        },
+        "sections": {
+          "en-CA": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Entry",
+                "id": "1epGp37sn6wyZbCqZtqeWj"
+              }
+            }
+          ]
+        },
+        "metaData": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "5NS3uzlU4ASoZjKCh7cRka"
+            }
+          }
+        },
+        "isNavigationVisible": {
+          "en-CA": true
+        },
+        "location": {
+          "en-CA": "hide"
+        },
+        "order": {
+          "en-CA": 0
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "1epGp37sn6wyZbCqZtqeWj",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:19.696Z",
+        "updatedAt": "2024-02-13T22:47:24.815Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:47:24.815Z",
+        "firstPublishedAt": "2024-02-13T22:47:24.815Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "hero"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/1epGp37sn6wyZbCqZtqeWj"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Hero : Home page"
+        },
+        "heading": {
+          "en-CA": "__Home to__ North America’s largest vacation brands",
+          "fr-CA": "__Comprend__ les plus grandes marques de vacances en Amérique du Nord"
+        },
+        "image": {
+          "en-CA": [
+            {
+              "url": "http://assets.sunwingtravelgroup.com/image/upload/f_auto/q_auto/v1694787674/sunwing_vacations_group/Hero/Homepage%20hero%20image.jpg",
+              "tags": [
+              ],
+              "type": "upload",
+              "bytes": 940990,
+              "width": 2873,
+              "format": "jpg",
+              "height": 1943,
+              "version": 1694787674,
+              "duration": null,
+              "metadata": {
+                "zz_exclusive": "ntvcairrxgfv5mtaxva4"
+              },
+              "public_id": "sunwing_vacations_group/Hero/Homepage hero image",
+              "created_at": "2023-09-15T14:21:14Z",
+              "secure_url": "https://assets.sunwingtravelgroup.com/image/upload/f_auto/q_auto/v1694787674/sunwing_vacations_group/Hero/Homepage%20hero%20image.jpg",
+              "original_url": "http://assets.sunwingtravelgroup.com/image/upload/v1694787674/sunwing_vacations_group/Hero/Homepage%20hero%20image.jpg",
+              "resource_type": "image",
+              "raw_transformation": "f_auto/q_auto",
+              "original_secure_url": "https://assets.sunwingtravelgroup.com/image/upload/v1694787674/sunwing_vacations_group/Hero/Homepage%20hero%20image.jpg"
+            }
+          ]
+        },
+        "brands": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "1msjV0kzz6wEjRMgZ3Xx1v"
+            }
+          }
+        },
+        "theme": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4duldRosKnasxNnJSutvmn"
+            }
+          }
+        },
+        "animationID": {
+          "en-CA": "home-hero"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "4JEuuaZM2ULPQYK8LFZ7eb",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:19.728Z",
+        "updatedAt": "2024-10-24T12:21:44.455Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 22,
+        "publishedAt": "2024-10-24T12:21:44.455Z",
+        "firstPublishedAt": "2024-02-13T22:47:24.413Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 23,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "imageContent"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/4JEuuaZM2ULPQYK8LFZ7eb"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "About"
+        },
+        "heading": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "fa9jyEM6NlNtANuxqTGpG"
+            }
+          }
+        },
+        "body": {
+          "en-CA": "Hello! \n\nMy name is Nikol and I am a professional photographer, my passions are events and documentary photography. If you would like to contact me with any future projects in mind, I will be happy to play a part in capturing your special moments!  This is just test",
+          "fr-CA": "Bonjour!\n\nJe m'appelle Nikol et je suis une photographe professionnelle, j'ai une passion pour les évènements et la photographie documentaire. Si vous aimerez me contacter pour vos futurs projets, je serais très heureuse de documenter vos moments précieux! \n"
+        },
+        "image": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "9cuMOx6tvIA1mrXXARtM0"
+            }
+          }
+        },
+        "isContentFirst": {
+          "en-CA": true
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "6C8zTujkczgUh7FNbRNLZA",
+        "type": "Entry",
+        "createdAt": "2024-02-13T22:46:20.677Z",
+        "updatedAt": "2024-02-13T22:47:26.295Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2024-02-13T22:47:26.295Z",
+        "firstPublishedAt": "2024-02-13T22:47:26.295Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "hero"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/6C8zTujkczgUh7FNbRNLZA"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Hero : About us"
+        },
+        "heading": {
+          "en-CA": "Sunwing Vacations Group",
+          "fr-CA": "Groupe de Vacances Sunwing"
+        },
+        "image": {
+          "en-CA": [
+            {
+              "url": "http://assets.sunwingtravelgroup.com/image/upload/f_auto/q_auto/v1694793165/sunwing_vacations_group/Hero/About%20hero%20image.jpg",
+              "tags": [
+              ],
+              "type": "upload",
+              "bytes": 19518010,
+              "width": 6755,
+              "format": "jpg",
+              "height": 4390,
+              "version": 1694793165,
+              "duration": null,
+              "metadata": {
+                "zz_exclusive": "ntvcairrxgfv5mtaxva4"
+              },
+              "public_id": "sunwing_vacations_group/Hero/About hero image",
+              "created_at": "2023-09-15T15:52:45Z",
+              "secure_url": "https://assets.sunwingtravelgroup.com/image/upload/f_auto/q_auto/v1694793165/sunwing_vacations_group/Hero/About%20hero%20image.jpg",
+              "original_url": "http://assets.sunwingtravelgroup.com/image/upload/v1694793165/sunwing_vacations_group/Hero/About%20hero%20image.jpg",
+              "resource_type": "image",
+              "raw_transformation": "f_auto/q_auto",
+              "original_secure_url": "https://assets.sunwingtravelgroup.com/image/upload/v1694793165/sunwing_vacations_group/Hero/About%20hero%20image.jpg"
+            }
+          ]
+        },
+        "description": {
+          "en-CA": "We are Sunwing Vacations Group, the vacation division of the WestJet Group, comprised of the leading Canadian leisure tour operators Sunwing Vacations and WestJet Vacations, along with the growing United States tour operator Vacation Express, together with the Group’s own travel retail businesses SellOffVacations.com and Luxe Destination Weddings. Together we form the largest vacations brands in North America.",
+          "fr-CA": "Nous sommes le Groupe de Vacances Sunwing, la division de vacances du groupe WestJet, composé des plus grandes marques de vacances en Amérique du Nord, notamment les principaux voyagistes de loisirs canadiens Vacances Sunwing et Vacances WestJet, le voyagiste américain en pleine croissance Vacation Express, ainsi que les entreprises de la division des ventes du Groupe, VacancesSellOff.com et Mariages à destination LUXE. Ensemble, nous formons les plus grandes marques de vacances en Amérique du Nord."
+        },
+        "theme": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Entry",
+              "id": "4duldRosKnasxNnJSutvmn"
+            }
+          }
+        },
+        "animationID": {
+          "en-CA": "about-hero"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "1O7IDJtFowQ1cSP8hgKLbI",
+        "type": "Entry",
+        "createdAt": "2024-05-29T03:43:50.674Z",
+        "updatedAt": "2024-05-29T22:54:34.385Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 27,
+        "publishedAt": "2024-05-29T22:54:34.385Z",
+        "firstPublishedAt": "2024-05-29T03:44:24.220Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 10,
+        "version": 28,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "page"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/1O7IDJtFowQ1cSP8hgKLbI"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Page: Portfolio"
+        },
+        "pageName": {
+          "en-CA": "Portfolio",
+          "fr-CA": "Potfolio  FR"
+        },
+        "slug": {
+          "en-CA": "/portfolio",
+          "fr-CA": "/portfolio"
+        },
+        "isNavigationVisible": {
+          "en-CA": true
+        },
+        "location": {
+          "en-CA": "header"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "6t0fixHjZE9vXA8PuvYn3l",
+        "type": "Entry",
+        "createdAt": "2024-05-29T04:44:07.340Z",
+        "updatedAt": "2024-05-29T04:44:51.193Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2024-05-29T04:44:51.193Z",
+        "firstPublishedAt": "2024-05-29T04:44:51.193Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "portfolio"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/6t0fixHjZE9vXA8PuvYn3l"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Baby"
+        },
+        "description": {
+          "en-CA": "Lorem Lorem",
+          "fr-CA": "FR Lorem Lorem"
+        },
+        "slug": {
+          "en-CA": "baby"
+        },
+        "cover": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4tW3AgxWqIN3NDZfHrj6mk"
+            }
+          }
+        },
+        "images": {
+          "en-CA": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "4tW3AgxWqIN3NDZfHrj6mk"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "o1G1j1B3fpZyVGa33M1zJ"
+              }
+            }
+          ]
+        },
+        "date": {
+          "en-CA": "2024-05-16T00:00-04:00"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "7whZmCctdsWKNLpeV8kWTW",
+        "type": "Entry",
+        "createdAt": "2024-05-29T21:33:34.095Z",
+        "updatedAt": "2024-05-29T21:34:12.437Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2024-05-29T21:34:12.437Z",
+        "firstPublishedAt": "2024-05-29T21:34:12.437Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "portfolio"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/7whZmCctdsWKNLpeV8kWTW"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Stage"
+        },
+        "description": {
+          "en-CA": "Stage images",
+          "fr-CA": "FR Stage images"
+        },
+        "slug": {
+          "en-CA": "stage"
+        },
+        "cover": {
+          "en-CA": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4tW3AgxWqIN3NDZfHrj6mk"
+            }
+          }
+        },
+        "images": {
+          "en-CA": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "4tW3AgxWqIN3NDZfHrj6mk"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "o1G1j1B3fpZyVGa33M1zJ"
+              }
+            }
+          ]
+        },
+        "date": {
+          "en-CA": "2024-05-16T00:00-04:00"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "fa9jyEM6NlNtANuxqTGpG",
+        "type": "Entry",
+        "createdAt": "2024-05-29T22:58:15.130Z",
+        "updatedAt": "2024-05-30T01:07:14.393Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 6,
+        "publishedAt": "2024-05-30T01:07:14.393Z",
+        "firstPublishedAt": "2024-05-29T22:58:57.759Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 7,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "heading"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/fa9jyEM6NlNtANuxqTGpG"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "About"
+        },
+        "heading": {
+          "en-CA": "About me",
+          "fr-CA": "à propos"
+        },
+        "as": {
+          "en-CA": "h2"
+        },
+        "size": {
+          "en-CA": "h2"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "2xMdwfVmloI162WzuB1Mn5",
+        "type": "Entry",
+        "createdAt": "2024-05-30T22:08:59.718Z",
+        "updatedAt": "2024-05-30T22:10:24.447Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2024-05-30T22:10:24.447Z",
+        "firstPublishedAt": "2024-05-30T22:09:31.063Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "contacts"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/2xMdwfVmloI162WzuB1Mn5"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Contact form"
+        },
+        "message": {
+          "en-CA": "Thank you for reaching out. I will get back to you as soon as possible."
+        },
+        "errorMessage": {
+          "en-CA": "Ops. Something went wrong. Please try again"
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "7gJOLfGNyZYMCyRF68rcFO",
+        "type": "Entry",
+        "createdAt": "2024-06-07T11:34:50.817Z",
+        "updatedAt": "2024-06-07T11:35:28.916Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-06-07T11:35:28.916Z",
+        "firstPublishedAt": "2024-06-07T11:35:28.916Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "fieldStatus": {
+          "*": {
+            "en-CA": "published",
+            "fr-CA": "published"
+          }
+        },
+        "automationTags": [
+        ],
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "customLinks"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/entries/7gJOLfGNyZYMCyRF68rcFO"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Store"
+        },
+        "text": {
+          "en-CA": "Store",
+          "fr-CA": "Store"
+        },
+        "url": {
+          "en-CA": "https://dtphoto.shootproof.com/",
+          "fr-CA": "https://dtphoto.shootproof.com/"
+        },
+        "target": {
+          "en-CA": "_blank"
+        },
+        "location": {
+          "en-CA": "header"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "4tW3AgxWqIN3NDZfHrj6mk",
+        "type": "Asset",
+        "createdAt": "2024-02-13T22:45:49.621Z",
+        "updatedAt": "2024-02-13T22:45:53.947Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2024-02-13T22:45:53.947Z",
+        "firstPublishedAt": "2024-02-13T22:45:53.947Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/assets/4tW3AgxWqIN3NDZfHrj6mk"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Leading vacations company in North America"
+        },
+        "description": {
+          "en-CA": ""
+        },
+        "file": {
+          "en-CA": {
+            "url": "//images.ctfassets.net/cktp0gqtqb5p/4tW3AgxWqIN3NDZfHrj6mk/5d8b7cfa9c31ea8bdece4abb64afbf27/pool.jpg",
+            "details": {
+              "size": 669593,
+              "image": {
+                "width": 1800,
+                "height": 968
+              }
+            },
+            "fileName": "pool.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "o1G1j1B3fpZyVGa33M1zJ",
+        "type": "Asset",
+        "createdAt": "2024-02-13T22:45:49.625Z",
+        "updatedAt": "2024-02-13T22:45:53.634Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 2,
+        "publishedAt": "2024-02-13T22:45:53.634Z",
+        "firstPublishedAt": "2024-02-13T22:45:53.634Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 3,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/assets/o1G1j1B3fpZyVGa33M1zJ"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Sandwich Hero (FPO)"
+        },
+        "description": {
+          "en-CA": ""
+        },
+        "file": {
+          "en-CA": {
+            "url": "//images.ctfassets.net/cktp0gqtqb5p/o1G1j1B3fpZyVGa33M1zJ/77f8f28e069e9d52cf639a43d021f879/fpo-sandwich.jpg",
+            "details": {
+              "size": 2148104,
+              "image": {
+                "width": 5000,
+                "height": 4000
+              }
+            },
+            "fileName": "fpo-sandwich.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "9cuMOx6tvIA1mrXXARtM0",
+        "type": "Asset",
+        "createdAt": "2024-05-30T03:05:25.813Z",
+        "updatedAt": "2024-05-30T03:05:45.838Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-30T03:05:45.838Z",
+        "firstPublishedAt": "2024-05-30T03:05:45.838Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/assets/9cuMOx6tvIA1mrXXARtM0"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Nikol"
+        },
+        "description": {
+          "en-CA": ""
+        },
+        "file": {
+          "en-CA": {
+            "url": "//images.ctfassets.net/cktp0gqtqb5p/9cuMOx6tvIA1mrXXARtM0/cd8f5c78becca21767b9f075481ddb35/photo-1.jpg",
+            "details": {
+              "size": 87848,
+              "image": {
+                "width": 888,
+                "height": 888
+              }
+            },
+            "fileName": "photo-1.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "19PpEidHvbvDii7sxUxdcM",
+        "type": "Asset",
+        "createdAt": "2024-05-30T21:51:58.702Z",
+        "updatedAt": "2024-05-30T21:52:20.814Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-30T21:52:20.814Z",
+        "firstPublishedAt": "2024-05-30T21:52:20.814Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/assets/19PpEidHvbvDii7sxUxdcM"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Nikol"
+        },
+        "description": {
+          "en-CA": ""
+        },
+        "file": {
+          "en-CA": {
+            "url": "//images.ctfassets.net/cktp0gqtqb5p/19PpEidHvbvDii7sxUxdcM/ca4ddabbdbf977aaf8ac637c590b85a5/logo.svg",
+            "details": {
+              "size": 65352,
+              "image": {
+                "width": 2699,
+                "height": 369
+              }
+            },
+            "fileName": "logo.svg",
+            "contentType": "image/svg+xml"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ],
+        "concepts": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "id": "4Ga3DA7cC5VcTHRkfRX8sO",
+        "type": "Asset",
+        "createdAt": "2024-05-30T21:57:17.789Z",
+        "updatedAt": "2024-05-30T21:59:39.327Z",
+        "environment": {
+          "sys": {
+            "id": "nextjs",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-30T21:59:39.327Z",
+        "firstPublishedAt": "2024-05-30T21:59:39.327Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/cktp0gqtqb5p/environments/nextjs/assets/4Ga3DA7cC5VcTHRkfRX8sO"
+      },
+      "fields": {
+        "title": {
+          "en-CA": "Tsvetkova Photography",
+          "fr-CA": "Tsvetkova Photography"
+        },
+        "description": {
+          "en-CA": ""
+        },
+        "file": {
+          "en-CA": {
+            "url": "//images.ctfassets.net/cktp0gqtqb5p/4Ga3DA7cC5VcTHRkfRX8sO/e7accd5f4b2550c8e3a841943bc77a50/nikol_logo.svg",
+            "details": {
+              "size": 93138,
+              "image": {
+                "width": 1264,
+                "height": 183
+              }
+            },
+            "fileName": "nikol_logo.svg",
+            "contentType": "image/svg+xml"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (Canada)",
+      "code": "en-CA",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "6L7PAimdeUFD7QMmu02ah8",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "nextjs",
+            "uuid": "fe723f64-ebd8-4771-96d8-3b6dc2a7c850"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "createdAt": "2024-02-13T21:01:32Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedAt": "2024-02-13T21:01:32Z"
+      }
+    },
+    {
+      "name": "French (Canada)",
+      "code": "fr-CA",
+      "fallbackCode": "en-CA",
+      "default": false,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "0zBOUvoh23gUKJRqAs772D",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "cktp0gqtqb5p"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "nextjs",
+            "uuid": "fe723f64-ebd8-4771-96d8-3b6dc2a7c850"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "createdAt": "2024-02-13T21:01:32Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1YIlhtOZnFv87xMbodOoQO"
+          }
+        },
+        "updatedAt": "2024-02-13T21:01:32Z"
+      }
+    }
+  ]
+}

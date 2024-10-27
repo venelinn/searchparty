@@ -1,0 +1,10 @@
+{
+	"spacing": {
+		"micro": { "value": "0.5rem" },
+		"xs": { "value": "1rem" },
+		"s": { "value": "1.5rem" },
+		"m": { "value": "2.5rem" },
+		"l": { "value": "3.5rem" },
+		"xl": { "value": "5rem" }
+	}
+}

@@ -1,0 +1,36 @@
+.gallery {
+  &Item {
+    position: relative;
+  }
+	img {
+    width: 100%;
+		height: 100%;
+    margin: 0;
+    padding: 0;
+		object-fit: cover;
+	}
+  > div {
+    gap: var(--space, 5px);
+    @media (min-width: 601px) {
+      display: flex;
+      flex-wrap: wrap;
+      .galleryItem {
+        outline: none;
+        width: var(--thumb-width);
+      }
+    }
+    @media (max-width: 600px) {
+      display: grid;
+      grid-gap: var(--space);
+    }
+
+  }
+  &__link {
+    position: absolute;
+		inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: pointer;
+  }
+}

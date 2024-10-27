@@ -1,0 +1,118 @@
+@use 'sass:math';
+
+@function calcRem($size) {
+  $remSize: $size / 16px;
+  // @return $remSize * 1rem;
+  @return math.div($size, 16px);
+}
+
+// USAGE:
+// This works ONLY with Pixels:
+// font-size | line-height | letter-spacing
+@mixin fontSize($size: true, $lh: false, $ls: false) {
+  @if $size {
+		font-size: rem($size);
+  }
+
+  @if $lh {
+		line-height: rem($lh);
+  }
+
+  @if $ls {
+		letter-spacing: rem($ls);
+  }
+}
+
+@mixin headingFontSize($size: true, $lh: false, $ls: false) {
+  @if $size {
+    --heading-size: #{rem($size)};
+  }
+
+  @if $lh {
+    --heading-line-height: #{rem($lh)};
+  }
+
+  @if $ls {
+    --heading-letter-spacing: #{rem($ls)};
+  }
+}
+
+@mixin headingBase {
+	font-weight: var(--heading-weight, var(--font-black));
+  text-transform: var(--heading-case);
+  margin-top: var(--heading-top);
+  margin-bottom: var(--heading-bottom, 0);
+	font-size: var(--heading-size, 32px);
+	text-align: var(--heading-align);
+	line-height: var(--heading-line-height, 1);
+	letter-spacing: var(--heading-letter-spacing);
+	color: var(--heading-color, inherit);
+	word-break: var(--heading-word-break, break-word);
+}
+
+@mixin h1 {
+	@media (min-width: $medium + 1) {
+		@include headingFontSize(56px, 68px, 8.4px);
+	}
+	@media (max-width: $medium) {
+		@include headingFontSize(40px, 47px);
+	}
+}
+
+@mixin h2 {
+	@media (min-width: $medium + 1) {
+  	@include headingFontSize(48px, 57px, 2.4px);
+	}
+	@media (max-width: $medium) {
+		@include headingFontSize(32px, 39px, 1.6px);
+	}
+}
+
+@mixin h3 {
+	@media (min-width: $medium + 1) {
+		@include headingFontSize(32px, 38px, 1.92px);
+	}
+	@media (max-width: $medium) {
+		@include headingFontSize(24px, 29px, 1.62px);
+	}
+}
+
+@mixin h4 {
+	@media (min-width: $medium + 1) {
+		@include headingFontSize(24px, 29px, 1.2px);
+	}
+	@media (max-width: $medium) {
+		@include headingFontSize(20px, 24px, 1px);
+	}
+}
+
+@mixin ui-body {
+  font-weight: var(--fw-normal);
+  @include fontSize(16px, 20px, 0.96px);
+}
+
+@mixin ui-link {
+  color: var(--color-link);
+  @media (hover: hover) {
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline
+		}
+  }
+}
+
+@mixin ui-meta {
+  @include fontSize(14px, 20px);
+}
+
+@mixin ui-ellipsis($width: false) {
+  @if $width {
+    width: $width;
+  }
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+

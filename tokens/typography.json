@@ -1,0 +1,82 @@
+{
+	"selection": {
+		"dark": {
+			"color": { "value": "{color.wh.value}" },
+			"background-color": { "value": "{color.tl.100.value}" }
+		},
+		"light": {
+			"color": { "value": "{color.blk.100.value}" },
+			"background-color": { "value": "{color.tl.400.value}" }
+		},
+		"color": { "value": "{selection.dark.color.value}" },
+		"background-color": { "value": "{selection.dark.background-color.value}" }
+	},
+	"letting-spacing": {
+		"base": { "value": "normal" }
+	},
+	"heading": {
+		"margin": {
+			"top": { "value": "0" },
+			"bottom": { "value": "0.5rem" }
+		},
+		"size": {
+			"jumbo": {
+				"font-size": { "value": "60px" },
+				"line-height": { "value": "72px" },
+				"font-weight": { "value": "{font.weight.extra-light.value}" }
+			},
+			"extra-large": {
+				"font-size": { "value": "40px" },
+				"line-height": { "value": "48px" },
+				"font-weight": { "value": "{font.weight.extra-light.value}" }
+			},
+			"large": {
+				"font-size": { "value": "28px" },
+				"line-height": { "value": "34px" },
+				"font-weight": { "value": "{font.weight.light.value}" }
+			},
+			"medium": {
+				"font-size": { "value": "22px" },
+				"line-height": { "value": "28px" },
+				"font-weight": { "value": "{font.weight.light.value}" }
+			},
+			"small": {
+				"font-size": { "value": "18px" },
+				"line-height": { "value": "24px" },
+				"font-weight": { "value": "{font.weight.light.value}" }
+			},
+			"macro": {
+				"font-size": { "value": "16px" },
+				"line-height": { "value": "22px" },
+				"font-weight": { "value": "{font.weight.normal.value}" }
+			}
+		}
+	},
+	"body": {
+		"size": {
+			"base": {
+				"font-size": { "value": "16px" },
+				"line-height": { "value": "1.2" },
+				"font-weight": { "value": "{font.weight.normal.value}" }
+			},
+		},
+		"font": {
+			"family": { "value": "{font.family.base.value}" },
+			"size": { "value": "{font.size.base.value}" },
+			"weight": { "value": "{font.weight.base.value}" },
+			"line-height": { "value": "1.3" },
+			"letter-spacing": { "value": "normal" },
+			"color": { "value": "{color.n.200.value}" }
+		}
+	},
+	"paragraph": {
+		"margin": {
+			"bottom": { "value": "1rem" }
+		}
+	},
+	"label": {
+		"margin": {
+			"bottom": { "value": "0.5rem" }
+		}
+	}
+}

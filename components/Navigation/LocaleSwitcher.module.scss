@@ -1,0 +1,47 @@
+.lang {
+	gap: 1rem;
+	height: 100%;
+	align-items: center;
+	font-size: rem(12px);
+	text-transform: uppercase;
+	font-weight: var(--font-bold);
+	letter-spacing: 1.8px;
+	> * {
+		text-align: center;
+		height: inherit;
+		align-items: center;
+		@media (min-width: $medium + 1) {
+			span:before {
+				top: calc(100% - 8px);
+			}
+		}
+
+	}
+	> :last-child {
+		padding-left: 1rem;
+		border-left: 1px solid currentColor;
+	}
+	&__active {
+		--link-line: 3px;
+		font-weight: var(--font-black);
+		span:before {
+			border-bottom-color: var(--color-sunwing);
+		}
+	}
+}
+
+.link {
+	span:before {
+		--link-line-color: var(--color-sunwing);
+	}
+}
+
+.languages {
+	height: 100%;
+	display: grid;
+	align-items: center;
+	svg {
+		width: 30px;
+		aspect-ratio: 1 / 1;
+	}
+}

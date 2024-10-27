@@ -1,0 +1,24 @@
+.body {
+	@include ui-body;
+}
+
+.meta {
+	@include ui-meta;
+}
+
+.small {
+	// @include ui-small;
+}
+
+.list {
+	// @include ui-list;
+}
+
+@keyframes activeLink {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}

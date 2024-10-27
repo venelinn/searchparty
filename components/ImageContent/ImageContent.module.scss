@@ -1,0 +1,27 @@
+.module {
+	display: grid;
+	gap: 1rem;
+	@media (min-width: $medium + 1) {
+		grid-template-columns: var(--image-grid-template-columns, 1fr 1fr);
+		.with__brands & {
+			--image-grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: $medium) {
+		&[data-order="content-first"] {
+			.module__image {
+				order: 1;
+			}
+			.module__content {
+				order: 2;
+			}
+		}
+	}
+}
+
+.with__brands {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1rem;
+}

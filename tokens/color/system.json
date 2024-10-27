@@ -1,0 +1,24 @@
+{
+	"color": {
+		"system": {
+			"star": {
+				"base": { "value": "#ffb612", "comment": "Deprecate?" }
+			},
+			"highlight": {
+				"base": { "value": "#ffd100", "comment": "Hotel price" }
+			},
+			"error": {
+				"base": { "value": "{color.rd.300.value}" },
+				"light": { "value": "#fff2f2" }
+			},
+			"success": {
+				"base": { "value": "#046239" },
+				"light": { "value": "{color.tl.500.value}" }
+			},
+			"warning": {
+				"base": { "value": "#f4ae11" },
+				"light": { "value": "#fff8e6" }
+			}
+		}
+	}
+}

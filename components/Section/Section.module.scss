@@ -1,0 +1,97 @@
+.section {
+	background-color: var(--bgr-section-color);
+  padding: var(--section-padding, calc(var(--padding-desktop)*3) calc(var(--padding-desktop)*2));
+  min-height: var(--section-min-height);
+  @media (max-width: $medium) {
+    --section-padding: var(--padding-mobile);
+  }
+  &__inner {
+    margin-left: auto;
+    margin-right: var(--section-ml, auto);
+    max-width: var(--section-max-width, var(--page-max-width));
+    min-height: var(--section-inner-min-height, inherit);
+		width: 100%;
+  }
+	&__heading {
+		--heading-bottom: 1rem;
+	}
+	&__subHeading {
+		@include headingBase;
+		@include h3;
+		--heading-case: uppercase;
+		display: inline-block;
+    line-height: 1;
+	}
+
+  // Full width
+  &--full {
+    --section-padding: 0;
+		--section-max-width: 100%;
+  }
+	&--isolate {
+		isolation: isolate;
+		overflow: hidden;
+	}
+	&--vhidden {
+		--section-padding: 0;
+		visibility: hidden;
+		height: 0;
+	}
+	&--nested {
+		--section-padding: 0;
+	}
+	&--full-height {
+		--section-min-height: 100dvh;
+	}
+
+	&__image {
+		position: var(--section-image-position, absolute);
+    inset: 0;
+    overflow: hidden;
+		isolation: isolate;
+		z-index: -1;
+		&__img {
+			height: 100%;
+			object-fit: var(--section-image-fit, cover);
+			object-position: var(--section-image-position, center);
+			width: 100%;
+		}
+		&:before {
+			position: absolute;
+			inset: 0;
+			content: '';
+			background-color: var(--section-image-overlay-color, rgba(0,0,0,0.3));
+			z-index: 1;
+		}
+	}
+	// Theme
+	&--dark {
+		--bgr-section-color: var(--color-blue);
+		color: #fff;
+		.section__subHeading {
+			--heading-color: var(--color-sunwing);
+		}
+		.section__heading {
+			--heading-color: inherit;
+		}
+	}
+	&--light {
+		.section__heading {
+			--heading-color: var(--color-sunwing);
+		}
+		.section__subHeading {
+			--heading-color: var(--color-blue);
+		}
+	}
+	&--hero {
+		.section__heading {
+			--heading-color: var(--color-white);
+		}
+	}
+	&--grey {
+		--bgr-section-color: var(--color-lighter-grey);
+		.section__heading {
+			--heading-color: var(--color-blue);
+		}
+	}
+}

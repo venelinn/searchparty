@@ -1,0 +1,45 @@
+// <Section> classes
+
+.main {
+	--section-min-height: 100dvh;
+	isolation: isolate;
+	display: grid;
+	position: relative;
+	overflow: hidden;
+	@media (max-height: 750px) {
+		padding-top: 100px;
+	}
+}
+
+.inner {
+	--section-inner-min-height: 100%;
+	display: grid;
+	place-items: var(--place-items, center);
+	align-items: end;
+	color: #fff;
+	gap: 1rem;
+}
+
+.hero__title {
+	@include headingBase;
+	@include h1;
+	--heading-case: uppercase;
+	&--center {
+		--heading-align: center;
+	}
+	&--right {
+		text-align: right;
+	}
+}
+
+.hero__container {
+	width: 100%;
+	display: grid;
+	gap: 1rem;
+	margin-bottom: 1rem
+}
+
+.hero__desc {
+	@include headingBase;
+	@include h4;
+}

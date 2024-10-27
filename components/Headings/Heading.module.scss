@@ -1,0 +1,43 @@
+.heading {
+ 	@include headingBase;
+  &--normal {
+    --heading-weight: var(--font-regular);
+  }
+  &--bold {
+    --heading-weight: var(--font-bold);
+  }
+  &--uppercase {
+    --heading-case: uppercase;
+  }
+}
+
+.heading--h1 {
+	@include h1;
+}
+
+.heading--h2 {
+	@include h2;
+}
+
+.heading--h3 {
+	@include h3;
+}
+
+.heading--h4 {
+	@include h4;
+	--heading-weight: var(--font-medium);
+}
+
+.heading--hero {
+	--heading-size: calc(16px + 9vw);
+}
+
+.heading--base {
+	--heading-size: var(--font-base);
+	--heading-weight:  var(--font-black);
+	--heading-line-height: 24px;
+}
+
+.heading--center {
+	--heading-align: center;
+}
