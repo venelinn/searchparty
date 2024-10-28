@@ -5,13 +5,13 @@ import FormattedDate from "../../utils/DateFormat";
 
 function formatDate(dateString) {
   const date = new Date(dateString);
-  const options = { month: 'long', day: 'numeric', year: 'numeric' };
-  return date.toLocaleDateString('en-CA', options);
+  const options = { month: "long", day: "numeric", year: "numeric" };
+  return date.toLocaleDateString("en-CA", options);
 }
 
 export default function PortfolioItemPage({ pageLocale, portfolioItem, siteConfig, navigationLinks }) {
 	const fullDate = <FormattedDate dateStr={portfolioItem.date} locale={pageLocale} />;
-	console.log("portfolioItem", portfolioItem);
+	// console.log("portfolioItem", portfolioItem);
 	return (
     <Layout
 			siteConfig={siteConfig}
@@ -35,7 +35,7 @@ export async function getStaticPaths({ locales }) {
   for (const locale of locales) {
     const portfolioItems = await getContentItems("portfolio", locale);
     const localePaths = portfolioItems.map(item => {
-      const slug = item.slug.split('/').filter(Boolean).join('/'); // Ensure slug is a string
+      const slug = item.slug.split("/").filter(Boolean).join("/"); // Ensure slug is a string
       return {
         params: { slug }, // Pass slug as a string
         locale,

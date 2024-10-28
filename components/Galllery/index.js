@@ -57,8 +57,8 @@ const Gallery = ({
         {thumbs.map((thumb, i) => {
           // const thumbnail = getImage(thumb);
 					const srcSet = thumb?.images.sources[0]?.srcSet;
-					const urls = srcSet ? srcSet.split(',').map(url => url.trim().split(' ')[0]) : [];
-					const src = urls.length > 0 ? urls[0] : '';
+					const urls = srcSet ? srcSet.split(",").map(url => url.trim().split(" ")[0]) : [];
+					const src = urls.length > 0 ? urls[0] : "";
 					return (
 						// <>
 						// 	{JSON.stringify(full[i].images.fallback.src)}
