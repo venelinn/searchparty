@@ -18,7 +18,7 @@ export default function MetaData({ title, description, keywords, image, type, da
     title: title || "Search Party",
     description: description || "Search Party | search-party.ca",
 		keywords: keywords || "band, rock band, band 80s",
-    image: image || `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.png`,
+    image: image || `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.jpg`,
     type: type || "website",
 		date: date || "", // Add the date property here
     ...customMeta,
