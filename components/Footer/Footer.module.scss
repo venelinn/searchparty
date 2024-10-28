@@ -9,7 +9,7 @@
 	&__content {
 		display: grid;
 		gap: var(--footer-content-gap, 1rem);
-		@media (max-width: $medium) {
+		@media (max-width: $breakpoint-max-md) {
 			--footer-content-gap: 2rem;
 		}
 	}
@@ -44,7 +44,7 @@
 		&:before {
 			--link-line-color: var(--color-sunwing);
 			top: calc(100% - 8px);
-			@media (max-width: $medium) {
+			@media (max-width: $breakpoint-max-md) {
 				[lang="fr"] & {
 					top: calc(100% - 1rem);
 				}

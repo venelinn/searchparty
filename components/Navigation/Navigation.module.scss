@@ -8,18 +8,41 @@
 	&.is-open  {
 		--navigation-color: var(--color-sapphire);
 	}
+	color: var(--navigation-color);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	padding: var(--navigation-padding, var(--padding-desktop) calc(var(--padding-desktop)* 2));
+	min-height: var(--section-min-height);
+	background: var(--navigation-bg);
+	box-shadow: none;
+	letter-spacing: 0;
+	&:not(.is-sticky):not(.is-fixed) {
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(rgba(0,0,0,.9), transparent);
+		}
+	}
 
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
     --navigation-padding: var(--padding-mobile);
   }
 
   &__inner {
 		display: grid;
-		grid-template-columns: var(--nav-grid, auto 1fr auto);
+		grid-template-columns: var(--nav-grid, 1fr auto 1fr);
     align-items: center;
 		margin: auto;
 		min-height: 30px;
-    max-width: var(--nav-max-width, var(--page-max-width));
+    // max-width: var(--nav-max-width, var(--page-max-width));
 		padding: 1rem 0;
   }
 	a, button {
@@ -33,10 +56,7 @@
 	}
 
   &__logo {
-    position: relative;
     line-height: 0;
-    padding-right: 1rem;
-		text-align: center;
 	  a {
       display: block;
     }
@@ -44,30 +64,13 @@
 			max-width: 260px;
 		}
   }
-	&__lang {
-		justify-self: end;
-		[data-is-nav-visible="true"] & {
-			@media (max-width: $medium) {
-				display: none;
-			}
-		}
-	}
-	&__menu,
-	&__lang {
+	&__menu{
 		display: grid;
 		align-items: center;
-    height: 100%;
-	}
-	&__menu {
-		grid-template-columns: auto 1fr;
-		&__wrapper {
-			height: inherit;
-			display: grid;
-			align-items: center;
-			@media (max-width: $medium) {
-				display: none;
-			}
-		}
+  }
+
+	&__social {
+		justify-self: end;
 	}
 
 	&__menu-list {
@@ -82,13 +85,13 @@
   /* states */
   &.is-fixed,
 	&.is-sticky {
-    --navigation-bg: var(--color-blue);
+    // --navigation-bg: var(--color-blue);
   }
 	&.is-stuck {
 		&:after {
-			// backdrop-filter: blur(8px);
-			// mask: black;
-			// backface-visibility: hidden;
+			backdrop-filter: blur(8px);
+			mask: black;
+			backface-visibility: hidden;
 		}
 	}
 }
@@ -196,17 +199,17 @@
     }
   }
 
-  @media (min-width: $medium + 1) {
+  @media (min-width: $breakpoint-min-md) {
     display: none;
   }
 }
 
 
 .fixedNav {
-	@media (min-width: $medium + 1) {
+	@media (min-width: $breakpoint-min-md) {
 		padding-top: calc(var(--navigation-height) - 2rem);
 	}
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
     padding-top: calc(var(--navigation-height));
   }
 }

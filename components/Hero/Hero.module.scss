@@ -2,13 +2,11 @@
 
 .main {
 	--section-min-height: 100dvh;
+	--section-max-width: 100%;
 	isolation: isolate;
 	display: grid;
 	position: relative;
 	overflow: hidden;
-	@media (max-height: 750px) {
-		padding-top: 100px;
-	}
 }
 
 .inner {
@@ -16,7 +14,7 @@
 	display: grid;
 	place-items: var(--place-items, center);
 	align-items: end;
-	color: #fff;
+	color: inherit;
 	gap: 1rem;
 }
 

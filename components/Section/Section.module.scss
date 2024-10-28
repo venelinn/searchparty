@@ -2,7 +2,7 @@
 	background-color: var(--bgr-section-color);
   padding: var(--section-padding, calc(var(--padding-desktop)*3) calc(var(--padding-desktop)*2));
   min-height: var(--section-min-height);
-  @media (max-width: $medium) {
+  @media (max-width: $breakpoint-max-md) {
     --section-padding: var(--padding-mobile);
   }
   &__inner {

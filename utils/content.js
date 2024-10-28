@@ -5,22 +5,30 @@ import localization from "./localization";
 const client = createClient({
 	accessToken: IS_DEV ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
 	space: process.env.CONTENTFUL_SPACE_ID,
-	environment: process.env.CONTENTFUL_ENVIRONMENT || "master",
+	environment: process.env.CONTENTFUL_ENVIRONMENT || "nextjs",
 	host: IS_DEV ? "preview.contentful.com" : "cdn.contentful.com",
 });
 
-async function getEntries(content_type, queryParams) {
+async function getEntries1(content_type, queryParams) {
 	const { locale } = queryParams;
 	const matchIndex = (item) => locale === item;
 	const params = { ...queryParams, locale: localization.contentfulLocales[localization.locales.findIndex(matchIndex)] };
+	console.log(params);
 	return await client.getEntries({ content_type, ...params, include: 10 });
+}
+
+async function getEntries(content_type, queryParams) {
+  const { locale } = queryParams;
+  const matchIndex = localization.contentfulLocales.indexOf(locale);
+  const params = { ...queryParams, locale: matchIndex !== -1 ? locale : localization.contentfulLocales[0] };
+  return await client.getEntries({ content_type, ...params, include: 10 });
 }
 
 export async function getPagePaths(locale) {
 	const { items } = await getEntries(PAGE_TYPE, { locale });
 
 	return items
-		.filter((x) => !["/portfolio"].includes(x.fields.slug))
+		.filter((x) => !["/media"].includes(x.fields.slug))
 		.map((page) => {
 			let slug = page.fields.slug.split("/").filter(Boolean);
 			return { params: { slug }, locale: page.sys.locale.split("-")[0] };
@@ -50,22 +58,22 @@ export async function getSiteConfig(locale) {
 //   return response.items.map(mapEntry);
 // }
 
-// export async function getPortfolioItems(locale) {
-//   try {
-//     console.log("Fetching portfolio items for locale:", locale);
-//     const response = await getEntries("portfolio", { locale });
+export async function getPortfolioItems(locale) {
+  try {
+    console.log("Fetching portfolio items for locale:", locale);
+    const response = await getEntries("portfolio", { locale });
 
-//     if (!response.items) {
-//       console.error("No items found in the response:", response);
-//       return [];
-//     }
+    if (!response.items) {
+      console.error("No items found in the response:", response);
+      return [];
+    }
 
-//     return response.items.map(mapEntry);
-//   } catch (error) {
-//     console.error("Error fetching portfolio items:", error);
-//     return [];
-//   }
-// }
+    return response.items.map(mapEntry);
+  } catch (error) {
+    console.error("Error fetching portfolio items:", error);
+    return [];
+  }
+}
 
 export async function getContentItems(contentType = "portfolio", locale) {
   try {
@@ -75,6 +83,7 @@ export async function getContentItems(contentType = "portfolio", locale) {
       console.error(`No items found in the response for content type: ${contentType}`, response);
       return [];
     }
+
     return response.items.map(mapEntry);
   } catch (error) {
     console.error(`Error fetching items for content type: ${contentType}`, error);
@@ -112,6 +121,27 @@ function mapEntry(entry, localePassed) {
 		return null;
 	}
 }
+
+function mapEntry1(entry) {
+
+	if (entry.sys?.type === "Asset") {
+		const id = entry.sys?.id;
+		const type = entry.sys?.contentType?.sys?.id || entry.sys?.type;
+    return {
+      id,
+      type,
+      src: `https:${entry.fields.file.url}`,
+      alt: entry.fields.title,
+    };
+  }
+
+  return {
+    id,
+    type,
+    ...Object.fromEntries(Object.entries(entry.fields).map(([key, value]) => [key, parseField(value)])),
+  };
+}
+
 
 function parseField(value, locale) {
 	if (typeof value === "object" && value.sys) return mapEntry(value, locale);

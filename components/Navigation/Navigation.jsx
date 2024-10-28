@@ -32,7 +32,7 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 	const router = useRouter();
 	const { isMobile, isDesktop } = useWindowSize();
   const headerText = siteConfig?.headerText; // This value is field-localized
-	const logo = siteConfig?.image[0];
+	const logo = siteConfig?.logo[0];
   const locale = pageLocale.split("-")[0];
 	useEffect(() => {
     if (fixed) {
@@ -105,7 +105,7 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 						)}
 						</div>
 						{isDesktop && (
-							<div>
+							<div className={styles.navigation__social}>
 								<Social items={siteConfig.footer.social} />
 							</div>
 						)}

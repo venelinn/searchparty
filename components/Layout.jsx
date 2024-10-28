@@ -33,7 +33,7 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 			<Navigation
 				pageLocale={page.locale}
 				allLinks={allLinks}
-				links={headerNavLinks}
+				links={allLinks}
 				siteConfig={siteConfig}
 				isNavigationVisible={page.isNavigationVisible}
 			/>

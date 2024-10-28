@@ -7,7 +7,7 @@
 
 /* contact form */
 .contact-form {
-  @media (min-width: $medium + 1) {
+  @media (min-width: $breakpoint-min-md) {
     width: 100%;
     margin: auto;
     max-width: 50%;
@@ -67,16 +67,9 @@
     &:focus {
       background: #336699;
     }
-    @media (min-width: $smedium + 1) {
-      margin-top: 4rem;
-      line-height: 2.5rem;
-      font-size: 1.3rem;
-    }
-    @media (max-width: $smedium) {
-      margin-top: 2rem;
-      line-height: 3rem;
-      font-size: 1.2rem;
-    }
+		margin-top: 4rem;
+		line-height: 2.5rem;
+		font-size: 1.3rem;
   }
 }
 

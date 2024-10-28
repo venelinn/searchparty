@@ -51,37 +51,37 @@
 }
 
 @mixin h1 {
-	@media (min-width: $medium + 1) {
+	@media (min-width: $breakpoint-min-md) {
 		@include headingFontSize(56px, 68px, 8.4px);
 	}
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
 		@include headingFontSize(40px, 47px);
 	}
 }
 
 @mixin h2 {
-	@media (min-width: $medium + 1) {
+	@media (min-width: $breakpoint-min-md) {
   	@include headingFontSize(48px, 57px, 2.4px);
 	}
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
 		@include headingFontSize(32px, 39px, 1.6px);
 	}
 }
 
 @mixin h3 {
-	@media (min-width: $medium + 1) {
+	@media (min-width: $breakpoint-min-md) {
 		@include headingFontSize(32px, 38px, 1.92px);
 	}
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
 		@include headingFontSize(24px, 29px, 1.62px);
 	}
 }
 
 @mixin h4 {
-	@media (min-width: $medium + 1) {
+	@media (min-width: $breakpoint-min-md) {
 		@include headingFontSize(24px, 29px, 1.2px);
 	}
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
 		@include headingFontSize(20px, 24px, 1px);
 	}
 }

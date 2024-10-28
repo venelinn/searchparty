@@ -46,6 +46,7 @@ export default function MetaData({ title, description, keywords, image, type, da
       )}
       <meta name="robots" content="follow, index" />
       <link rel="canonical" href={route} />
+			<meta name="color-scheme" content="light dark" />
     </Head>
   );
 }

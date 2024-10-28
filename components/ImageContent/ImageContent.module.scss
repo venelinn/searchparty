@@ -1,13 +1,13 @@
 .module {
 	display: grid;
 	gap: 1rem;
-	@media (min-width: $medium + 1) {
+	@media (min-width: $breakpoint-min-md) {
 		grid-template-columns: var(--image-grid-template-columns, 1fr 1fr);
 		.with__brands & {
 			--image-grid-template-columns: 1fr;
 		}
 	}
-	@media (max-width: $medium) {
+	@media (max-width: $breakpoint-max-md) {
 		&[data-order="content-first"] {
 			.module__image {
 				order: 1;

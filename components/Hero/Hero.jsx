@@ -8,10 +8,10 @@ import styles from "./Hero.module.scss";
 
 const Hero = (props) => {
 	const processedMarkdown = `# ${props.heading}`;
-	const image = props?.image?.[0];
+	const image = props?.images?.[0].image[0];
   return (
     <Section
-      image={props.image?.[0]}
+      image={image}
       animationID={props?.animationID}
       theme={props?.theme?.color}
       classNames={{
@@ -68,14 +68,12 @@ export default Hero;
 export { Hero };
 
 Hero.propTypes = {
-  image: PropTypes.array.isRequired,
+  images: PropTypes.array.isRequired,
   title: PropTypes.string,
-  logo: PropTypes.bool,
   animationID: PropTypes.string,
 };
 
 Hero.defaultProps = {
   animationID: "undefined",
   title: undefined,
-  logo: false,
 };

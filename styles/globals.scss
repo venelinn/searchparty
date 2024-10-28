@@ -1,5 +1,5 @@
 @import "functions";
-@import "variables"; // Breakpoints are there
+@import "base-variables"; // Breakpoints are there
 @import "mixins";
 @import "typo";
 @import "normalize";
@@ -23,8 +23,8 @@
 	--swiper-pagination-color: var(--color-blue);
 
   --font-primary: 'proxima-nova', sans-serif;
-	--page-max-width: #{rem($large3)};
-	--padding-desktop: #{rem($padding-desktop)};
+	--page-max-width: 1200px;
+	--padding-desktop: 1.5rem;
   --padding-mobile: 1rem;
 
 	/* Font Weight */
@@ -52,11 +52,6 @@
 	--text-in: cubic-bezier(.31,.11,.12,.99);
 }
 
-html,
-body {
-	height: 100%;
-}
-
 /* Document
 ========================================================================== */
 html {
@@ -69,15 +64,18 @@ html {
 	margin: 0;
 	padding: 0;
   scroll-padding-top: var(--navigation-height);
+	color-scheme: light dark;
 	@media (prefers-reduced-motion: no-preference) {
 		scroll-behavior: smooth;
 	}
 }
 
 body {
+	color-scheme: dark;
 	@include ui-body;
-	background-color: var(--color-black);
-	color: var(--color-white);
+	background-color: Canvas;
+	// color: var(--color-white);
+	color: CanvasText;
 	font-family: var(--font-primary);
 }
 

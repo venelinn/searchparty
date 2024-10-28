@@ -2,9 +2,8 @@
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
-	a[title="Facebook"] {
-		svg {
-			width: 28px;
-		}
+	svg {
+		fill: currentColor;
+    width: 1.2rem;
 	}
 }
