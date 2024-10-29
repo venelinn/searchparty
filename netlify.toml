@@ -1,5 +1,6 @@
 [[plugins]]
-  package = "@netlify/plugin-nextjs@5"
+  package = "@netlify/plugin-nextjs"
+	inputs = { generateForms = true }
 
 [build]
   publish = ".next"
