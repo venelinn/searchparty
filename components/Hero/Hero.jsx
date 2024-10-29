@@ -49,6 +49,7 @@ const Hero = (props) => {
       image={image}
       animationID={props?.animationID}
       theme={props?.theme?.color}
+			size={props?.size}
       classNames={{
         main: styles.main,
         inner: styles.inner,

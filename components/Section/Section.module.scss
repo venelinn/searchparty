@@ -5,6 +5,12 @@
   @media (max-width: $breakpoint-max-md) {
     --section-padding: var(--padding-mobile);
   }
+	&[data-size="quarter"] {
+		--section-min-height: 25dvh;
+	}
+	&[data-size="half"] {
+		--section-min-height: 50dvh;
+	}
   &__inner {
     margin-left: auto;
     margin-right: var(--section-ml, auto);

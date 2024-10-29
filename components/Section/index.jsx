@@ -95,7 +95,6 @@ const Section = ({
 						fill
 						data-anim="section-img"
 						className={cx(styles.section__image__img, classNames?.imageImg)}
-						data-sb-object-id={id}
 					/>
 				</div>
 			)}
@@ -130,7 +129,7 @@ const Section = ({
 Section.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(["fixed", "full", "half", "quarter"]),
   color: PropTypes.string,
   anchor: PropTypes.string,
   image: PropTypes.object,
