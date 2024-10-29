@@ -1,14 +1,49 @@
+import { useEffect } from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import Markdown from "markdown-to-jsx";
 import cx from "classnames";
+import gsap from "gsap";
+import useReduceMotion from "../../hooks/useReduceMotion";
 import Section from "../Section";
 import Button from "../Button/Button";
 import styles from "./Hero.module.scss";
 
 const Hero = (props) => {
+	const reduceMotion = useReduceMotion();
 	const processedMarkdown = `# ${props.heading}`;
 	const image = props?.images?.[0].image[0];
+
+	const heroAnimation = () => {
+		gsap.from(`[data-anim="${props?.animationID}"] [data-anim='section-img-wrap']`, {
+      duration: 1.5,
+      opacity: 0,
+      delay: .5,
+      scale: 1.1,
+			ease: "power4.out",
+    });
+
+
+    gsap.from("header", { opacity: 0, duration: 1, delay: 1.5 });
+
+		gsap.from(`[data-anim=${props?.animationID}] [data-anim='hero-heading']`, {
+      opacity: 0,
+      duration: 1,
+      delay: 1.5,
+      ease: "power4.out",
+    });
+		gsap.from("[data-anim='hero-description']", { opacity: 0, duration: 1, delay: 1.5 });
+  };
+
+	useEffect(() => {
+		let ctx = gsap.context(() => {
+			if (!reduceMotion && props?.animationID) {
+				heroAnimation()
+			}
+		});
+		return () => ctx.revert(); // <- cleanup!
+	}, [reduceMotion]);
+
   return (
     <Section
       image={image}

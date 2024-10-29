@@ -1,11 +1,11 @@
 import Instagram from "../Icons/Instagram";
-import LinkedIn from "../Icons/LinkedIn";
 import Facebook from "../Icons/Facebook";
 import styles from "./Social.module.scss";
+import YouTube from "../Icons/YouTube";
 
 const iconComponents = {
   Instagram,
-  LinkedIn,
+  YouTube,
 	Facebook
 };
 
