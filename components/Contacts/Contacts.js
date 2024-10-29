@@ -60,7 +60,6 @@ const Contacts = (props) => {
         data-netlify-honeypot="bot"
         overlay={setModal}
         onClick={() => setModal(false)}
-				netlify
       >
         <input aria-label="form-name" type="hidden" name="form-name" value="contact" />
         <p hidden>
