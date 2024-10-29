@@ -11,6 +11,7 @@
     "build-dictionary": "style-dictionary build -c ./tokens/config.js"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.8.1",
     "contentful-clean-space": "^0.9.0",
     "date-fns": "^2.22.1",
     "date-fns-tz": "^2.0.0",
