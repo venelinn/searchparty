@@ -4,6 +4,3 @@
 [build]
   publish = ".next"
   command = "npm run build"
-
-[functions]
-  runtime = "nextjs"
