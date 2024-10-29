@@ -1,7 +1,6 @@
 module.exports = {
-  target: 'serverless',
+  output: 'standalone',
 };
-
 const localization = require("./utils/localization");
 
 /** @type {import('next').NextConfig} */

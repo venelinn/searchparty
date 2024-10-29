@@ -55,6 +55,7 @@ const Contacts = (props) => {
     <div className={styles["contact-form"]}>
       <form
         name="contact"
+				method="POST"
         onSubmit={handleSubmit}
         data-netlify="true"
         netlify-honeypot="bot-field"
@@ -62,12 +63,6 @@ const Contacts = (props) => {
         onClick={() => setModal(false)}
       >
         <input aria-label="form-name" type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out: <input name="bot" aria-label="bot" onChange={handleChange} />
-          </label>
-        </p>
-
         <p className={styles["form-field"]}>
           <label>
             <span>Name</span>
