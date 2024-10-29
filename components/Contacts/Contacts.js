@@ -57,7 +57,7 @@ const Contacts = (props) => {
         name="contact"
         onSubmit={handleSubmit}
         data-netlify="true"
-        data-netlify-honeypot="bot"
+        netlify-honeypot="bot-field"
         overlay={setModal}
         onClick={() => setModal(false)}
       >
