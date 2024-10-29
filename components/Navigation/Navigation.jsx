@@ -106,7 +106,7 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 						</div>
 						{isDesktop && (
 							<div className={styles.navigation__social}>
-								<Social items={siteConfig.footer.social} />
+								<Social items={siteConfig.social} />
 							</div>
 						)}
 
