@@ -56,6 +56,7 @@ const Contacts = (props) => {
       <form
         name="contact"
         onSubmit={handleSubmit}
+				method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
         overlay={setModal}
