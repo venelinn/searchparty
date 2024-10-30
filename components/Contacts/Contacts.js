@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from  "./Contacts.module.scss";
 
 const encode = (data) => {
@@ -55,14 +55,13 @@ const Contacts = (props) => {
     <div className={styles["contact-form"]}>
       <form
         name="contact"
-				method="POST"
         onSubmit={handleSubmit}
         data-netlify="true"
         netlify-honeypot="bot-field"
         overlay={setModal}
         onClick={() => setModal(false)}
       >
-        <input aria-label="form-name" type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value="contact" />
         <p className={styles["form-field"]}>
           <label>
             <span>Name</span>
