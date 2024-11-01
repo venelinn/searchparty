@@ -27,7 +27,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
     "@contentful/rich-text-react-renderer": "^15.17.1",
-    "@netlify/plugin-nextjs": "^4.41.3",
+    "@netlify/plugin-nextjs": "^5.8.1",
     "@stackbit/cms-contentful": "^0.4.7",
     "@stackbit/types": "^0.9.1",
     "@storybook/addon-essentials": "^8.1.4",
@@ -50,7 +50,6 @@
     "eslint": "^8.41.0",
     "eslint-config-next": "^14.2.3",
     "eslint-plugin-storybook": "^0.8.0",
-    "loadash": "^1.0.0",
     "postcss": "^8.4.27",
     "prop-types": "^15.8.1",
     "sass": "^1.57.1",
