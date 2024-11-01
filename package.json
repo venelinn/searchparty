@@ -11,7 +11,6 @@
     "build-dictionary": "style-dictionary build -c ./tokens/config.js"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^5.8.1",
     "contentful-clean-space": "^0.9.0",
     "date-fns": "^2.22.1",
     "date-fns-tz": "^2.0.0",
@@ -28,6 +27,7 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^1.4.0",
     "@contentful/rich-text-react-renderer": "^15.17.1",
+    "@netlify/plugin-nextjs": "^4.41.3",
     "@stackbit/cms-contentful": "^0.4.7",
     "@stackbit/types": "^0.9.1",
     "@storybook/addon-essentials": "^8.1.4",
