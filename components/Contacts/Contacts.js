@@ -1,130 +1,83 @@
 "use client";
 
 import { useState } from "react";
-import styles from  "./Contacts.module.scss";
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
+export function FeedbackForm() {
+  const [status, setStatus] = useState(null);
+  const [error, setError] = useState(null);
 
-const Contacts = (props) => {
-	const [status, setStatus] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [modal, setModal] = useState(false);
-
-  const handleSubmit = (e) => {
-    const data = { "form-name": "contact", name, email, message };
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode(data),
-    })
-      .then(handleSuccess(true))
-      .catch((error) => handleSuccess(false));
-
-    e.preventDefault();
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "name") {
-      return setName(value);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      setStatus("pending");
+      setError(null);
+      const myForm = event.target;
+      const formData = new FormData(myForm);
+      const res = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+      if (res.status === 200) {
+        setStatus("ok");
+      } else {
+        setStatus("error");
+        setError(`${res.status} ${res.statusText}`);
+      }
+    } catch (e) {
+      setStatus("error");
+      setError(`${e}`);
     }
-    if (name === "email") {
-      return setEmail(value);
-    }
-    if (name === "message") {
-      return setMessage(value);
-    }
-  };
-
-  const handleSuccess = (status) => {
-    setStatus(status);
-    setModal(true);
-    setName("");
-    setEmail("");
-    setMessage("");
-    setTimeout(() => {
-      setModal(false);
-    }, 5000);
   };
 
   return (
-    <div className={styles["contact-form"]}>
-      <form
-        name="contact"
-        onSubmit={handleSubmit}
-				method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        overlay={setModal}
-        onClick={() => setModal(false)}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <p className={styles["form-field"]}>
-          <label>
-            <span>Name</span>
-            <input
-              value={name}
-              onChange={handleChange}
-              aria-label="Name"
-              required
-              name="name"
-              type="text"
-              placeholder="Name"
-              minLength="2"
-            />
-          </label>
-        </p>
-        <p className={styles["form-field"]}>
-          <label>
-            <span>Email</span>
-            <input
-              name="email"
-              type="email"
-              aria-label="Email"
-              value={email}
-              onChange={handleChange}
-              required
-              placeholder="Email"
-            />
-          </label>
-        </p>
-        <p className={styles["form-field"]}>
-          <label>
-            <span>Message</span>
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={message}
-              aria-label="Message"
-              onChange={handleChange}
-              required
-              rows="5"
-              cols="5"
-            ></textarea>
-          </label>
-        </p>
-        <p className={styles["form-field"]}>
-          <button className="submitform" type="submit">
-            Send
-          </button>
-        </p>
-        <dialog open={modal} status={status} className={styles["contact-dialog"]}>
-          <p>
-            {status
-              ? props.message
-              : props.errorMessage}
-          </p>
-        </dialog>
+    <div>
+      <form name="feedback" onSubmit={handleFormSubmit}>
+        <input type="hidden" name="form-name" value="feedback" />
+        <input name="name" type="text" placeholder="Name" required className="input input-bordered" />
+        <input name="email" type="text" placeholder="Email (optional)" className="input input-bordered" />
+        <input name="message" type="text" placeholder="Message" required className="input input-bordered" />
+        <button className="btn btn-primary" type="submit" disabled={status === "pending"}>
+          Submit
+        </button>
+        {status === "ok" && (
+          <div className="alert alert-success">
+            <SuccessIcon />
+            Submitted!
+          </div>
+        )}
+        {status === "error" && (
+          <div className="alert alert-error">
+            <ErrorIcon />
+            {error}
+          </div>
+        )}
       </form>
     </div>
   );
-};
+}
 
-export default Contacts;
-export { Contacts };
+function SuccessIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+}
+function ErrorIcon(success) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+  );
+}
