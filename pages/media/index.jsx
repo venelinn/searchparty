@@ -5,7 +5,7 @@ import localization from "../../utils/localization";
 import { normalizeSlug } from "../../utils/common";
 import Layout from "../../components/Layout";
 import Section from "../../components/Section";
-import { MediaCard } from "../../components/Cards/media";
+import { MediaCard } from "../../components/Cards/MediaCard";
 import { Row, Cell } from "../../components/Grid";
 
 export default function MediaPage({ page, mediaItems, siteConfig, navigationLinks }) {
