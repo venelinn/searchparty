@@ -43,6 +43,9 @@
 		margin: auto;
 		min-height: 30px;
 		padding: 1rem 0;
+		@media (max-width: $breakpoint-max-md) {
+			--nav-grid: auto 1fr;
+		}
   }
 	a, button {
 		color: inherit;
@@ -74,6 +77,10 @@
 	&__menu{
 		display: grid;
 		align-items: center;
+		@media (max-width: $breakpoint-max-md) {
+			display: none;
+		}
+
   }
 
 	&__social {
