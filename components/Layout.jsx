@@ -26,9 +26,9 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 		<>
 			<Head>
 				<title>{page.title}</title>
-				{siteConfig.backgroundImage && (
+				{/* {siteConfig.backgroundImage && (
           <html data-has-bgr />
-        )}
+        )} */}
 			</Head>
 			<MetaData title={seo?.pageTitle} description={seo?.pageDescription} keywords={seo?.keywords} />
 			<Navigation
