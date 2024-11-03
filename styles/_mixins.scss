@@ -180,3 +180,13 @@
 	overflow: hidden;
 	word-break: break-word;
 }
+
+@mixin card-clickable-base {
+	&:after {
+		position: absolute;
+		inset-block: 0;
+		inset-inline: 0;
+		cursor: pointer;
+		content: "";
+	}
+}

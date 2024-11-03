@@ -68,24 +68,22 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 					<div className={styles.navigation__inner} data-anim="navigation" data-is-nav-visible={isNavigationVisible}>
 						<div className={styles.navigation__menu}>
 							{isNavigationVisible !== false && (
-								<div className={styles.navigation__menu__wrapper}>
-									<div className={styles["navigation__menu-list"]}>
-										{links.map((link) => {
-											const isActive = router.asPath === link.slug;
-											return (
-												<Link
-													key={link.slug}
-													href={link.slug}
-													target={link?.target}
-													locale={locale}
-													className={cx(styles.link, {
-														[styles.link__active]: isActive,
-													})}
-													>{link.pageName}
-												</Link>
-											);
-										})}
-									</div>
+								<div className={styles["navigation__menu-list"]}>
+									{links.map((link) => {
+										const isActive = router.asPath === link.slug;
+										return (
+											<Link
+												key={link.slug}
+												href={link.slug}
+												target={link?.target}
+												locale={locale}
+												className={cx(styles.link, {
+													[styles.link__active]: isActive,
+												})}
+												>{link.pageName}
+											</Link>
+										);
+									})}
 								</div>
 								)}
 						</div>
@@ -110,10 +108,10 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 							</div>
 						)}
 
-						{isOpen && isMobile && (
+						{/* {isOpen && isMobile && (
 							<>
 								<nav className={styles.nav} data-name="Menu">
-									{allLinks.map((link) => {
+									{links.map((link) => {
 										const isActive = router.asPath === link.slug;
 										return (
 											<Link
@@ -131,7 +129,7 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 									})}
 								</nav>
 							</>
-						)}
+						)} */}
 						{isNavigationVisible !== false &&  <Hamburger isOpen={isOpen} toggle={toggle} />}
 					</div>
 				</header>

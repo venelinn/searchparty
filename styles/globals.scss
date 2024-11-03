@@ -77,8 +77,8 @@ body {
 	background-color: Canvas;
 	// color: var(--color-white);
 	color: CanvasText;
+	background-image: url("/static/bgr.webp");
 	[data-has-bgr] & {
-		background-image: url("/static/bgr.webp");
 	}
 }
 
