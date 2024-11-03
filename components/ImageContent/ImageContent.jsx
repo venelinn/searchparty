@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
+// import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
 import Section from "../Section";
 import styles from "./ImageContent.module.scss";
 
 const ContentSection = ({ content } ) => (
 	<div data-anim="content-image" className={styles.module__content}>
-		{renderRichTextContent(content)}
+		{/* {renderRichTextContent(content)} */}
 	</div>
 );
 
