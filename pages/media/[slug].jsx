@@ -7,7 +7,6 @@ import Section from "../../components/Section";
 
 export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks }) {
 	const fullDate = <FormattedDate dateStr={mediaItem.date} locale={pageLocale} />;
-	console.log("mediaItem", mediaItem);
 	return (
     <Layout
 			siteConfig={siteConfig}

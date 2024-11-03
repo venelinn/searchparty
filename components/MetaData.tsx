@@ -10,10 +10,10 @@ interface MetaDataProps {
 
 export default function MetaData({ title, description, keywords, image, type, date, ...customMeta }: MetaDataProps) {
 	const router = useRouter()
-  // const frenchRoute = "/fr" + (router.asPath);
-	// const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
-	const route = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
-  const frenchRoute = router.locale === "fr" ? "/fr" + router.asPath : null;
+  const frenchRoute = "/fr" + (router.asPath);
+	const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
+	// const route = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
+  // const frenchRoute = router.locale === "fr" ? "/fr" + router.asPath : null;
 
   const meta = {
     title: title || "Search Party",
