@@ -1,10 +1,11 @@
 @import "functions";
 @import "base-variables"; // Breakpoints are there
 @import "mixins";
-@import "typo";
 @import "normalize";
+@import "css-variables";
+@import "typography";
+@import "layout";
 
-@import url('https://use.typekit.net/buj6oun.css');
 
 :root {
 	/* Colors */
@@ -22,7 +23,7 @@
 	--swiper-navigation-color: var(--color-blue);
 	--swiper-pagination-color: var(--color-blue);
 
-  --font-primary: 'proxima-nova', sans-serif;
+  --font-primary: var(--font-family-base);
 	--page-max-width: 1200px;
 	--padding-desktop: 1.5rem;
   --padding-mobile: 1rem;
@@ -71,12 +72,14 @@ html {
 }
 
 body {
-	color-scheme: dark;
 	@include ui-body;
+	color-scheme: dark;
 	background-color: Canvas;
 	// color: var(--color-white);
 	color: CanvasText;
-	font-family: var(--font-primary);
+	[data-has-bgr] & {
+		background-image: url("/static/bgr.webp");
+	}
 }
 
 #__next {
@@ -92,6 +95,9 @@ body {
 	}
 	.page {
 		flex: 1 0 auto;
+		> section:first-child {
+			padding-top: var(--navigation-height)
+		}
 	}
 }
 
@@ -146,7 +152,7 @@ img {
 }
 
 small {
-	@include ui-meta;
+	@include ui-small;
 }
 
 [data-slider] {
@@ -189,7 +195,7 @@ small {
 	color: var(--link-color, var(--color-sapphire));
   &__text {
 		padding-bottom: var(--line-space);
-    @include linkHover();
+   //  @include linkHover();
   }
   &--active {
     &:not(:hover) {
@@ -203,7 +209,7 @@ small {
       &:hover {
         .link__text {
           &:before {
-            @include link-hover-anim;
+            // @include link-hover-anim;
           }
         }
       }

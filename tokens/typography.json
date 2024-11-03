@@ -1,18 +1,22 @@
 {
-	"selection": {
-		"dark": {
-			"color": { "value": "{color.wh.value}" },
-			"background-color": { "value": "{color.tl.100.value}" }
+	"font": {
+		"family": {
+			"base": {
+				"value": "'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',  sans-serif"
+			},
+			"heading": {
+				"value": "'BebasKai', sans-serif"
+			}
 		},
-		"light": {
-			"color": { "value": "{color.blk.100.value}" },
-			"background-color": { "value": "{color.tl.400.value}" }
+		"size": {
+			"base": { "value": "16px" }
 		},
-		"color": { "value": "{selection.dark.color.value}" },
-		"background-color": { "value": "{selection.dark.background-color.value}" }
-	},
-	"letting-spacing": {
-		"base": { "value": "normal" }
+		"weight": {
+			"light": { "value": 100 },
+			"normal": { "value": 400 },
+			"bold": { "value": 600 },
+			"base": { "value": "{font.weight.normal.value}" }
+		}
 	},
 	"heading": {
 		"margin": {
@@ -20,53 +24,57 @@
 			"bottom": { "value": "0.5rem" }
 		},
 		"size": {
-			"jumbo": {
-				"font-size": { "value": "60px" },
-				"line-height": { "value": "72px" },
-				"font-weight": { "value": "{font.weight.extra-light.value}" }
+			"h1": {
+				"font-size": { "value": "54px" },
+				"line-height": { "value": "64px" },
+				"font-weight": { "value": "{font.weight.bold.value}" }
 			},
-			"extra-large": {
-				"font-size": { "value": "40px" },
-				"line-height": { "value": "48px" },
-				"font-weight": { "value": "{font.weight.extra-light.value}" }
-			},
-			"large": {
-				"font-size": { "value": "28px" },
+			"h2": {
+				"font-size": { "value": "26px" },
 				"line-height": { "value": "34px" },
-				"font-weight": { "value": "{font.weight.light.value}" }
+				"font-weight": { "value": "{font.weight.bold.value}" }
 			},
-			"medium": {
-				"font-size": { "value": "22px" },
+			"h3": {
+				"font-size": { "value": "24px" },
 				"line-height": { "value": "28px" },
-				"font-weight": { "value": "{font.weight.light.value}" }
+				"font-weight": { "value": "{font.weight.bold.value}" }
 			},
-			"small": {
-				"font-size": { "value": "18px" },
-				"line-height": { "value": "24px" },
-				"font-weight": { "value": "{font.weight.light.value}" }
-			},
-			"macro": {
-				"font-size": { "value": "16px" },
-				"line-height": { "value": "22px" },
-				"font-weight": { "value": "{font.weight.normal.value}" }
+			"h4": {
+				"font-size": { "value": "20px" },
+				"line-height": { "value": "26px" },
+				"font-weight": { "value": "{font.weight.bold.value}" }
 			}
 		}
 	},
-	"body": {
-		"size": {
-			"base": {
-				"font-size": { "value": "16px" },
-				"line-height": { "value": "1.2" },
-				"font-weight": { "value": "{font.weight.normal.value}" }
-			},
+	"ui": {
+		"body": {
+			"font-family": { "value": "{font.family.base.value}" },
+			"font-size": { "value": "16px" },
+			"line-height": { "value": "24px" },
+			"font-weight": { "value": "{font.weight.light.value}" },
+			"color": { "value": "{sov.grey-dark.value}" },
+			"bg-color": { "value": "{sov.white.value}" }
 		},
+		"caption": {
+			"font-size": { "value": "14px" },
+			"line-height": { "value": "18px" },
+			"font-weight": { "value": "{font.weight.light.value}" },
+			"font-style": { "value": "normal" }
+		},
+		"small": {
+			"font-size": { "value": "12px" },
+			"line-height": { "value": "16px" },
+			"font-weight": { "value": "{font.weight.light.value}" },
+			"font-style": { "value": "normal" }
+		}
+	},
+	"body": {
 		"font": {
 			"family": { "value": "{font.family.base.value}" },
 			"size": { "value": "{font.size.base.value}" },
 			"weight": { "value": "{font.weight.base.value}" },
 			"line-height": { "value": "1.3" },
-			"letter-spacing": { "value": "normal" },
-			"color": { "value": "{color.n.200.value}" }
+			"letter-spacing": { "value": "normal" }
 		}
 	},
 	"paragraph": {

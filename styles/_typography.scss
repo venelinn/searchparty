@@ -1,0 +1,63 @@
+p,
+li {
+	// @include ui-body;
+}
+
+h1, .h1 {
+	@include h1;
+}
+
+h2, .h2 {
+	@include h2;
+}
+
+h3, .h3 {
+	@include h3;
+}
+
+h4, .h4 {
+	@include h4;
+}
+
+
+.ui-body {
+	@include ui-body;
+}
+
+.ui-caption {
+	@include ui-caption;
+}
+
+.ui-small {
+	@include ui-small;
+}
+
+
+.heading-large {
+	font-size: rem(25px);
+}
+
+small {
+	font-size: rem(14px);
+}
+
+ul,
+ol {
+	padding-left: rem(17px);
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}

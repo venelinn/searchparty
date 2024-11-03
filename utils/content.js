@@ -58,10 +58,10 @@ export async function getSiteConfig(locale) {
 //   return response.items.map(mapEntry);
 // }
 
-export async function getPortfolioItems(locale) {
+export async function getMediaItems(locale) {
   try {
-    console.log("Fetching portfolio items for locale:", locale);
-    const response = await getEntries("portfolio", { locale });
+    console.log("Fetching media items for locale:", locale);
+    const response = await getEntries("media", { locale });
 
     if (!response.items) {
       console.error("No items found in the response:", response);
@@ -70,12 +70,12 @@ export async function getPortfolioItems(locale) {
 
     return response.items.map(mapEntry);
   } catch (error) {
-    console.error("Error fetching portfolio items:", error);
+    console.error("Error fetching media items:", error);
     return [];
   }
 }
 
-export async function getContentItems(contentType = "portfolio", locale) {
+export async function getContentItems(contentType = "media", locale) {
   try {
     const response = await getEntries(contentType, { locale });
 

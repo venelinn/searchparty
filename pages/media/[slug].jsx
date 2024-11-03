@@ -1,30 +1,36 @@
 import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "../../utils/content";
 import localization from "../../utils/localization";
 import Layout from "../../components/Layout";
+import Image from "next/image";
 import FormattedDate from "../../utils/DateFormat";
+import Section from "../../components/Section";
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const options = { month: "long", day: "numeric", year: "numeric" };
-  return date.toLocaleDateString("en-CA", options);
-}
-
-export default function PortfolioItemPage({ pageLocale, portfolioItem, siteConfig, navigationLinks }) {
-	const fullDate = <FormattedDate dateStr={portfolioItem.date} locale={pageLocale} />;
-	// console.log("portfolioItem", portfolioItem);
+export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks }) {
+	const fullDate = <FormattedDate dateStr={mediaItem.date} locale={pageLocale} />;
+	console.log("mediaItem", mediaItem);
 	return (
     <Layout
 			siteConfig={siteConfig}
 			navigationLinks={navigationLinks}
 			page={{
-				title: portfolioItem.title,
+				title: mediaItem.title,
 				locale: pageLocale,
 			}}>
-      <div>
-        <h1>{portfolioItem.title}</h1>
-				<p>{formatDate(portfolioItem.date)}</p>
+      <Section heading={{heading: mediaItem.title, as: "h1", size: "h1"}}>
 				<p>{fullDate}</p>
-      </div>
+				<ul>
+				{mediaItem.images.map((item) => (
+						<li key={item.id}>
+							<Image
+								src={item.image[0].src}
+								alt={item.image[0].alt}
+								width={item.image[0].width}
+								height={item.image[0].height}
+								/>
+						</li>
+          ))}
+					</ul>
+      </Section>
     </Layout>
   );
 }
@@ -33,8 +39,8 @@ export async function getStaticPaths({ locales }) {
   const paths = [];
 
   for (const locale of locales) {
-    const portfolioItems = await getContentItems("portfolio", locale);
-    const localePaths = portfolioItems.map(item => {
+    const mediaItems = await getContentItems("media", locale);
+    const localePaths = mediaItems.map(item => {
       const slug = item.slug.split("/").filter(Boolean).join("/"); // Ensure slug is a string
       return {
         params: { slug }, // Pass slug as a string
@@ -51,22 +57,22 @@ export async function getStaticProps({ params, locale }) {
   const pageLocale = locale || localization.defaultLocale;
   const slug = params.slug; // params.slug should be a string directly
 
-  const [siteConfig, allPages, portfolioItems] = await Promise.all([
+  const [siteConfig, allPages, mediaItems] = await Promise.all([
     getSiteConfig(pageLocale),
     getPages(pageLocale),
-    getContentItems("portfolio", pageLocale),
+    getContentItems("media", pageLocale),
   ]);
 
   const navigationLinks = await getNavigationLinks(allPages, pageLocale);
 
   if (slug) {
-    const portfolioItem = portfolioItems.find(item => item.slug === slug);
-    if (!portfolioItem) {
+    const mediaItem = mediaItems.find(item => item.slug === slug);
+    if (!mediaItem) {
       return { notFound: true };
     }
     return {
       props: {
-        portfolioItem,
+        mediaItem,
         siteConfig,
 				pageLocale,
         navigationLinks,

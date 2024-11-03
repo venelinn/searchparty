@@ -14,20 +14,21 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 		});
 	}, [page.locale]);
 
-	const headerNavLinks = navigationLinks.filter((link) => link.location === "header");
+	// const headerNavLinks = navigationLinks.filter((link) => link.location === "header");
 	const footerNavLinks = navigationLinks.filter((link) => link.location === "footer");
 
 	let allLinks = navigationLinks;
 	let footerLinks = footerNavLinks;
 
-
 	const seo = page?.metaData;
-
 
 	return (
 		<>
 			<Head>
 				<title>{page.title}</title>
+				{siteConfig.backgroundImage && (
+          <html data-has-bgr />
+        )}
 			</Head>
 			<MetaData title={seo?.pageTitle} description={seo?.pageDescription} keywords={seo?.keywords} />
 			<Navigation
@@ -37,7 +38,7 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 				siteConfig={siteConfig}
 				isNavigationVisible={page.isNavigationVisible}
 			/>
-			<main data-sb-object-id={page.id} className="page">
+			<main className="page">
 				{children}
 			</main>
 			<Footer siteConfig={siteConfig?.footer} links={footerLinks} pageLocale={page.locale} />

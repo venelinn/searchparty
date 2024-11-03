@@ -19,8 +19,6 @@
 }
 
 .hero__title {
-	@include headingBase;
-	@include h1;
 	--heading-case: uppercase;
 	&--center {
 		--heading-align: center;
@@ -38,6 +36,5 @@
 }
 
 .hero__desc {
-	@include headingBase;
 	@include h4;
 }

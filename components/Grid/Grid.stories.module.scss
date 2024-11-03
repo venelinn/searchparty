@@ -1,0 +1,17 @@
+.demoGrid {
+	* {
+		box-sizing: border-box;
+	}
+
+	> div {
+		height: 100px;
+	}
+
+	span {
+		display: grid;
+		height: 100%;
+
+		background-color: #ccc;
+		place-items: center;
+	}
+}

@@ -1,0 +1,26 @@
+.grid {
+	--_grid-gap: 24px;
+	--_grid-container-type: inline-size;
+	--_min-column-width: 280px;
+
+	display: grid;
+	gap: var(--_grid-gap);
+
+	grid-template-columns: var(--_grid-template-columns, repeat(
+    auto-fill,
+    minmax(
+      max(
+				var(--_min-column-width),
+				calc(
+					(100% - (var(--_grid-cols) - 1) * var(--_grid-gap)) / var(--_grid-cols))
+				),
+      1fr
+    )
+  ));
+
+	&__item {
+		max-width: 100%;
+		container-type: var(--_grid-container-type);
+		container-name: grid-item;
+	}
+}

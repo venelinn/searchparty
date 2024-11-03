@@ -20,9 +20,12 @@
   }
 	&__heading {
 		--heading-bottom: 1rem;
+		padding-top: 2rem;
+
+		opacity: .7;
+
 	}
 	&__subHeading {
-		@include headingBase;
 		@include h3;
 		--heading-case: uppercase;
 		display: inline-block;

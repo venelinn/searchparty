@@ -1,35 +1,32 @@
-import Markdown from "markdown-to-jsx";
 import Image from "next/image";
+import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
 import Section from "../Section";
-import { Button } from "../Button/Button.jsx";
 import styles from "./ImageContent.module.scss";
 
-const ContentSection = ({ content, link } ) => (
+const ContentSection = ({ content } ) => (
 	<div data-anim="content-image" className={styles.module__content}>
-		<Markdown options={{ forceBlock: true }} data-sb-field-path="body">
-			{content}
-		</Markdown>
-		{link && link?.src && <Button />}
+		{renderRichTextContent(content)}
 	</div>
 );
 
-const ImageSection = ({ image }) => (
-	<div
-		className={styles.module__image}
-		data-anim="cover-image"
-		>
-			{/* <ContentfulImage image={image} /> */}
-			<Image
-				src={image.src}
-				alt={image.alt}
-				width={image.width}
-				height={image.height}
-				/>
-  </div>
-);
+const ImageSection = ({ image }) => {
+	const imageAspectRatio = image.width / image.height;
+	return (
+		<div
+			className={styles.module__image}
+			data-orientation={imageAspectRatio > 1 ? "horizontal" : "vertical"}
+			data-anim="cover-image"
+			>
+				<Image
+					src={image.src}
+					alt={image.alt}
+					width={image.width}
+					height={image.height}
+					/>
+		</div>
+)};
 
 export const ImageContent = ({
-	id,
 	heading,
 	subHeading,
 	animationID,
@@ -53,18 +50,17 @@ export const ImageContent = ({
 			<div
 				className={styles.module}
 				data-order={order}
-				data-sb-object-id={id}
 				>
 			{isContentFirst ? (
-					<>
-						<ContentSection content={content} />
-						{image && <ImageSection image={image} />}
-					</>
+				<>
+					<ContentSection content={content} />
+					{image && <ImageSection image={image} />}
+				</>
 				) : (
-					<>
-						{image && <ImageSection image={image} />}
-						<ContentSection content={content} />
-					</>
+				<>
+					{image && <ImageSection image={image} />}
+					<ContentSection content={content} />
+				</>
 				)}
 			</div>
 		</Section>

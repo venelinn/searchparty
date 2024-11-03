@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { useRouter } from "next/router";
 interface MetaDataProps {
   title?: string;
@@ -11,8 +10,10 @@ interface MetaDataProps {
 
 export default function MetaData({ title, description, keywords, image, type, date, ...customMeta }: MetaDataProps) {
 	const router = useRouter()
-  const frenchRoute = "/fr" + (router.asPath);
-	const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
+  // const frenchRoute = "/fr" + (router.asPath);
+	// const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
+	const route = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
+  const frenchRoute = router.locale === "fr" ? "/fr" + router.asPath : null;
 
   const meta = {
     title: title || "Search Party",
@@ -25,7 +26,7 @@ export default function MetaData({ title, description, keywords, image, type, da
   };
 
   return (
-    <Head>
+    <>
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,6 +36,9 @@ export default function MetaData({ title, description, keywords, image, type, da
       <meta property="og:title" content={meta.title} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:url" content={route} />
+			{frenchRoute && (
+        <meta property="og:url:fr" content={frenchRoute} />
+      )}
       <meta
         property="og:site_name"
         content={process.env.NEXT_PUBLIC_SITE_NAME || ""}
@@ -47,6 +51,6 @@ export default function MetaData({ title, description, keywords, image, type, da
       <meta name="robots" content="follow, index" />
       <link rel="canonical" href={route} />
 			<meta name="color-scheme" content="light dark" />
-    </Head>
+    </>
   );
 }

@@ -1,34 +1,33 @@
 // pages/portfolio/index.js
 
 import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "../../utils/content";
-import Link from "next/link";
 import localization from "../../utils/localization";
 import { normalizeSlug } from "../../utils/common";
 import Layout from "../../components/Layout";
+import Section from "../../components/Section";
+import { MediaCard } from "../../components/Cards/media";
+import { Row, Cell } from "../../components/Grid";
 
-export default function PortfolioPage({ page, portfolioItems, siteConfig, navigationLinks }) {
+export default function MediaPage({ page, mediaItems, siteConfig, navigationLinks }) {
 	return (
     <Layout siteConfig={siteConfig} navigationLinks={navigationLinks} page={page}>
-      <div>
-        <h1>Portfolio</h1>
-        <ul>
-          {portfolioItems.map((item) => (
-            <li key={item.id}>
-              <Link href={`/media/${item.slug}`}>
-                {item.title}
-              </Link>
-            </li>
+      <Section heading={{heading: "Media", as: "h1", size: "h1"}}>
+        <Row cols="2">
+					{mediaItems.map((item) => (
+            <Cell key={item.id}>
+							<MediaCard key={item.id} item={item} />
+						</Cell>
           ))}
-        </ul>
-      </div>
+        </Row>
+      </Section>
     </Layout>
   );
 }
 
 export async function getStaticProps({ locale }) {
   const pageLocale = locale || localization.defaultLocale;
-	const [portfolioItems, siteConfig, allPages] = await Promise.all([
-    getContentItems("portfolio", pageLocale),
+	const [mediaItems, siteConfig, allPages] = await Promise.all([
+    getContentItems("media", pageLocale),
     getSiteConfig(pageLocale),
     getPages(pageLocale)
   ]);
@@ -43,7 +42,7 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
 			page,
-      portfolioItems,
+      mediaItems,
       siteConfig,
       navigationLinks,
     },

@@ -3,6 +3,6 @@
 		"base": { "value": "4px" }
 	},
 	"page-width": {
-		"base": { "value": "1140px" }
+		"value": "1140px"
 	}
 }

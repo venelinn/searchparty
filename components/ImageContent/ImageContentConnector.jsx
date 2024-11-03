@@ -8,7 +8,7 @@ const ImageContentConnector = (props) => {
 		heading={props?.heading}
 		theme={props?.theme?.color}
 		image={props?.image[0]}
-		content={props?.body}
+		content={props?.content}
 		isolation={props?.isolation}
 		fullHeight={props?.fullHeight}
 		id={props?.id}

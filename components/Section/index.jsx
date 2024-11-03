@@ -100,7 +100,6 @@ const Section = ({
 			)}
 			<div
 				className={cx(styles.section__inner, classNames?.inner, classNames?.theme)}
-				data-sb-field-path="body"
 				>
 			{subHeading && (
 				<span
@@ -114,7 +113,6 @@ const Section = ({
 					size={heading?.size}
 					uppercase={heading?.uppercase}
 					animationID="section-title"
-					data-sb-field-path="heading"
 					className={cx(styles.section__heading, classNames?.heading)}
 					>
 					{heading?.heading}
