@@ -20,9 +20,9 @@ const ImageSection = ({ image }) => {
 				<Image
 					src={image.src}
 					alt={image.alt}
-					layout="responsive"
 					width={image.width}
 					height={image.height}
+					layout="responsive"
 					/>
 		</div>
 )};

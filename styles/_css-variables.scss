@@ -40,15 +40,16 @@
   --spacing-micro: 0.5rem;
   --page-width: 71.25rem;
   --border-radius-base: 0.25rem;
-  --sov-grey-border: #cccccc;
-  --sov-grey-mid: #999999;
-  --sov-grey-dark: #444444;
-  --sov-grey-light: #f2f2f2;
-  --sov-grey: #65675e;
-  --sov-lime: #bef564;
-  --sov-blue-light: #a7e1f4;
-  --sov-blue-dark: #0f2541;
-  --sov-blue: #008fbf;
+  --sp-grey-border: #cccccc;
+  --sp-grey-mid: #999999;
+  --sp-grey-dark: #444444;
+  --sp-grey-light: #f2f2f2;
+  --sp-grey: #65675e;
+  --sp-lime: #bef564;
+  --sp-blue-light: #a7e1f4;
+  --sp-blue-dark: #0f2541;
+  --sp-blue: #008fbf;
+  --sp-highlight: #ED2224;
   --system-black: #000000;
   --system-white: #ffffff;
   --system-warning-light: #fff8e6;
@@ -68,7 +69,7 @@
   --body-font-family: var(--font-family-base);
   --ui-small-font-weight: var(--font-weight-light);
   --ui-caption-font-weight: var(--font-weight-light);
-  --ui-body-color: var(--sov-grey-dark);
+  --ui-body-color: var(--sp-grey-dark);
   --ui-body-font-weight: var(--font-weight-light);
   --ui-body-font-family: var(--font-family-base);
   --heading-size-h4-font-weight: var(--font-weight-bold);
@@ -76,8 +77,8 @@
   --heading-size-h2-font-weight: var(--font-weight-bold);
   --heading-size-h1-font-weight: var(--font-weight-bold);
   --font-weight-base: var(--font-weight-normal);
-  --sov-black: var(--system-black);
-  --sov-white: var(--system-white);
+  --sp-black: var(--system-black);
+  --sp-white: var(--system-white);
   --body-font-weight: var(--font-weight-base);
-  --ui-body-bg-color: var(--sov-white);
+  --ui-body-bg-color: var(--sp-white);
 }
