@@ -15,6 +15,7 @@
 				<Image
 					src={cover[0].src}
 					alt={cover[0].alt}
+					layout="responsive"
 					width={cover[0].width}
 					height={cover[0].height}
 				/>

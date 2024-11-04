@@ -62,6 +62,7 @@ const Hero = (props) => {
 					alt={image.alt}
 					width={image.width}
 					height={image.height}
+					layout="responsive"
 					className={styles.item__logo__img}
 				/>
 			)}
