@@ -52,8 +52,8 @@
 			"font-size": { "value": "16px" },
 			"line-height": { "value": "24px" },
 			"font-weight": { "value": "{font.weight.light.value}" },
-			"color": { "value": "{sp.grey-dark.value}" },
-			"bg-color": { "value": "{sp.white.value}" }
+			"color": { "value": "{color.grey-dark.value}" },
+			"bg-color": { "value": "{color.white.value}" }
 		},
 		"caption": {
 			"font-size": { "value": "14px" },

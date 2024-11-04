@@ -1,6 +1,3 @@
-module.exports = {
-  output: 'standalone',
-};
 const localization = require("./utils/localization");
 
 /** @type {import('next').NextConfig} */

@@ -8,7 +8,7 @@
 		"white": { "value": "#ffffff" },
 		"black": { "value": "#000000" }
 	},
-	"sp": {
+	"color": {
 		"highlight": { "value": "#ED2224" },
 		"blue": { "value": "#008fbf" },
 		"blue-dark": { "value": "#0f2541" },

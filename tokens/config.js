@@ -6,10 +6,10 @@ const customFileHeader = [
 module.exports = {
 	source: ["./tokens/**/*.json"],
 	transform: {
-		removeColorNamespace: {
-			type: "name",
-			transformer: token => token.path.filter((t, i) => !(i === 0 && t === "color")).join("-"),
-		},
+		// removeColorNamespace: {
+		// 	type: "name",
+		// 	transformer: token => token.path.filter((t, i) => !(i === 0 && t === "color")).join("-"),
+		// },
 		pxToRem: {
 			type: "value",
 			matcher: token => /\d*\.?\d*px/i.test(token.value),
@@ -34,7 +34,7 @@ module.exports = {
 				"content/icon",
 				"size/rem",
 				"color/css",
-				"removeColorNamespace",
+				// "removeColorNamespace",
 				"pxToRem",
 			],
 			files: [

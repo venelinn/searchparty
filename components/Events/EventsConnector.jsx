@@ -4,7 +4,7 @@ const EventsConnector = (props) => {
 	return (
 	<Events
 		id={props?.id}
-		title={props?.pageName}
+		heading={props?.heading}
 		events={props?.events}
 		locale={props?.locale}
 	/>
