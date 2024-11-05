@@ -42,7 +42,7 @@
 	span {
 		line-height: 1.2;
 		&:before {
-			--link-line-color: var(--color-sunwing);
+			--link-line-color: var(--color-highlight);
 			top: calc(100% - 8px);
 			@media (max-width: $breakpoint-max-md) {
 				[lang="fr"] & {
@@ -55,7 +55,7 @@
 		--link-line: 3px;
 		font-weight: var(--font-black);
 		span:before {
-			border-bottom-color: var(--color-sunwing);
+			border-bottom-color: var(--color-highlight);
 		}
 	}
 }

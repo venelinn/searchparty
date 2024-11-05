@@ -30,7 +30,7 @@
 				"font-weight": { "value": "{font.weight.bold.value}" }
 			},
 			"h2": {
-				"font-size": { "value": "26px" },
+				"font-size": { "value": "36px" },
 				"line-height": { "value": "34px" },
 				"font-weight": { "value": "{font.weight.bold.value}" }
 			},

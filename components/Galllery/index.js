@@ -11,8 +11,6 @@ import "lightgallery/scss/lg-autoplay.scss";
 import "lightgallery/scss/lg-fullscreen.scss";
 import "lightgallery/scss/lg-share.scss";
 
-// import plugins if you need
-// import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from "lightgallery/plugins/zoom";
 import lgAutoplay from "lightgallery/plugins/autoplay";
 import lgFullscreen from "lightgallery/plugins/fullscreen";

@@ -1,7 +1,6 @@
 .module {
 	display: grid;
 	gap: 3rem;
-	align-items: center;
 	@media (min-width: $breakpoint-min-md) {
 		grid-template-columns: var(--image-grid-template-columns, 1fr 1fr);
 	}

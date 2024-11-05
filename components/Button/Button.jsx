@@ -39,13 +39,9 @@ const Button = ({
     return (
       <div className={wrapperClassName} data-anim={animationID} data-sb-object-id={id}>
         {isExternalLink ? (
-          <a {...commonProps} href={href} target="_blank" rel="noopener noreferrer">
-            <span data-sb-field-path="label">{label}</span>
-          </a>
+          <a {...commonProps} href={href} target="_blank" rel="noopener noreferrer">{label}</a>
         ) : (
-          <Link {...commonProps} href={href}>
-            <span data-sb-field-path="label">{label}</span>
-          </Link>
+          <Link {...commonProps} href={href}>{label}</Link>
         )}
       </div>
     );
@@ -54,9 +50,7 @@ const Button = ({
   if (label && anchor) {
     return (
       <div className={wrapperClassName} data-anim={animationID} data-sb-object-id={id}>
-        <a {...commonProps} href={`#${anchor}`}>
-          <span data-sb-field-path="label">{label}</span>
-        </a>
+        <a {...commonProps} href={`#${anchor}`}>{label}</a>
       </div>
     );
   }
@@ -86,7 +80,7 @@ Button.propTypes = {
   className: PropTypes.string,
   wrapperClassName: PropTypes.string,
   variant: PropTypes.oneOf(["primary", "secondary", "noStyle"]),
-  size: PropTypes.oneOf(["lg"]),
+  size: PropTypes.oneOf(["lg", "md", "sm"]),
   full: PropTypes.bool,
   animationID: PropTypes.string,
 };

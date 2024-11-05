@@ -70,7 +70,7 @@
     --btn-bg-color: var(--color-blue);
 		--btn-border-color: var(--color-ocean);
 		--btn-hover-color: var(--color-blue);
-    --btn-hover-bg-color: var(--color-sunwing);
+    --btn-hover-bg-color: var(--color-highlight);
 		--btn-hover-border-color: var(--color-blue);
   }
 
@@ -79,7 +79,7 @@
 		--btn-bg-color: var(--color-white);
     --btn-border-color: currentColor;
 		--btn-hover-color: var(--color-blue);
-    --btn-hover-bg-color: var(--color-sunwing);
+    --btn-hover-bg-color: var(--color-highlight);
 		--btn-hover-border-color: var(--color-blue);
 		&:hover,
 		&:focus-visible  {

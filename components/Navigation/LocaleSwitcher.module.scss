@@ -25,14 +25,14 @@
 		--link-line: 3px;
 		font-weight: var(--font-black);
 		span:before {
-			border-bottom-color: var(--color-sunwing);
+			border-bottom-color: var(--color-highlight);
 		}
 	}
 }
 
 .link {
 	span:before {
-		--link-line-color: var(--color-sunwing);
+		--link-line-color: var(--color-highlight);
 	}
 }
 

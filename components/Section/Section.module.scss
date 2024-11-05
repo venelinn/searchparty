@@ -14,7 +14,7 @@
   &__inner {
     margin-left: auto;
     margin-right: var(--section-ml, auto);
-    max-width: var(--section-max-width, var(--page-max-width));
+    max-width: var(--_section-max-width, var(--page-max-width));
     min-height: var(--section-inner-min-height, inherit);
 		width: 100%;
   }
@@ -35,7 +35,7 @@
   // Full width
   &--full {
     --section-padding: 0;
-		--section-max-width: 100%;
+		--_section-max-width: 100%;
   }
 	&--isolate {
 		isolation: isolate;
@@ -78,7 +78,7 @@
 		--bgr-section-color: var(--color-blue);
 		color: #fff;
 		.section__subHeading {
-			--heading-color: var(--color-sunwing);
+			--heading-color: var(--color-highlight);
 		}
 		.section__heading {
 			--heading-color: inherit;
@@ -86,7 +86,7 @@
 	}
 	&--light {
 		.section__heading {
-			--heading-color: var(--color-sunwing);
+			--heading-color: var(--color-highlight);
 		}
 		.section__subHeading {
 			--heading-color: var(--color-blue);

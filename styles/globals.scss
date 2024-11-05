@@ -97,7 +97,7 @@ body {
 		flex: 1 0 auto;
 		@media (min-width: $breakpoint-min-md) {
 			> section:first-child {
-				padding-top: var(--navigation-height)
+				padding-top: calc(var(--navigation-height) + 2rem);
 			}
 		}
 	}

@@ -24,6 +24,8 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 					size: "h1"
 					}}>
 				<p>{fullDate}</p>
+      </Section>
+			<Section size="full" >
 				<Gallery
 					 full={mediaItem.images.map((img) => ({
 						...img,
@@ -33,9 +35,9 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 						...img,
 						src: getOptimizedImageURL(img, 500)
 					}))}
-					itemsPerRow={3}
+					itemsPerRow={4}
 				/>
-      </Section>
+			</Section>
     </Layout>
   );
 }

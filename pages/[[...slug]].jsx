@@ -46,6 +46,7 @@ const getStaticPaths = async ({ locales }) => {
 	return { paths, fallback: false };
 };
 
+
 const getStaticProps = async ({ params, locale }) => {
 	const slug = "/" + (params?.slug ?? [""]).join("/");
 	const pageLocale = locale || localization.defaultLocale;
