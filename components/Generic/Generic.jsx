@@ -1,4 +1,4 @@
-import Section from "../Section";
+import { Section } from "../Section";
 import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
 import styles from "./Generic.module.scss";
 

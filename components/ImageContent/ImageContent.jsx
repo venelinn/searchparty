@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
 import { getOptimizedImageURL } from "../../utils/common";
-import Section from "../Section";
+import { Section } from "../Section";
 import styles from "./ImageContent.module.scss";
 
 const ContentSection = ({ content } ) => (
