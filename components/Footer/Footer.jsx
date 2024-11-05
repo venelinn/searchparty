@@ -5,7 +5,7 @@ import gsap from "gsap";
 import cx from "classnames";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicLayoutEffect";
-import Section from "../Section";
+import { Section } from "../Section";
 import styles from "./Footer.module.scss";
 
 

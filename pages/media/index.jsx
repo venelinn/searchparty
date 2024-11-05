@@ -4,7 +4,7 @@ import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "..
 import localization from "../../utils/localization";
 import { normalizeSlug } from "../../utils/common";
 import Layout from "../../components/Layout";
-import Section from "../../components/Section";
+import { Section } from "../../components/Section";
 import { MediaCard } from "../../components/Cards/MediaCard";
 import { Row, Cell } from "../../components/Grid";
 

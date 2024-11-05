@@ -15,6 +15,7 @@ import lgZoom from "lightgallery/plugins/zoom";
 import lgAutoplay from "lightgallery/plugins/autoplay";
 import lgFullscreen from "lightgallery/plugins/fullscreen";
 import lgShare from "lightgallery/plugins/share";
+import lgHash from "lightgallery/plugins/hash";
 
 const Gallery = ({ thumbs, full, itemsPerRow }) => {
   let itemsPerRowByBreakpoints = [itemsPerRow]; // use it as an array
@@ -28,10 +29,11 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
   return (
     <div className={styles.gallery}>
       <LightGallery
+				data={full}
         onInit={onInit}
         speed={500}
         download={false}
-        plugins={[lgZoom, lgAutoplay, lgFullscreen, lgShare]}
+        plugins={[lgZoom, lgAutoplay, lgFullscreen, lgShare, lgHash]}
         autoplay={{
           autoplay: true,
           pause: 3000,
@@ -40,7 +42,18 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
         share={{
           facebook: true,
           x: true,
-          pinterest: true,
+					getShareUrl: (index) => {
+						const image = full[index];
+						const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+						const shareUrl = `${baseUrl}/image/${image.id}`;
+
+						// Ensure the URL starts with the protocol
+						return shareUrl.startsWith("http") ? shareUrl : `https://${shareUrl}`;
+					},
+					getShareTitle: (index) => {
+						const image = full[index];
+						return image.alt || "Check out this image!";
+					},
         }}
       >
         {thumbs.map((thumb, i) => {
@@ -49,7 +62,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
             // 	{JSON.stringify(full[i].images.fallback.src)}
             // </>
             <a
-              href={full[i].src}
+              data-src={full[i].src}
               className={styles.galleryItem}
               key={i}
               style={{
@@ -64,7 +77,6 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
               <Image
 								src={thumb.src}
 								alt={thumb?.alt}
-								layout="responsive"
 								width={thumb.width}
 								height={thumb.height}
 								/>

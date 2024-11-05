@@ -4,7 +4,7 @@ import Image from "next/image";
 import cx from "classnames";
 import gsap from "gsap";
 import useReduceMotion from "../../hooks/useReduceMotion";
-import Section from "../Section";
+import { Section } from "../Section";
 import styles from "./Hero.module.scss";
 
 const Hero = ({

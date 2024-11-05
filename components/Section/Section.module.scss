@@ -16,6 +16,7 @@
     margin-right: var(--section-ml, auto);
     max-width: var(--_section-max-width, var(--page-max-width));
     min-height: var(--section-inner-min-height, inherit);
+		text-align: var(--section-text-align);
 		width: 100%;
   }
 	&__heading {
@@ -51,6 +52,9 @@
 	}
 	&--full-height {
 		--section-min-height: 100dvh;
+	}
+	&--center {
+		--section-text-align: center;
 	}
 
 	&__image {

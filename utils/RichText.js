@@ -54,8 +54,7 @@ export const renderRichTextContent = (content) => {
     renderNode: {
 			"embedded-entry-block": (node) => {
         // Check if the entry is a Heading or Button and render accordingly
-				console.log("entry", node.data.target.sys.contentType.sys.id);
-        if (node.data.target.sys.contentType.sys.id === "heading") {
+				if (node.data.target.sys.contentType.sys.id === "heading") {
           return renderEmbeddedEntryBlock(node);
 				} else if  (node.data.target.sys.contentType.sys.id === "cloudinaryAsset") {
 					return renderEmbeddedAssetBlock(node);

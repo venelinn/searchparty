@@ -17,7 +17,6 @@
 					alt={cover[0].alt}
 					width={cover[0].width}
 					height={cover[0].height}
-					layout="responsive"
 				/>
 				<Link href={`/media/${slug}`}><span className="sr-only">View more</span></Link>
 			</div>

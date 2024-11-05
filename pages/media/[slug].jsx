@@ -1,10 +1,10 @@
 import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "../../utils/content";
 import localization from "../../utils/localization";
 import { getOptimizedImageURL } from "../../utils/common";
-import Layout from "../../components/Layout";
+import { Layout } from "../../components/Layout";
 import FormattedDate from "../../utils/DateFormat";
 import { Section } from "../../components/Section";
-import { Gallery } from "../../components/Galllery";
+import { Gallery } from "../../components/Gallery";
 
 
 export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks }) {
@@ -18,6 +18,7 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 				locale: pageLocale,
 			}}>
       <Section
+				contentAlign="center"
 				heading={{
 					heading: mediaItem.title,
 					as: "h1",
