@@ -9,7 +9,7 @@ interface HeadingProps {
   children?: React.ReactNode;
   center?: boolean;
   animationID?: string;
-	color?: string;
+	highlight?: string;
 }
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "div";
@@ -29,7 +29,7 @@ const Heading: React.FC<HeadingProps> = ({
   children,
   center,
   animationID,
-	color,
+	highlight,
 	...props
 }) => {
 	const Tag = as as HeadingTag;
@@ -43,7 +43,7 @@ const Heading: React.FC<HeadingProps> = ({
     <Tag
 			className={classes}
 			data-anim={animationID}
-			style={color ? { "--heading-color": `var(--color-${color})` } as React.CSSProperties : undefined}
+			style={highlight ? { "--heading-color": "var(--color-highlight)" } as React.CSSProperties : undefined}
 			{...props}
 			>
       {children}

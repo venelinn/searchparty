@@ -1,11 +1,11 @@
-import { Hero } from "./Hero/Hero";
+import { HeroConnector } from "./Hero";
 import { ImageContentConnector } from "./ImageContent";
 import { Contacts } from "./Contacts";
 import { EventsConnector } from "./Events";
 
 // Map components which are dynamically resolved by content type in the CMS
 export const componentMap = {
-	hero: Hero,
+	hero: HeroConnector,
 	imageContent: ImageContentConnector,
 	contacts: Contacts,
 	events: EventsConnector

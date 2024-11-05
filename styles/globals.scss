@@ -95,8 +95,10 @@ body {
 	}
 	.page {
 		flex: 1 0 auto;
-		> section:first-child {
-			padding-top: var(--navigation-height)
+		@media (min-width: $breakpoint-min-md) {
+			> section:first-child {
+				padding-top: var(--navigation-height)
+			}
 		}
 	}
 }
@@ -224,3 +226,6 @@ small {
     width: 100%;
   }
 }
+
+
+// logo

@@ -10,6 +10,7 @@
 	letter-spacing: var(--heading-letter-spacing);
 	word-break: var(--heading-word-break, break-word);
 	font-family: var(--font-family-heading);
+	color: var(--heading-color, inherit);
 }
 
 

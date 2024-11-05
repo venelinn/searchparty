@@ -1,9 +1,9 @@
 import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "../../utils/content";
 import localization from "../../utils/localization";
 import Layout from "../../components/Layout";
-import Image from "next/image";
 import FormattedDate from "../../utils/DateFormat";
-import Section from "../../components/Section";
+import { Section } from "../../components/Section";
+import { Gallery } from "../../components/Galllery";
 
 export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks }) {
 	const fullDate = <FormattedDate dateStr={mediaItem.date} locale={pageLocale} />;
@@ -17,18 +17,11 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 			}}>
       <Section heading={{heading: mediaItem.title, as: "h1", size: "h1"}}>
 				<p>{fullDate}</p>
-				<ul>
-				{mediaItem.images.map((item) => (
-						<li key={item.id}>
-							<Image
-								src={item.image[0].src}
-								alt={item.image[0].alt}
-								width={item.image[0].width}
-								height={item.image[0].height}
-								/>
-						</li>
-          ))}
-					</ul>
+				<Gallery
+					full={mediaItem.images}
+					thumbs={mediaItem.images}
+					itemsPerRow={3}
+				/>
       </Section>
     </Layout>
   );

@@ -36,7 +36,8 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 				allLinks={allLinks}
 				links={allLinks}
 				siteConfig={siteConfig}
-				isNavigationVisible={page.isNavigationVisible}
+				isLogoVisible={page?.isLogoVisible}
+				isNavigationVisible={page?.isNavigationVisible}
 			/>
 			<main className="page">
 				{children}

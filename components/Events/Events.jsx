@@ -5,7 +5,7 @@ import { Button } from "../Button/Button.jsx";
 import FormattedDate from "../../utils/DateFormat";
 import styles from "./Events.module.scss";
 
-export const Events = ({ id, events, heading, locale }) => {
+export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [pastEvents, setPastEvents] = useState([]);
 
@@ -38,7 +38,6 @@ export const Events = ({ id, events, heading, locale }) => {
         </div>
       ))}
 			</div>
-
 			<div  className={styles.events}>
 				<Heading as="h3" uppercase={true} className={styles.event__heading}>
 					Past Events

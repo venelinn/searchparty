@@ -2,34 +2,73 @@
 
 import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Image from "next/image";
 import { Heading } from "../components/Headings";
 
-export const renderEmbeddedEntryBlock = (node, children) => {
-  if (node.data.target.sys.contentType.sys.id === "heading") {
-    const dynamicProps = node.data.target.fields;
-
-    // Render the Heading component with dynamic props
-    return (
-      <Heading
-        as={dynamicProps?.as}
-        size={dynamicProps?.size}
-        uppercase={dynamicProps?.uppercase}
-      >
-        {dynamicProps?.heading}
-      </Heading>
-    );
+// Utility function to adjust Cloudinary URLs
+function getCloudinaryImageURL(url) {
+  if (url.includes(".svg")) {
+    return url.replace("/f_auto", "");
   }
-  // Handle other cases if needed
-  return null;
+  return url;
+}
+
+// Use your `getCloudinaryImageURL` function to preprocess Cloudinary URLs
+export const renderEmbeddedEntryBlock = (node) => {
+	const heading = node.data.target.fields;
+    // Render the Heading component with dynamic props
+	return (
+		<Heading
+			as={heading?.as}
+			size={heading?.size}
+			uppercase={heading?.uppercase}
+			alignment={heading?.alignment}
+			animationID={heading?.animationID}
+			highlight={heading?.highlight}
+		>
+			{heading?.title}
+		</Heading>
+	);
+
 };
 
+// Function to render embedded assets like images
+export const renderEmbeddedAssetBlock = (node) => {
+	const asset = node.data.target.fields;
+
+	return (
+		<Image
+			src={getCloudinaryImageURL(asset.image[0].url)}
+			alt={asset.alt}
+			width={asset.image[0].width}
+			height={asset.image[0].height}
+			// priority
+
+		/>
+	);
+};
+// Main function to render rich text content
 export const renderRichTextContent = (content) => {
+
   const richTextOptions = {
     renderNode: {
-      "embedded-entry-block": renderEmbeddedEntryBlock, // Apply custom rendering for embedded entries
+			"embedded-entry-block": (node) => {
+        // Check if the entry is a Heading or Button and render accordingly
+				console.log("entry", node.data.target.sys.contentType.sys.id);
+        if (node.data.target.sys.contentType.sys.id === "heading") {
+          return renderEmbeddedEntryBlock(node);
+				} else if  (node.data.target.sys.contentType.sys.id === "cloudinaryAsset") {
+					return renderEmbeddedAssetBlock(node);
+        } else if (node.data.target.sys.contentType.sys.id === "button") {
+          return renderButton(node);
+        }
+        return null;
+      },
+      // "embedded-entry-block": renderEmbeddedEntryBlock, // Apply custom rendering for embedded entries
 			"hyperlink": (node, children) => {
 				const url = node.data.uri;
         const isExternalLink = url.startsWith("http");
+
 
         return (
           <a
@@ -47,3 +86,4 @@ export const renderRichTextContent = (content) => {
 
   return documentToReactComponents(content, richTextOptions);
 };
+

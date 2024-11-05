@@ -26,7 +26,7 @@ function Hamburger({ isOpen, toggle }) {
   );
 }
 
-const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisible }) => {
+const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisible, isLogoVisible }) => {
   const { setRef, sticky, stuck, fixed, isOpen, toggle } = useNavigationContext();
 	const [navigationRef, { height }] = useElementSize();
 	const router = useRouter();
@@ -46,6 +46,14 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
       document.body.classList.remove(styles.fixedNav);
     };
   }, [fixed]);
+
+	function getCloudinaryAsSvg(url) {
+		// Remove `f_auto` for SVG images to prevent WebP conversion
+		if (url.includes(".svg")) {
+			return url.replace("/f_auto", "");
+		}
+		return url;
+	}
   return (
     <>
       <style jsx global>{`
@@ -59,6 +67,7 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 						[styles["is-open"]]: isOpen,
 						[styles["is-fixed"]]: fixed,
 						[styles["is-stuck"]]: stuck,
+						[styles["logo-hidden"]]: isLogoVisible === false,
 					})}
 					ref={el => {
 						navigationRef(el);
@@ -93,7 +102,7 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 						{headerText && (
 							<Link href="/" locale={pageLocale}>
 								<Image
-									src={logo.src}
+									src={getCloudinaryAsSvg(logo.src)}
 									alt={logo.alt}
 									width={logo.width}
 									height={logo.height}

@@ -92,7 +92,7 @@ const Section = ({
 					<Image
 						src={image.src}
 						alt={image.alt}
-						fill
+						layout="fill"
 						data-anim="section-img"
 						className={cx(styles.section__image__img, classNames?.imageImg)}
 					/>

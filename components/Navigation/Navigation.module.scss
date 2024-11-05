@@ -67,6 +67,8 @@
 
   &__logo {
     line-height: 0;
+		opacity: var(--_logo-opacity, 1);
+		transition: opacity .3s var(--ease-in);
 	  a {
       display: block;
     }
@@ -75,6 +77,12 @@
 			@media (min-width: $breakpoint-min-md) {
 				--_logo-max-width: 260px;
 			}
+		}
+		.logo-hidden & {
+			--_logo-opacity: 0;
+		}
+		.is-stuck & {
+			--_logo-opacity: 1;
 		}
   }
 	&__menu{
@@ -132,10 +140,6 @@
 }
 
 
-.logo {
-	max-width: 120px;
-	width: 100%;
-}
 
 .nav {
 	--navigation-primary-padding: 100px;

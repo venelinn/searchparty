@@ -9,6 +9,7 @@ const nextConfig = {
 	},
 	trailingSlash: false,
 	images: {
+		// dangerouslyAllowSVG: true,
 		remotePatterns: [
 			{
 				protocol: "https",
