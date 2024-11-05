@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
+import { getOptimizedImageURL } from "../../utils/common";
 import Section from "../Section";
 import styles from "./ImageContent.module.scss";
 
@@ -18,7 +19,7 @@ const ImageSection = ({ image }) => {
 			data-anim="cover-image"
 			>
 				<Image
-					src={image.src}
+					src={getOptimizedImageURL(image, 800, 100)} //
 					alt={image.alt}
 					width={image.width}
 					height={image.height}

@@ -108,3 +108,11 @@ export function Carousel(settings = {}) {
 
 	return carousel;
 }
+
+
+export function getOptimizedImageURL(image, width = 500, quality = "auto") {
+	if (typeof image.src === "string") {
+		return image.src.replace("/upload/", `/upload/w_${width},q_${quality}/`);
+	}
+	return image.src;
+}

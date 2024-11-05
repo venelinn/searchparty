@@ -3,6 +3,7 @@ import { useRef, useEffect } from "react";
 import { useRouter } from "next/router";
 import cx from "classnames";
 import Image from "next/image";
+// import { getOptimizedImageURL } from "../../utils/common";
 import gsap from "gsap";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicLayoutEffect";
@@ -90,7 +91,7 @@ const Section = ({
 			{image && (
 				<div className={cx(styles.section__image, classNames?.image)} data-anim="section-img-wrap">
 					<Image
-						src={image.src}
+						src={image.src} //
 						alt={image.alt}
 						layout="fill"
 						data-anim="section-img"
