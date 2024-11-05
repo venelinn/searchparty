@@ -32,13 +32,12 @@ const Hero = ({
 
     gsap.from("header", { opacity: 0, duration: 1, delay: 1.5 });
 
-		gsap.from(`[data-anim=${animationID}] [data-anim='hero-heading']`, {
+		gsap.from(`[data-anim=${animationID}] [data-anim='hero-content']`, {
       opacity: 0,
       duration: 1,
       delay: 1.5,
       ease: "power4.out",
     });
-		gsap.from("[data-anim='hero-description']", { opacity: 0, duration: 1, delay: 1.5 });
   };
 
 	useEffect(() => {
@@ -64,7 +63,7 @@ const Hero = ({
       }}
     >
 
-			<div className={styles.hero__content}>
+			<div className={styles.hero__content} data-anim="hero-content">
 				{content}
 			</div>
     </Section>
