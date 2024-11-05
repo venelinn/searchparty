@@ -46,7 +46,6 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
         }}
       >
         {thumbs.map((thumb, i) => {
-          const src = thumb.src;
           return (
             // <>
             // 	{JSON.stringify(full[i].images.fallback.src)}
@@ -68,8 +67,8 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
 								src={thumb.src}
 								alt={thumb?.alt}
 								layout="responsive"
-								width={thumb.width || 500}
-								height={thumb.height || 500}
+								width={thumb.width}
+								height={thumb.height}
 								/>
             </a>
           );

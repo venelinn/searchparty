@@ -5,6 +5,13 @@ import FormattedDate from "../../utils/DateFormat";
 import { Section } from "../../components/Section";
 import { Gallery } from "../../components/Galllery";
 
+function getOptimizedImageURL(image, width = 500, quality = "auto") {
+	if (typeof image.src === "string") {
+		return image.src.replace("/upload/", `/upload/w_${width},q_${quality}/`);
+	}
+	return image.src;
+}
+
 export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks }) {
 	const fullDate = <FormattedDate dateStr={mediaItem.date} locale={pageLocale} />;
 	return (
@@ -18,8 +25,14 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
       <Section heading={{heading: mediaItem.title, as: "h1", size: "h1"}}>
 				<p>{fullDate}</p>
 				<Gallery
-					full={mediaItem.images}
-					thumbs={mediaItem.images}
+					 full={mediaItem.images.map((img) => ({
+						...img,
+						src: getOptimizedImageURL(img, 1600)
+					}))}
+					thumbs={mediaItem.images.map((img) => ({
+						...img,
+						src: getOptimizedImageURL(img, 500)
+					}))}
 					itemsPerRow={3}
 				/>
       </Section>
