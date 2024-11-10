@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import Image from "next/image";
+import { getOptimizedImage } from "../../../utils/common";
 import { useState } from "react";
-import cx from "classnames";
 import { renderRichTextContent } from "../../../utils/RichText";
 import { Modal } from "../../Modal/Modal";
 import { Heading } from "../../Headings";
@@ -10,6 +10,7 @@ import styles from "./Member.module.scss";
 const Member = ({data, tabIndex, labels}) => {
 	const { image, heading, content, role, active } = data;
 	const [modalStates, setModalStates] = useState(false);
+	const { url, width, height } = getOptimizedImage(image[0], 800, 100);
 
 	const handleOpenModal = () => {
     setModalStates(true);
@@ -27,10 +28,10 @@ const Member = ({data, tabIndex, labels}) => {
 				 >
 				<figure className={styles.member__figure}>
 					<Image
-						src={image[0]?.src}
+						src={url}
 						alt={image[0].alt}
-						width={image[0]?.width}
-						height={image[0]?.height}
+						width={width}
+						height={height}
 						className={styles.member__image}
 					/>
 					<figcaption>
@@ -54,15 +55,24 @@ const Member = ({data, tabIndex, labels}) => {
 			</div>
 			<Modal isOpen={modalStates} onClose={() => handleCloseModal()}>
 				<div className={styles.mleader}>
-					<Heading
-						size="h1"
-						as="div"
-						className={styles.mleader__name}
-					>
-						{heading.heading}
-					</Heading>
-					<div className={styles.mleader__text}>
-						{content && renderRichTextContent(content)}
+					<Image
+						src={url}
+						alt={image[0].alt}
+						width={width}
+						height={height}
+						className={styles.member__image}
+					/>
+					<div>
+						<Heading
+							size="h1"
+							as="div"
+							className={styles.mleader__name}
+						>
+							{heading.heading}
+						</Heading>
+						<div className={styles.mleader__text}>
+							{content && renderRichTextContent(content)}
+						</div>
 					</div>
 				</div>
 			</Modal>

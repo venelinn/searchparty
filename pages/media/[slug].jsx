@@ -1,6 +1,6 @@
 import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "../../utils/content";
 import localization from "../../utils/localization";
-import { getOptimizedImageURL } from "../../utils/common";
+import { getOptimizedImage } from "../../utils/common";
 import { Layout } from "../../components/Layout";
 import FormattedDate from "../../utils/DateFormat";
 import { Section } from "../../components/Section";
@@ -27,18 +27,28 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 				<p>{fullDate}</p>
       </Section>
 			<Section size="full" >
-				<Gallery
-					 full={mediaItem.images.map((img) => ({
+			<Gallery
+				full={mediaItem.images.map((img) => {
+					const { url, width, height } = getOptimizedImage(img, 1600);
+					return {
 						...img,
-						src: getOptimizedImageURL(img, 1600)
-					}))}
-					thumbs={mediaItem.images.map((img) => ({
+						src: url,
+						width,
+						height,
+					};
+				})}
+				thumbs={mediaItem.images.map((img) => {
+					const { url, width, height } = getOptimizedImage(img, 700);
+					return {
 						...img,
-						src: getOptimizedImageURL(img, 500)
-					}))}
-					itemsPerRow={4}
-					slug={slug}
-				/>
+						src: url,
+						width,
+						height,
+					};
+				})}
+				itemsPerRow={4}
+				slug={slug}
+			/>
 			</Section>
     </Layout>
   );

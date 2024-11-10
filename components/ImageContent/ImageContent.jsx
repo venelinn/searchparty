@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { renderRichTextContent } from "../../utils/RichText"; // Import the renderRichTextContent function
-import { getOptimizedImageURL } from "../../utils/common";
+import { getOptimizedImage } from "../../utils/common";
 import { Section } from "../Section";
 import styles from "./ImageContent.module.scss";
 
@@ -12,18 +12,19 @@ const ContentSection = ({ content }) => (
 
 const ImageSection = ({ image }) => {
   const imageAspectRatio = image.width / image.height;
+	const { url, width, height } = getOptimizedImage(image, 800, 100);
   return (
     <div
       className={styles.module__image}
       data-orientation={imageAspectRatio > 1 ? "horizontal" : "vertical"}
       data-anim="cover-image"
     >
-      <Image
-        src={getOptimizedImageURL(image, 800, 100)} //
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-      />
+     <Image
+			src={url}
+			alt={image.alt}
+			width={width}
+			height={height}
+		/>
     </div>
   );
 };

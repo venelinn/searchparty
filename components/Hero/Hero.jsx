@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import PropTypes from "prop-types";
-import Image from "next/image";
-import cx from "classnames";
 import gsap from "gsap";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import { Section } from "../Section";
@@ -10,7 +8,6 @@ import styles from "./Hero.module.scss";
 const Hero = ({
 	id,
 	images,
-	locale,
 	content,
 	imagePriority,
 	animationID = "undefined",
@@ -18,7 +15,6 @@ const Hero = ({
 }) => {
 	const reduceMotion = useReduceMotion();
 	const image = images?.[0].image[0];
-	// console.log("content", content);
 
 	const heroAnimation = () => {
 		gsap.from(`[data-anim="${animationID}"] [data-anim='section-img-wrap']`, {

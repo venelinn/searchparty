@@ -93,7 +93,7 @@ export const Section = ({
 			{image && (
 				<div className={cx(styles.section__image, classNames?.image)} data-anim="section-img-wrap">
 					<Image
-						src={image.src} //
+						src={image.src}
 						alt={image.alt}
 						fill
 						data-anim="section-img"

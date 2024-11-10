@@ -116,3 +116,22 @@ export function getOptimizedImageURL(image, width = 500, quality = "auto") {
 	}
 	return image.src;
 }
+
+export function getOptimizedImage(image, width = 500, quality = "auto") {
+	if (typeof image.src === "string" && image.width && image.height) {
+		const aspectRatio = image.width / image.height;
+		const newHeight = Math.round(width / aspectRatio);
+		const optimizedURL = image.src.replace("/upload/", `/upload/w_${width},q_${quality}/`);
+
+		return {
+			url: optimizedURL,
+			width,
+			height: newHeight,
+		};
+	}
+	return {
+		url: image.src,
+		width: image.width,
+		height: image.height,
+	};
+}

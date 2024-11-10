@@ -1,10 +1,12 @@
 	import Link from "next/link";
 	import Image from "next/image";
+	import { getOptimizedImage } from "../../utils/common";
 	import FormattedDate from "../../utils/DateFormat";
 	import styles from "./MediaCard.module.scss";
 
 	const MediaCard = ({ item }) => {
 		const { title, slug, date, locale, cover } = item;
+		const { url, width, height } = getOptimizedImage(cover[0], 800, 100);
 
 		return (
 			<div className={styles.card}>
@@ -13,10 +15,10 @@
 					<FormattedDate dateStr={date} locale={locale} />
 				</div>
 				<Image
-					src={cover[0].src}
+					src={url}
 					alt={cover[0].alt}
-					width={cover[0].width}
-					height={cover[0].height}
+					width={width}
+					height={height}
 				/>
 				<Link href={`/media/${slug}`}><span className="sr-only">View more</span></Link>
 			</div>
