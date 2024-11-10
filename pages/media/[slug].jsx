@@ -7,7 +7,7 @@ import { Section } from "../../components/Section";
 import { Gallery } from "../../components/Gallery";
 
 
-export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks }) {
+export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks, slug }) {
 	const fullDate = <FormattedDate dateStr={mediaItem.date} locale={pageLocale} />;
 	return (
     <Layout
@@ -37,6 +37,7 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 						src: getOptimizedImageURL(img, 500)
 					}))}
 					itemsPerRow={4}
+					slug={slug}
 				/>
 			</Section>
     </Layout>
@@ -81,6 +82,7 @@ export async function getStaticProps({ params, locale }) {
     return {
       props: {
         mediaItem,
+				slug,
         siteConfig,
 				pageLocale,
         navigationLinks,

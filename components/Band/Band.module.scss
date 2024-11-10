@@ -1,0 +1,10 @@
+
+.band {
+	@media (min-width: $breakpoint-min-md) {
+		display: flex;
+	}
+	@media (max-width: $breakpoint-max-md) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

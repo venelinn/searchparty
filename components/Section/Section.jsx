@@ -41,10 +41,10 @@ export const Section = ({
 	isHidden = false,
 	heading = {},
 	subHeading = "",
-	theme = "light",
 	isolation = false,
 	fullHeight = false,
 	nested = false,
+	height = undefined,
 	contentAlign = undefined,
   ...props
 }) => {
@@ -57,7 +57,6 @@ export const Section = ({
 		[styles["section--vhidden"]]: isHidden,
 		[styles["section--isolate"]]: isolation,
 		[styles["section--nested"]]: nested,
-		[styles[`section--${theme}`]]: theme,
 		[styles[`section--${contentAlign}`]]: contentAlign,
     [className]: className,
 		"rel": image || isolation,
@@ -103,7 +102,7 @@ export const Section = ({
 				</div>
 			)}
 			<div
-				className={cx(styles.section__inner, classNames?.inner, classNames?.theme)}
+				className={cx(styles.section__inner, classNames?.inner)}
 				>
 			{subHeading && (
 				<span
@@ -132,7 +131,8 @@ export const Section = ({
 Section.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  size: PropTypes.oneOf(["fixed", "full", "half", "quarter"]),
+  size: PropTypes.oneOf(["fixed", "full"]),
+  height: PropTypes.oneOf(["full", "half", "quarter"]),
   color: PropTypes.string,
   anchor: PropTypes.string,
   image: PropTypes.object,
@@ -141,7 +141,6 @@ Section.propTypes = {
 		inner: PropTypes.string,
 		image: PropTypes.string,
 		imageImg: PropTypes.string,
-		theme: PropTypes.string,
 		heading: PropTypes.string,
 	}),
 	animationID: PropTypes.string,
@@ -149,7 +148,6 @@ Section.propTypes = {
 	isHidden: PropTypes.bool,
 	title: PropTypes.string,
 	subtitle: PropTypes.string,
-	theme: PropTypes.oneOf(["light", "dark", "hero", "grey"])
 };
 
 // export default Section;
