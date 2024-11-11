@@ -4,11 +4,10 @@ import cx from "classnames";
 import styles from "./Button.module.scss";
 
 const Button = ({
-	id,
   label,
   href,
   isExternal,
-  anchor,
+  externalHref,
   type,
   onClick,
   disabled,
@@ -16,41 +15,36 @@ const Button = ({
   wrapperClassName,
 	variant,
 	size,
-	full,
 	animationID,
 }) => {
-  const classes = cx(styles.btn, {
-    [styles["is-disabled"]]: disabled,
-    [styles["btn--full"]]: full,
-    [styles[`btn--${variant}`]]: variant,
-    [styles[`btn--${size}`]]: size,
+	const classes = cx(styles.btn, {
+		[styles["is-disabled"]]: disabled,
+		[styles["is-external"]]: isExternal,
+		[styles[`btn--${variant}`]]: variant,
+		[styles[`btn--${size}`]]: size,
     [className]: className,
   });
-
-  const commonProps = {
-    className: classes,
-    onClick: onClick,
-    disabled: disabled,
-    "data-sb-object-id": id,
-  };
-	const isExternalLink = isExternal || (href && href.startsWith("http"));
-
-	if (label && href) {
+  if (label && href) {
     return (
-      <div className={wrapperClassName} data-anim={animationID} data-sb-object-id={id}>
-        {isExternalLink ? (
-          <a {...commonProps} href={href} target="_blank" rel="noopener noreferrer">{label}</a>
-        ) : (
-          <Link {...commonProps} href={href}>{label}</Link>
-        )}
+      <div className={wrapperClassName} data-anim={animationID}>
+        <Link className={classes} href={href} onClick={onClick}>
+					{label}
+        </Link>
       </div>
     );
   }
 
-  if (label && anchor) {
+  if (label && (isExternal && externalHref)) {
     return (
-      <div className={wrapperClassName} data-anim={animationID} data-sb-object-id={id}>
-        <a {...commonProps} href={`#${anchor}`}>{label}</a>
+      <div className={wrapperClassName} data-anim={animationID}>
+        <a
+          className={classes}
+          target={isExternal ? "_blank" :  undefined}
+          rel={isExternal ? "noopener noreferrer" :  undefined}
+          href={externalHref}
+        >
+          {label}
+        </a>
       </div>
     );
   }
@@ -58,40 +52,32 @@ const Button = ({
   if (label) {
     return (
       <div className={wrapperClassName} data-anim={animationID}>
-        <button {...commonProps} type={type}>
-          <span data-sb-field-path="label">{label}</span>
+        <button
+          type={type}
+          className={classes}
+          onClick={onClick}
+          disabled={disabled}
+        >{label}
         </button>
       </div>
     );
   }
-
-  return null;
-};
+}
 
 Button.propTypes = {
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  href: PropTypes.string,
-  isExternal: PropTypes.bool,
-  anchor: PropTypes.string,
-  type: PropTypes.string,
-  onClick: PropTypes.func,
-  disabled: PropTypes.bool,
   className: PropTypes.string,
-  wrapperClassName: PropTypes.string,
-  variant: PropTypes.oneOf(["primary", "secondary", "noStyle"]),
-  size: PropTypes.oneOf(["lg", "md", "sm"]),
-  full: PropTypes.bool,
-  animationID: PropTypes.string,
+	type: PropTypes.string,
+	variant: PropTypes.oneOf(["primary", "secondary",]),
+	size: PropTypes.oneOf(["lg", "md"]),
 };
 
 Button.defaultProps = {
   className: "",
   type: "button",
-	variant: "primary",
+	variant: "secondary",
 	size: "lg",
-	full: false,
 };
+
 
 export default Button;
 export { Button };

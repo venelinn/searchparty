@@ -1,7 +1,10 @@
+/* ==========================================================================
+    Button
+========================================================================== */
+
 .btn {
-	--btn-padding-tb: 13px;
-	--btn-padding-lr: 26px;
-	--btn-border-radius: 44px;
+	--btn-padding-tb: .7rem;
+	--btn-padding-lr: 1rem;
 	display: inline-block;
 	text-align: center;
 	position: relative;
@@ -11,13 +14,14 @@
 	background-color: var(--btn-bg-color);
 	border: 1px solid var(--btn-border-color);
 	color: var(--btn-color, inherit);
-	font-weight: var(--font-black);
+	font-weight: var(--font-weight-bold);
 	padding: var(--btn-padding-tb) var(--btn-padding-lr);
-	border-radius: var(--btn-border-radius);
-	min-width: var(--btn-min-width, 200px);
-	font-size: var(--btn-font-size, 1.25em);;
-	letter-spacing: 0;
-	// white-space: nowrap;
+	border-radius: var(--btn-border-radius, 4px);
+	min-width: var(--btn-min-width, 180px);
+	font-family: inherit;
+	font-size: var(--ui-body-font-size);
+	cursor: pointer;
+	text-decoration: none;
 	@media (prefers-reduced-motion: no-preference) {
 		transition: color .6s var(--ease-in);
 	}
@@ -26,28 +30,32 @@
 		position: absolute;
 		z-index: -1;
 		background-color: var(--btn-hover-bg-color);
-		border-radius: var(--btn-border-radius);
+		width: 10%;
+		aspect-ratio: 1;
+		border-radius: 50%;
 		inset: 0;
 		margin: auto;
 		opacity: 0;
-		transform: translateY(100%);
 		@media (prefers-reduced-motion: no-preference) {
-			transition: transform 300ms, opacity 600ms;
+			transition: transform 600ms, opacity 1200ms;
 		}
 	}
-
 
 	&:hover,
 	&:focus-visible {
 		--btn-color: var(--btn-hover-color);
+		--btn-border-color: var(--btn-hover-border-color);
 		&::before {
+			transform: scale(20);
 			opacity: 1;
-			inset: 1px;
-			transform: translateY(0);
 			@media (prefers-reduced-motion: no-preference) {
-				transition: transform 300ms, opacity 300ms;
+				transition: transform 1200ms, opacity 600ms;
 			}
 		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+
 	}
 
 	&[disabled] {
@@ -55,56 +63,26 @@
 		pointer-events: none;
 	}
 
-	&--full {
-		--btn-min-width: 100%;
-	}
-
 	&--md {
-		--btn-padding-tb: 8px;
-		--btn-min-width: 100px;
-		--btn-border-radius: var(--btn-border-radius);
+
 	}
 
   &--primary {
+    --btn-bg-color: transparent;
+		--btn-border-color: var(--color-white);
+    --btn-hover-bg-color: var(--color-white);
+		--btn-hover-border-color: var(--color-black);
 		--btn-color: var(--color-white);
-    --btn-bg-color: var(--color-blue);
-		--btn-border-color: var(--color-ocean);
-		--btn-hover-color: var(--color-blue);
-    --btn-hover-bg-color: var(--color-highlight);
-		--btn-hover-border-color: var(--color-blue);
+		--btn-hover-color: var(--color-black);
   }
 
   &--secondary {
-		--btn-color: var(--color-blue);
 		--btn-bg-color: var(--color-white);
-    --btn-border-color: currentColor;
-		--btn-hover-color: var(--color-blue);
+    --btn-border-color: var(--color-white);
     --btn-hover-bg-color: var(--color-highlight);
-		--btn-hover-border-color: var(--color-blue);
-		&:hover,
-		&:focus-visible  {
-			&::before {
-				inset: 0;
-			}
-		}
-
-  }
-	&--secondary-inverted {
-		--btn-color: var(--color-white);
-		--btn-bg-color: transparent;
-    --btn-border-color: currentColor;
-    --btn-hover-border-color: var(--secondary-light);
-		--btn-shadow-color: white;
-		--btn-hover-bg-color: white;
-		--btn-hover-color: var(--color-sapphire);
-  }
-	&--tab {
-		--btn-color: var(--color-sapphire);
-		--btn-bg-color: var(--color-light-grey);
-		--btn-border-color: var(--color-light-grey);
+    --btn-hover-border-color: var(--color-highlight);
+		--btn-color: var(--color-black);
 		--btn-hover-color: var(--color-white);
-    --btn-hover-bg-color: var(--color-ocean);
-    --btn-hover-border-color: var(--color-ocean);
-  }
 
+  }
 }

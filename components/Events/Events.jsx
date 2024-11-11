@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import { Section } from "../Section";
 import { Heading } from "../Headings";
 import { Button } from "../Button/Button.jsx";
+import Link from "next/link";
 import FormattedDate from "../../utils/DateFormat";
 import styles from "./Events.module.scss";
+
+function generateGoogleMapsURL(lat, lng) {
+	return `https://www.google.com/maps?q=${lat},${lng}`;
+}
 
 export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -20,7 +25,7 @@ export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
   return (
     <Section id={id} heading={heading}>
 			<div className={styles.events}>
-      <Heading as="h3" uppercase={true} className={styles.event__heading}>
+      <Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
         Upcoming Events
       </Heading>
       {upcomingEvents.map((event) => (
@@ -33,13 +38,17 @@ export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
           </div>
           <div className="event-cell cell-ticket top-tickets">
             <div className="bth-location">{event.location}</div>
-            <Button variant="secondary" size={"md"}  label="Address" />
+            <Button
+							variant="primary"
+							label="Location"
+							isExternal={true}
+							externalHref={generateGoogleMapsURL(event.address.lat, event.address.lon)} />
           </div>
         </div>
       ))}
 			</div>
 			<div  className={styles.events}>
-				<Heading as="h3" uppercase={true} className={styles.event__heading}>
+				<Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
 					Past Events
 				</Heading>
 
@@ -53,7 +62,7 @@ export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
 							<div className="bth-location">{event.location}</div>
 						</div>
 						<div className="event-cell cell-ticket top-tickets">
-							<Button variant="secondary" label="View Gallery" />
+							<Button href={event.gallery} variant="primary" label="View Gallery" />
 						</div>
 					</div>
 				))}
