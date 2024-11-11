@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
-import { useRef, useEffect } from "react";
-import { useRouter } from "next/router";
+import {
+	useRef,
+	// useEffect
+} from "react";
+// import { useRouter } from "next/router";
 import cx from "classnames";
 import Image from "next/image";
-// import { getOptimizedImageURL } from "../../utils/common";
 import gsap from "gsap";
-import useReduceMotion from "../../hooks/useReduceMotion";
-import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicLayoutEffect";
+// import useReduceMotion from "../../hooks/useReduceMotion";
+// import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicLayoutEffect";
 import { Heading } from "../Headings";
 import styles from  "./Section.module.scss";
 
@@ -33,33 +35,25 @@ export const Section = ({
   children = null,
   className = "",
   classNames = {},
-  color = null,
   image = undefined,
-	size = "fixed",
-	anchor = undefined,
 	animationID = null,
-	isHidden = false,
 	heading = {},
 	subHeading = "",
-	isolation = false,
 	fullHeight = false,
-	nested = false,
+	size = "fixed",
 	height = undefined,
 	contentAlign = undefined,
   ...props
 }) => {
-	const reduceMotion = useReduceMotion();
-	const router = useRouter();
+	// const reduceMotion = useReduceMotion();
+	// const router = useRouter();
 	const element = useRef();
   const classes = cx(styles.section, classNames?.main, {
 		[styles["section--full"]]: size === "full",
 		[styles["section--full-height"]]: fullHeight,
-		[styles["section--vhidden"]]: isHidden,
-		[styles["section--isolate"]]: isolation,
-		[styles["section--nested"]]: nested,
 		[styles[`section--${contentAlign}`]]: contentAlign,
     [className]: className,
-		"rel": image || isolation,
+		"rel": image,
   });
 
 	// useIsomorphicLayoutEffect(() => {
@@ -82,11 +76,8 @@ export const Section = ({
 		<section
 			className={classes}
 			data-size={size}
-			data-color={color}
 			data-anim={animationID}
-			id={anchor}
 			ref={element}
-			style={color ? { "--bgr-section-color": `var(--color-${color})` } : null}
 			{...props}
 		>
 
@@ -130,12 +121,9 @@ export const Section = ({
 
 Section.propTypes = {
   children: PropTypes.node,
+	title: PropTypes.string,
+	subtitle: PropTypes.string,
   className: PropTypes.string,
-  size: PropTypes.oneOf(["fixed", "full"]),
-  height: PropTypes.oneOf(["full", "half", "quarter"]),
-  color: PropTypes.string,
-  anchor: PropTypes.string,
-  image: PropTypes.object,
 	classNames: PropTypes.shape({
 		main: PropTypes.string,
 		inner: PropTypes.string,
@@ -143,11 +131,10 @@ Section.propTypes = {
 		imageImg: PropTypes.string,
 		heading: PropTypes.string,
 	}),
+  size: PropTypes.oneOf(["fixed", "full"]),
+  height: PropTypes.oneOf(["full", "half", "quarter"]),
+  image: PropTypes.object,
 	animationID: PropTypes.string,
-	anchor: PropTypes.string,
-	isHidden: PropTypes.bool,
-	title: PropTypes.string,
-	subtitle: PropTypes.string,
 };
 
 // export default Section;

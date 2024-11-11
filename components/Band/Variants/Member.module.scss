@@ -82,11 +82,14 @@
 	background-color: #fff;
 	padding: var(--_mleader-padding, 2rem 0 0 0);
 	display: grid;
-	grid-template-columns: auto 1fr;
 	gap: 2rem;
 	@media (min-width: $breakpoint-min-md) {
-		max-width: 80vw;
 		--_mleader-padding: 2rem;
+		grid-template-columns: auto 1fr;
+		max-width: var(--page-max-width);
+		img {
+			max-width: 400px;
+		}
 	}
 	img {
 		filter: grayscale(100%);
