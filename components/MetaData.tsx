@@ -27,10 +27,10 @@ export default function MetaData({ title, description, keywords, image, type, da
 
   return (
     <>
+      {/* <title>{meta.title}</title> */}
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>{meta.title}</title>
       <meta name="description" content={meta.description} />
 			<meta name="keywords" content={meta.keywords} />
       <meta property="og:title" content={meta.title} />

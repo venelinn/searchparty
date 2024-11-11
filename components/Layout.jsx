@@ -25,7 +25,7 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 	return (
 		<>
 			<Head>
-				<title>{page.title}</title>
+				<title>{page.pageName} : Search Party</title>
 				{/* {siteConfig.backgroundImage && (
           <html data-has-bgr />
         )} */}
