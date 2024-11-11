@@ -5,41 +5,42 @@ import useReduceMotion from "../../hooks/useReduceMotion";
 import { Section } from "../Section";
 import styles from "./Hero.module.scss";
 
+const heroAnimation = (animationID, onComplete) => {
+	const timeline = gsap.timeline({ onComplete });
+	const sectionSelector = `[data-anim="${animationID}"] [data-anim="section-img-wrap"]`;
+  const heroContentSelector = `[data-anim="${animationID}"] [data-anim="hero-content"]`;
+
+  timeline.from(sectionSelector, {
+    duration: 1.5,
+    opacity: 0,
+    delay: 0.5,
+    scale: 1.1,
+    ease: "power4.out",
+  })
+  .from("header", { opacity: 0, duration: 1, delay: 1 }, "-=1")
+  .from(heroContentSelector, {
+    opacity: 0,
+    duration: 1,
+    ease: "power4.out",
+  }, "-=0.5");
+};
+
 const Hero = ({
 	id,
 	images,
 	content,
 	imagePriority,
 	animationID = "undefined",
-	size
+	size,
 }) => {
 	const reduceMotion = useReduceMotion();
 	const image = images?.[0].image[0];
 
-	const heroAnimation = () => {
-		gsap.from(`[data-anim="${animationID}"] [data-anim='section-img-wrap']`, {
-      duration: 1.5,
-      opacity: 0,
-      delay: .5,
-      scale: 1.1,
-			ease: "power4.out",
-    });
-
-
-    gsap.from("header", { opacity: 0, duration: 1, delay: 1.5 });
-
-		gsap.from(`[data-anim=${animationID}] [data-anim='hero-content']`, {
-      opacity: 0,
-      duration: 1,
-      delay: 1.5,
-      ease: "power4.out",
-    });
-  };
 
 	useEffect(() => {
 		let ctx = gsap.context(() => {
 			if (!reduceMotion && animationID) {
-				heroAnimation()
+				heroAnimation(animationID);
 			}
 		});
 		return () => ctx.revert(); // <- cleanup!
@@ -67,7 +68,7 @@ const Hero = ({
 };
 
 export default Hero;
-export { Hero };
+export { Hero, heroAnimation };
 
 Hero.propTypes = {
 	id: PropTypes.string,

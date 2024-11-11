@@ -13,7 +13,7 @@ const FormattedDate = ({ dateStr, locale, includeYear = true }) => {
   };
 
   const selectedLocale = locales[locale] || enCA;
-  const formatString = includeYear ? "d MMM yyyy" : "d MMM";
+  const formatString = includeYear ? "d MMM ''yy" : "d MMM";
 
 const formattedDate = format(new Date(dateStr), formatString, { locale: selectedLocale });
 const dayPart = formattedDate.split(" ")[0];
