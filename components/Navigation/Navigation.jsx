@@ -79,7 +79,8 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 							{isNavigationVisible !== false && (
 								<div className={styles["navigation__menu-list"]}>
 									{links.map((link) => {
-										const isActive = router.asPath === link.slug;
+										// const isActive = router.asPath === link.slug;
+										const isActive = router.asPath.startsWith(link.slug);
 										return (
 											<Link
 												key={link.slug}
