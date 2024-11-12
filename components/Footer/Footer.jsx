@@ -36,13 +36,14 @@ export default function Footer({siteConfig, links, pageLocale}) {
 
 	return (
 		<Section
-			theme={siteConfig?.theme?.color}
 			classNames={{
 				main: styles.main,
 			}}>
 			<div className={styles.footer} ref={element}>
-				<div className={styles.footer__content}>
-					<div className={styles.footer__top}>
+					<div className={styles.footer__fineprint}>
+						<span>{siteConfig?.copyright} &copy; {new Date().getFullYear()} {siteConfig?.fineprint} </span>
+					</div>
+					{Array.isArray(links) && links.length > 0 && (
 						<div className={styles.footer__nav}>
 							{links.map((link) => {
 								const isActive = router.asPath === link.slug;
@@ -61,11 +62,7 @@ export default function Footer({siteConfig, links, pageLocale}) {
 								);
 							})}
 						</div>
-					</div>
-					<div className={styles.footer__fineprint}>
-						<span>{siteConfig?.copyright} &copy; {new Date().getFullYear()} {siteConfig?.fineprint} </span>
-					</div>
-				</div>
+					)}
 			</div>
 		</Section>
 	);

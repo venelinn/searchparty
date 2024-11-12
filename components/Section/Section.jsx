@@ -96,10 +96,7 @@ export const Section = ({
 				className={cx(styles.section__inner, classNames?.inner)}
 				>
 			{subHeading && (
-				<span
-					data-sb-field-path="subheading"
-					className={cx(styles.section__subHeading, classNames?.subHeading)}
-				>{subHeading}</span>
+				<span className={cx(styles.section__subHeading, classNames?.subHeading)}>{subHeading}</span>
 			)}
 			{heading?.heading && (
 				<Heading

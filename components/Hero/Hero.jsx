@@ -59,7 +59,6 @@ const Hero = ({
 				imageImg: styles.imageTop
       }}
     >
-
 			<div className={styles.hero__content} data-anim="hero-content">
 				{content}
 			</div>
@@ -74,7 +73,8 @@ Hero.propTypes = {
 	id: PropTypes.string,
   images: PropTypes.array,
   animationID: PropTypes.string,
-	size: PropTypes.oneOf(["fixed", "full", "half", "quarter"]),
+	size: PropTypes.oneOf(["fixed", "full"]),
+	height: PropTypes.oneOf(["full", "half", "quarter"]),
 	locale: PropTypes.string,
 	content: PropTypes.array,
 };

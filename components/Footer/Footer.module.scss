@@ -3,38 +3,13 @@
 ========================================================================== */
 
 .footer {
+	display: flex;
+	justify-content: var(--_footer-justify, center);
+	&:has(.footer__nav) {
+		--_footer-justify: space-between;
+	}
 	&__fineprint {
 		@include ui-small;
-	}
-	&__content {
-		display: grid;
-		gap: var(--footer-content-gap, 1rem);
-		@media (max-width: $breakpoint-max-md) {
-			--footer-content-gap: 2rem;
-		}
-	}
-	&__top {
-		display: flex;
-		justify-content: space-between;
-	}
-	&__nav {
-		display: flex;
-		gap: 1rem;
-		font-size: rem(12px);
-		text-transform: uppercase;
-		font-weight: var(--font-bold);
-		letter-spacing: 1.8px;
-		> * {
-			text-align: center;
-			height: inherit;
-			align-items: center;
-
-			border-left: 1px solid #fff;
-			padding-left: 1rem;
-		}
-		> :first-child {
-			border-left: 0;
-		}
 	}
 }
 

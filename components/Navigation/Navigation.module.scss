@@ -113,6 +113,11 @@
 		display: var(--_display-menu-nav, flex);
 		gap: 2rem;
 		text-transform: uppercase;
+		@media (min-width: $breakpoint-min-md) {
+			> *:first-child {
+				display: none;
+			}
+		}
 		@media (max-width: $breakpoint-max-md) {
 			.is-open & {
 				--_display-menu-nav: grid;

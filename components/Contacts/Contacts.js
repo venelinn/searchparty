@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "../Button/Button.jsx";
 import styles from  "./Contacts.module.scss";
 
 const Contacts = () => {
@@ -77,9 +78,14 @@ const Contacts = () => {
           </label>
         </p>
         <p className={styles["form-field"]}>
-          <button className={styles.submitform} type="submit" disabled={status === "pending"}>
-					Submit
-          </button>
+          <Button
+						variant="primary"
+						size="lg"
+						type="submit"
+						label="Submit"
+						disabled={status === "pending"}
+						/>
+
         </p>
         {status === "ok" && (
           <div className="alert alert-success">
