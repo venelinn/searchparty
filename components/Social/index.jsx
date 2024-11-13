@@ -1,7 +1,7 @@
 import Instagram from "../Icons/Instagram";
 import Facebook from "../Icons/Facebook";
-import styles from "./Social.module.scss";
 import YouTube from "../Icons/YouTube";
+import styles from "./Social.module.scss";
 
 const iconComponents = {
   Instagram,
