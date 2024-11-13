@@ -124,7 +124,7 @@ export async function getStaticProps({ params, locale }) {
 
     // Fetch YouTube video data
 		const apiKey = process.env.NEXT_YOUTUBE_API_KEY;
-		const videoPromises = mediaItem.videos.map(async (video) => {
+		const videoPromises = (mediaItem.videos || []).map(async (video) => {
 			const videoId = new URL(video.url).searchParams.get("v");
 			const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet`);
 			const data = await res.json();
