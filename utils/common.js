@@ -125,13 +125,13 @@ export function getOptimizedImage(image, width = 500, quality = "auto") {
 
 		return {
 			url: optimizedURL,
-			width,
+			width: width,
 			height: newHeight,
 		};
 	}
 	return {
 		url: image.src,
-		width: image.width,
-		height: image.height,
+		width: image.width || 500,
+    height: image.height || 500,
 	};
 }

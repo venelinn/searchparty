@@ -73,8 +73,7 @@ Hero.propTypes = {
 	id: PropTypes.string,
   images: PropTypes.array,
   animationID: PropTypes.string,
-	size: PropTypes.oneOf(["fixed", "full"]),
-	height: PropTypes.oneOf(["full", "half", "quarter"]),
+	size: PropTypes.oneOf(["full", "half", "quarter"]),
 	locale: PropTypes.string,
 	content: PropTypes.array,
 };

@@ -12,7 +12,7 @@ export default function MediaPage({ page, mediaItems, siteConfig, navigationLink
 	return (
     <Layout siteConfig={siteConfig} navigationLinks={navigationLinks} page={page}>
       <Section heading={{heading: "Media", as: "h1", size: "h1"}}>
-        <Row cols="2">
+        <Row cols={2}>
 					{mediaItems.map((item) => (
             <Cell key={item.id}>
 							<MediaCard key={item.id} item={item} />

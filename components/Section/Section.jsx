@@ -128,7 +128,7 @@ Section.propTypes = {
 		imageImg: PropTypes.string,
 		heading: PropTypes.string,
 	}),
-  size: PropTypes.oneOf(["fixed", "full"]),
+  size: PropTypes.oneOf(["fixed", "full", "quarter"]),
   height: PropTypes.oneOf(["full", "half", "quarter"]),
   image: PropTypes.object,
 	animationID: PropTypes.string,

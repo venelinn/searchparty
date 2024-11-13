@@ -15,13 +15,12 @@ const FormattedDate = ({ dateStr, locale, includeYear = true }) => {
   const selectedLocale = locales[locale] || enCA;
   const formatString = includeYear ? "d MMM ''yy" : "d MMM";
 
-const formattedDate = format(new Date(dateStr), formatString, { locale: selectedLocale });
-const dayPart = formattedDate.split(" ")[0];
-const wrappedDayPart = `<span>${dayPart}</span>`;
+	const formattedDate = format(new Date(dateStr), formatString, { locale: selectedLocale });
+	const dayPart = formattedDate.split(" ")[0];
+	const wrappedDayPart = `<span>${dayPart}</span>`;
 
-const finalDate = wrappedDayPart + formattedDate.substring(dayPart.length);
-return <div dangerouslySetInnerHTML={{ __html: finalDate }} />;
-  //return <>{formattedDate}</>;
+	const finalDate = wrappedDayPart + formattedDate.substring(dayPart.length);
+	return <div dangerouslySetInnerHTML={{ __html: finalDate }} />;
 };
 
 export default FormattedDate;

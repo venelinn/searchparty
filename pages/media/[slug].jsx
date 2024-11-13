@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "../../utils/content";
 import localization from "../../utils/localization";
 import { getOptimizedImage } from "../../utils/common";
@@ -7,7 +8,13 @@ import { Section } from "../../components/Section";
 import { Gallery } from "../../components/Gallery";
 
 
-export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks, slug }) {
+export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks, slug, videos }) {
+	const [isClient, setIsClient] = useState(false);
+	useEffect(() => {
+    setIsClient(true); // Set to true once the component has mounted on the client
+  }, []);
+	if (!mediaItem || !videos || !isClient) return null;
+
 	const fullDate = <FormattedDate dateStr={mediaItem.date} locale={pageLocale} />;
 	return (
     <Layout
@@ -17,7 +24,7 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 				title: mediaItem.title,
 				locale: pageLocale,
 			}}>
-      <Section
+		  <Section
 				contentAlign="center"
 				heading={{
 					heading: mediaItem.title,
@@ -28,24 +35,49 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
       </Section>
 			<Section size="full" >
 			<Gallery
-				full={mediaItem.images.map((img) => {
-					const { url, width, height } = getOptimizedImage(img, 1600);
-					return {
-						...img,
-						src: url,
-						width,
-						height,
-					};
-				})}
-				thumbs={mediaItem.images.map((img) => {
-					const { url, width, height } = getOptimizedImage(img, 700);
-					return {
-						...img,
-						src: url,
-						width,
-						height,
-					};
-				})}
+				full={[
+					...videos.map((video) => ({
+						src: `https://www.youtube.com/embed/${video.videoId}`,  // YouTube video URL
+						poster: mediaItem.videos.find(v => v.id === video.id)?.thumb?.[0]?.src // Check if mediaItem.videos exists and has thumb[0]
+							? getOptimizedImage(mediaItem.videos.find(v => v.id === video.id).thumb[0], 1000).url // Use it if available
+							: video.thumbnail,
+						isVideo: true,
+						width: video.thumbnailWidth,
+						height: video.thumbnailHeight,
+						title: mediaItem.videos.find(v => v.id === video.id)?.videoTitle || video.title, // Fallback to YouTube title if no title in mediaItem
+					})),
+					...mediaItem.images.map((img) => {
+						const { url, width, height } = getOptimizedImage(img, 1600);
+						return {
+							...img,
+							src: url,
+							width,
+							height,
+							isVideo: false,
+						};
+					}),
+				]}
+				thumbs={[
+					...videos.map((video) => ({
+						src: mediaItem.videos.find(v => v.id === video.id)?.thumb?.[0]?.src // Check if mediaItem.videos exists and has thumb[0]
+							? getOptimizedImage(mediaItem.videos.find(v => v.id === video.id).thumb[0], 700).url // Use it if available
+							: video.thumbnail, // Fallback to YouTube thumbnail if thumb[0] is missing
+						isVideo: true,
+						width: video.thumbnailWidth,
+						height: video.thumbnailHeight,
+						title: mediaItem.videos.find(v => v.id === video.id)?.videoTitle || video.title,
+					})),
+					...mediaItem.images.map((img) => {
+						const { url, width, height } = getOptimizedImage(img, 700);
+						return {
+							...img,
+							src: url,
+							width,
+							height,
+							isVideo: false,
+						};
+					}),
+				]}
 				itemsPerRow={4}
 				slug={slug}
 			/>
@@ -89,6 +121,32 @@ export async function getStaticProps({ params, locale }) {
     if (!mediaItem) {
       return { notFound: true };
     }
+
+    // Fetch YouTube video data
+		const apiKey = process.env.NEXT_YOUTUBE_API_KEY;
+		const videoPromises = mediaItem.videos.map(async (video) => {
+			const videoId = new URL(video.url).searchParams.get("v");
+			const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet`);
+			const data = await res.json();
+			if (data.items && data.items.length > 0) {
+				const videoSnippet = data.items[0].snippet;
+				return {
+					id: video.id,
+					videoId: videoId,
+					title: videoSnippet.title,
+					thumbnail: videoSnippet.thumbnails.high.url,
+				};
+			}
+			return null;
+		});
+
+		const videos = (await Promise.all(videoPromises)).filter(Boolean).map(video => ({
+			...video,
+			thumbnailWidth: 480,  // Default width for YouTube hqdefault
+			thumbnailHeight: 360,  // Default height for YouTube hqdefault
+		}))
+
+
     return {
       props: {
         mediaItem,
@@ -96,6 +154,7 @@ export async function getStaticProps({ params, locale }) {
         siteConfig,
 				pageLocale,
         navigationLinks,
+				videos,
       },
       revalidate: 60,
     };
