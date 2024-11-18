@@ -6,6 +6,8 @@ const EventsConnector = (props) => {
 		id={props?.id}
 		heading={props?.heading}
 		events={props?.events}
+		columns={props?.columns}
+		layout={props?.layout}
 		locale={props?.locale}
 	/>
 )}

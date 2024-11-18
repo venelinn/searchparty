@@ -135,3 +135,11 @@ export function getOptimizedImage(image, width = 500, quality = "auto") {
     height: image.height || 500,
 	};
 }
+
+export function getCloudinaryAsSvg(url) {
+	// Remove `f_auto` for SVG images to prevent WebP conversion
+	if (url.includes(".svg")) {
+		return url.replace("/f_auto", "");
+	}
+	return url;
+}

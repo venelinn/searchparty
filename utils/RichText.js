@@ -26,7 +26,7 @@ export const renderEmbeddedEntryBlock = (node) => {
 			animationID={heading?.animationID}
 			highlight={heading?.highlight}
 		>
-			{heading?.title}
+			{heading?.heading}
 		</Heading>
 	);
 

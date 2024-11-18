@@ -1,10 +1,8 @@
 import { useEffect, useMemo } from "react";
 import gsap from "gsap";
-
 import { Section } from "../Section";
 import { Heading } from "../Headings";
 import { Event } from "./Event";
-import { Row, Cell } from "../Grid";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import styles from "./Events.module.scss";
 
@@ -14,12 +12,10 @@ const renderEvents = (events, type, locale) => {
   }
 
   return events.map((event) => (
-    <Cell key={event.id}>
-			<Event type={type} event={event} locale={locale} />
-		</Cell>
+    <Event key={event.id} type={type} event={event} locale={locale} />
   ));
 };
-export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
+export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcoming }) => {
   const reduceMotion = useReduceMotion();
 
    // Memoize the event categorization to avoid unnecessary recalculations
@@ -61,19 +57,19 @@ export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
   return (
     <Section id={id} heading={heading} animationID="events">
 			<div className={styles.events}>
-				<Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
+				<div data-type="upcoming">
+				<Heading as="h2" size="h2" uppercase={true} className={styles.events__heading}>
 					Upcoming Events
 				</Heading>
-				<Row cols={2}>
-					{renderEvents(upcomingEvents, "upcoming", locale)}
-				</Row>
+				{renderEvents(upcomingEvents, "upcoming", locale)}
+				</div>
 
-				<Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
-					Past Events
-				</Heading>
-				<Row cols={1}>
-				{renderEvents(pastEvents, "past", locale)}
-				</Row>
+				<div data-type="past">
+					<Heading as="h2" size="h2" uppercase={true} className={styles.events__heading}>
+						Past Events
+					</Heading>
+					{renderEvents(pastEvents, "past", locale)}
+				</div>
 			</div>
     </Section>
   );

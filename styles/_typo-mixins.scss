@@ -72,12 +72,12 @@
 }
 
 @mixin ui-small($bold: false) {
-	font-size: var(--ui-mice-font-size);
-	line-height: var(--ui-mice-line-height);
-	font-style: var(--ui-mice-font-style);
-	font-weight: var(--ui-mice-weight, var(--ui-mice-font-weight));
+	font-size: var(--ui-small-font-size);
+	line-height: var(--ui-small-line-height);
+	font-style: var(--ui-small-font-style);
+	font-weight: var(--ui-small-weight, var(--ui-small-font-weight));
 	@if $bold {
-		--ui-mice-weight: var(--font-weight-bold);
+		--ui-small-weight: var(--font-weight-bold);
 	}
 }
 
