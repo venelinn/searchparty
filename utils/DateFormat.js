@@ -15,14 +15,19 @@ export const FormattedDate = ({ dateStr, locale, includeYear = true }) => {
   }
 
   const selectedLocale = locales[locale] || enCA;
-  const formatString = includeYear ? "d MMM ''yy" : "d MMM";
+  const dayName = format(new Date(dateStr), "EEE", { locale: selectedLocale }); // Day name
+  const day = format(new Date(dateStr), "d", { locale: selectedLocale }); // Day number
+  const monthYear = includeYear
+    ? format(new Date(dateStr), "MMM ''yy", { locale: selectedLocale }) // Month and year
+    : format(new Date(dateStr), "MMM", { locale: selectedLocale }); // Month only
 
-  const formattedDate = format(new Date(dateStr), formatString, { locale: selectedLocale });
-  const dayPart = formattedDate.split(" ")[0];
-  const wrappedDayPart = `<span>${dayPart}</span>`;
-
-  const finalDate = wrappedDayPart + formattedDate.substring(dayPart.length);
-  return <div dangerouslySetInnerHTML={{ __html: finalDate }} />;
+  return (
+    <>
+      <span>{dayName}</span>
+      <span>{day}</span>
+      <span>{monthYear}</span>
+    </>
+  );
 };
 
 // Function to format the time (hours and minutes)
