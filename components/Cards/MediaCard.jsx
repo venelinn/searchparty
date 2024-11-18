@@ -1,7 +1,7 @@
 	import Link from "next/link";
 	import Image from "next/image";
 	import { getOptimizedImage } from "../../utils/common";
-	import FormattedDate from "../../utils/DateFormat";
+	import { FormattedDate } from "../../utils/DateFormat";
 	import styles from "./MediaCard.module.scss";
 
 	const MediaCard = ({ item }) => {

@@ -1,33 +1,45 @@
-import { useState, useEffect } from "react";
-import cx from "classnames";
+import { useEffect, useMemo } from "react";
 import gsap from "gsap";
+
 import { Section } from "../Section";
 import { Heading } from "../Headings";
-import { Button } from "../Button/Button.jsx";
-import FormattedDate from "../../utils/DateFormat";
+import { Event } from "./Event";
+import { Row, Cell } from "../Grid";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import styles from "./Events.module.scss";
 
-function generateGoogleMapsURL(lat, lng, placeName) {
-	const encodedPlaceName = encodeURIComponent(placeName);
- 	return `https://www.google.com/maps?q=${lat},${lng}`;
-}
-/******  354c2d53-1c27-456d-82b3-91d41a5b15e2  *******/
+const renderEvents = (events, type, locale) => {
+  if (!events || events.length === 0) {
+    return <p>No events available</p>;
+  }
+
+  return events.map((event) => (
+    <Cell key={event.id}>
+			<Event type={type} event={event} locale={locale} />
+		</Cell>
+  ));
+};
 export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
   const reduceMotion = useReduceMotion();
-	const [upcomingEvents, setUpcomingEvents] = useState([]);
-  const [pastEvents, setPastEvents] = useState([]);
 
-  useEffect(() => {
+   // Memoize the event categorization to avoid unnecessary recalculations
+	 const { upcomingEvents, pastEvents } = useMemo(() => {
     const currentDate = new Date();
-    const upcoming = events.filter((event) => new Date(event.date) > currentDate);
-    const past = events.filter((event) => new Date(event.date) <= currentDate);
-    setUpcomingEvents(upcoming);
-    setPastEvents(past);
+    const upcoming = [];
+    const past = [];
+    events.forEach((event) => {
+      const eventDate = new Date(event.date);
+      if (eventDate > currentDate) {
+        upcoming.push(event);
+      } else {
+        past.push(event);
+      }
+    });
+    return { upcomingEvents: upcoming, pastEvents: past };
   }, [events]);
 
-	const eventsAnimation = () => {
 
+	const eventsAnimation = () => {
 		gsap.from(`[data-anim='events']`, {
       duration: 1.5,
       opacity: 0,
@@ -36,11 +48,6 @@ export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
 			ease: "power4.out",
     });
   };
-
-	// useEffect(() => {
-  //   // Run heroAnimation and pass eventsAnimation to run after it completes
-  //   heroAnimation(eventsAnimation);
-  // }, []);
 
 	useEffect(() => {
 		let ctx = gsap.context(() => {
@@ -54,49 +61,19 @@ export const Events = ({ id, events, heading, locale, onlyUpcoming }) => {
   return (
     <Section id={id} heading={heading} animationID="events">
 			<div className={styles.events}>
-      <Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
-        Upcoming Events
-      </Heading>
-			<div className={cx(styles.event, styles.event__header)}>
-				<div className={styles.event__date}>Date</div>
-				<div>Venue</div>
-				<div> </div>
-			</div>
-      {upcomingEvents.map((event) => (
-        <div className={styles.event} key={event.id}>
-          <div className={styles.event__date}>
-						<FormattedDate dateStr={event.date} locale={locale} />
-					</div>
-          <div className={styles.event__location}>{event.venue}</div>
-          <div>
-            <Button
-							variant="primary"
-							label="Location"
-							isExternal={true}
-							externalHref={generateGoogleMapsURL(event.address.lat, event.address.lon, event.venue)} />
-          </div>
-        </div>
-      ))}
-			</div>
-			<div  className={styles.events}>
+				<Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
+					Upcoming Events
+				</Heading>
+				<Row cols={2}>
+					{renderEvents(upcomingEvents, "upcoming", locale)}
+				</Row>
+
 				<Heading as="h3" size="h3" uppercase={true} className={styles.event__heading}>
 					Past Events
 				</Heading>
-
-				{pastEvents.map((event) => (
-					<div className={styles.event} key={event.id}>
-						<div className={styles.event__date}>
-							<FormattedDate dateStr={event.date} locale={locale} />
-						</div>
-						<div className={styles.event__location}>
-							<div className="bth-venue">{event.venue}</div>
-							<div className="bth-location">{event.location}</div>
-						</div>
-						<div>
-							{event.gallery &&	<Button href={event.gallery} variant="primary" label="Gallery" /> }
-						</div>
-					</div>
-				))}
+				<Row cols={1}>
+				{renderEvents(pastEvents, "past", locale)}
+				</Row>
 			</div>
     </Section>
   );

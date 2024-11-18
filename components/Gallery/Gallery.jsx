@@ -2,7 +2,6 @@ import React from "react";
 import { chunk, sum } from "lodash";
 import LightGallery from "lightgallery/react";
 import Image from "next/image";
-import Video from "../Icons/Video";
 import YouTube from "../Icons/YouTube";
 import styles from "./Gallery.module.scss";
 
@@ -28,7 +27,6 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
     chunk(aspectRatios, itemsPerRow).map((rowAspectRatios) => sum(rowAspectRatios)),
   );
   const onInit = () => {};
-  // console.log("itemsPerRow", itemsPerRowByBreakpoints);
 
   return (
     <div className={styles.gallery}>

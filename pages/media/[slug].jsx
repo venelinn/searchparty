@@ -3,7 +3,7 @@ import { getPages, getContentItems, getSiteConfig, getNavigationLinks } from "..
 import localization from "../../utils/localization";
 import { getOptimizedImage } from "../../utils/common";
 import { Layout } from "../../components/Layout";
-import FormattedDate from "../../utils/DateFormat";
+import { FormattedDate } from "../../utils/DateFormat";
 import { Section } from "../../components/Section";
 import { Gallery } from "../../components/Gallery";
 
