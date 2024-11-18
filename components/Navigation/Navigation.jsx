@@ -26,7 +26,7 @@ function Hamburger({ isOpen, toggle }) {
   );
 }
 
-const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisible, isLogoVisible }) => {
+const Navigation = ({ pageLocale, siteConfig, links, isNavigationVisible, isLogoVisible }) => {
   const { setRef, sticky, stuck, fixed, isOpen, toggle } = useNavigationContext();
 	const [navigationRef, { height }] = useElementSize();
 	const router = useRouter();
@@ -79,7 +79,6 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 							{isNavigationVisible !== false && (
 								<div className={styles["navigation__menu-list"]}>
 									{links.map((link) => {
-										// const isActive = router.asPath === link.slug;
 										const isActive = link.slug === "/" ? router.asPath === "/" : router.asPath.startsWith(link.slug);
 										return (
 											<Link
@@ -118,28 +117,6 @@ const Navigation = ({ pageLocale, siteConfig, links, allLinks, isNavigationVisib
 							</div>
 						)}
 
-						{/* {isOpen && isMobile && (
-							<>
-								<nav className={styles.nav} data-name="Menu">
-									{links.map((link) => {
-										const isActive = router.asPath === link.slug;
-										return (
-											<Link
-												key={link.slug}
-												href={link.slug}
-												target={link?.target}
-												locale={locale}
-												className={cx(styles.navLink, {
-													[styles.navLinkActive]: isActive,
-												})}
-												>
-													<span className="link__text">{link.pageName}</span>
-											</Link>
-										);
-									})}
-								</nav>
-							</>
-						)} */}
 						{isNavigationVisible !== false &&  <Hamburger isOpen={isOpen} toggle={toggle} />}
 					</div>
 				</header>
