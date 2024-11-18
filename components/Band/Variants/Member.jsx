@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import Image from "next/image";
 import { getOptimizedImage } from "../../../utils/common";
 import { useState } from "react";

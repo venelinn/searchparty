@@ -45,5 +45,5 @@ export const FormattedTime = ({ dateStr, locale }) => {
   // Format the time
   const formattedTime = format(zonedDate, "HH:mm", { locale: selectedLocale });
 
-  return <div>{formattedTime}</div>;
+  return <>{formattedTime}</>;
 };
