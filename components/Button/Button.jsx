@@ -1,7 +1,7 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import cx from "classnames";
-import * as Icons from "lucide-react";
+import { Icon } from "../Icons/Icons";
 import styles from "./Button.module.scss";
 
 const Button = ({
@@ -27,11 +27,10 @@ const Button = ({
     [className]: className,
   });
 
-	const IconComponent = icon && Icons[icon] ? Icons[icon] : null;
 
   const renderContent = () => (
     <>
-      {IconComponent && <IconComponent className={styles.icon} />} {/* Render the icon */}
+      {icon && <Icon name={icon} size="1.2em" className={styles.icon} />} {/* Render the icon */}
       {label}
     </>
   );

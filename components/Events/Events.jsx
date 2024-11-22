@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { Section } from "../Section";
 import { Heading } from "../Headings";
 import { Event } from "./Event";
+import { Icon } from "../Icons/Icons";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import styles from "./Events.module.scss";
 
@@ -21,6 +22,8 @@ export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcom
    // Memoize the event categorization to avoid unnecessary recalculations
 	 const { upcomingEvents, pastEvents } = useMemo(() => {
 		const currentDate = new Date();
+
+		// Separate events into upcoming and past
 		const upcoming = [];
 		const past = [];
 
@@ -33,11 +36,15 @@ export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcom
 			}
 		});
 
-		// Sort upcoming events by date (ascending)
+		// Sort upcoming events by ascending date
 		upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+		// Sort past events by descending date
+		past.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 		return { upcomingEvents: upcoming, pastEvents: past };
 	}, [events]);
+
 
 
 	const eventsAnimation = () => {
@@ -63,7 +70,7 @@ export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcom
 			<div className={styles.events}>
 				<div data-type="upcoming">
 				<Heading as="h2" size="h2" uppercase={true} className={styles.events__heading}>
-					Upcoming Events
+					<Icon name="Guitar" color="var(--color-grey-mid)"/> Upcoming Events
 				</Heading>
 				{renderEvents(upcomingEvents, "upcoming", locale)}
 				</div>

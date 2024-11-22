@@ -12,7 +12,7 @@
 			<div className={styles.card}>
 				<div className={styles.card__content}>
 					<h2 className={styles.card__title}>{title}</h2>
-					<FormattedDate dateStr={date} locale={locale} />
+					<time><FormattedDate dateStr={date} locale={locale} /></time>
 				</div>
 				<Image
 					src={url}
