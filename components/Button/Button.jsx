@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PropTypes from "prop-types";
 import cx from "classnames";
+import * as Icons from "lucide-react";
 import styles from "./Button.module.scss";
 
 const Button = ({
@@ -16,6 +17,7 @@ const Button = ({
 	variant,
 	size,
 	animationID,
+	icon,
 }) => {
 	const classes = cx(styles.btn, {
 		[styles["is-disabled"]]: disabled,
@@ -24,11 +26,21 @@ const Button = ({
 		[styles[`btn--${size}`]]: size,
     [className]: className,
   });
+
+	const IconComponent = icon && Icons[icon] ? Icons[icon] : null;
+
+  const renderContent = () => (
+    <>
+      {IconComponent && <IconComponent className={styles.icon} />} {/* Render the icon */}
+      {label}
+    </>
+  );
+
   if (label && href) {
     return (
       <div className={wrapperClassName} data-anim={animationID}>
         <Link className={classes} href={href} onClick={onClick}>
-					{label}
+					{renderContent()}
         </Link>
       </div>
     );
@@ -43,7 +55,7 @@ const Button = ({
           rel={isExternal ? "noopener noreferrer" :  undefined}
           href={externalHref}
         >
-          {label}
+          {renderContent()}
         </a>
       </div>
     );
@@ -57,7 +69,8 @@ const Button = ({
           className={classes}
           onClick={onClick}
           disabled={disabled}
-        >{label}
+        >
+					 {renderContent()}
         </button>
       </div>
     );
@@ -69,6 +82,7 @@ Button.propTypes = {
 	type: PropTypes.string,
 	variant: PropTypes.oneOf(["primary", "secondary",]),
 	size: PropTypes.oneOf(["lg", "md"]),
+	icon: PropTypes.string,
 };
 
 Button.defaultProps = {

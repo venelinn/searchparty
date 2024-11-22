@@ -69,11 +69,12 @@ const Event = ({ event, type, locale }) => {
 					variant="primary"
 					label="Location"
 					isExternal={true}
+					icon="MapPin"
 					externalHref={generateGoogleMapsURL(event.address.lat, event.address.lon, event.venue)}
 				/>
 			)}
 			{(type === "past" && event.gallery) && (
-				<Button href={event.gallery} variant="primary" label="Gallery" />
+				<Button href={event.gallery} icon="Images" variant="primary" label="Gallery" />
 			)}
 			<Modal isOpen={modalStates} onClose={() => handleCloseModal()}>
 				<Image

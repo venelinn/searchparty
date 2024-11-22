@@ -20,19 +20,24 @@ export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcom
 
    // Memoize the event categorization to avoid unnecessary recalculations
 	 const { upcomingEvents, pastEvents } = useMemo(() => {
-    const currentDate = new Date();
-    const upcoming = [];
-    const past = [];
-    events.forEach((event) => {
-      const eventDate = new Date(event.date);
-      if (eventDate > currentDate) {
-        upcoming.push(event);
-      } else {
-        past.push(event);
-      }
-    });
-    return { upcomingEvents: upcoming, pastEvents: past };
-  }, [events]);
+		const currentDate = new Date();
+		const upcoming = [];
+		const past = [];
+
+		events.forEach((event) => {
+			const eventDate = new Date(event.date);
+			if (eventDate > currentDate) {
+				upcoming.push(event);
+			} else {
+				past.push(event);
+			}
+		});
+
+		// Sort upcoming events by date (ascending)
+		upcoming.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+		return { upcomingEvents: upcoming, pastEvents: past };
+	}, [events]);
 
 
 	const eventsAnimation = () => {
@@ -40,7 +45,6 @@ export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcom
       duration: 1.5,
       opacity: 0,
       delay: 1.5,
-      // scale: 1.1,
 			ease: "power4.out",
     });
   };

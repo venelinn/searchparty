@@ -5,7 +5,10 @@
 .btn {
 	--btn-padding-tb: .7rem;
 	--btn-padding-lr: 1rem;
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	gap: .4rem;
+	justify-content: center;
 	text-align: center;
 	position: relative;
   isolation: isolate;
@@ -39,6 +42,9 @@
 		@media (prefers-reduced-motion: no-preference) {
 			transition: transform 600ms, opacity 1200ms;
 		}
+	}
+	.icon {
+		opacity: .7;
 	}
 
 	&:hover,
