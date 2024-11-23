@@ -3,7 +3,16 @@ import * as Icons from "lucide-react"; // Import all icons from lucide-react
 import cx from "classnames";
 import styles from "./Icons.module.scss"; // Adjust the path to your styles
 
-const Icon = ({ name, className, title, hidden, strokeWidth = 1, size = "1em", color = "currentColor", ...props }) => {
+const Icon = ({
+	name,
+	className,
+	title,
+	hidden,
+	strokeWidth = 0.75,
+	size = "1em",
+	color = "currentColor",
+	...props
+}) => {
   // Dynamically pick the icon from lucide-react
   const LucideIcon = Icons[name];
 

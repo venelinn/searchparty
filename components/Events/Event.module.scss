@@ -25,13 +25,8 @@
 			align-items: center;
 		}
 		> *:nth-child(2) {
-			@media (min-width: $breakpoint-min-md) {
-				@include h1;
-			}
-			@media (max-width: $breakpoint-max-md) {
-				@include h2;
-			}
 			--heading-color: var(--color-highlight);
+			@include h1;
 
 		}
 	}

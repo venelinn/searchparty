@@ -1,7 +1,8 @@
-import React from "react";
+import { useRef, useEffect } from "react";
 import { chunk, sum } from "lodash";
 import LightGallery from "lightgallery/react";
 import Image from "next/image";
+import gsap from "gsap";
 import { Icon } from "../Icons/Icons";
 import styles from "./Gallery.module.scss";
 
@@ -21,11 +22,32 @@ import lgHash from "lightgallery/plugins/hash";
 import lgVdeo from "lightgallery/plugins/video";
 
 const Gallery = ({ thumbs, full, itemsPerRow }) => {
+	const galleryItemsRef = useRef([]);
+
   let itemsPerRowByBreakpoints = [itemsPerRow]; // use it as an array
   const aspectRatios = thumbs.map((image) => image.width / image.height);
   const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map((itemsPerRow) =>
     chunk(aspectRatios, itemsPerRow).map((rowAspectRatios) => sum(rowAspectRatios)),
   );
+
+	// GSAP Stagger Effect
+  useEffect(() => {
+    const galleryItems = galleryItemsRef.current;
+    if (galleryItems.length) {
+      gsap.fromTo(
+        galleryItems,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.4,
+          ease: "power2.out",
+        }
+      );
+    }
+  }, [thumbs]);
+
   const onInit = () => {};
 
   return (
@@ -61,6 +83,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
         {thumbs.map((thumb, i) => {
           return (
             <a
+							ref={(el) => (galleryItemsRef.current[i] = el)}
 							data-src={full[i].isVideo ? full[i].src : full[i].src}
 							data-poster={full[i].isVideo ? full[i].poster : undefined}
               className={styles.galleryItem}

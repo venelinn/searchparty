@@ -6,7 +6,7 @@ import { Modal } from "../../Modal/Modal";
 import { Heading } from "../../Headings";
 import styles from "./Member.module.scss";
 
-const Member = ({data, tabIndex, labels}) => {
+const Member = ({data, tabIndex, labels, ...props}) => {
 	const { image, heading, content, role, active } = data;
 	const [modalStates, setModalStates] = useState(false);
 	const { url, width, height } = getOptimizedImage(image[0], 800, 100);
@@ -24,6 +24,7 @@ const Member = ({data, tabIndex, labels}) => {
 			<div
 				className={styles.member}
 				tabIndex={tabIndex + 1}
+				{...props}
 				 >
 				<figure className={styles.member__figure}>
 					<Image
