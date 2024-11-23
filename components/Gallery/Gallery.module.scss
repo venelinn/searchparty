@@ -6,9 +6,7 @@
 			svg {
 				position: absolute;
 				z-index: 10;
-				width: 80px;
-				fill: #fff;
-				opacity: var(--_svg-opacity, .4);
+				opacity: var(--_svg-opacity, .7);
 				top: 50%;
 				left: 50%;
 				transform: translate(-50%, -50px);
@@ -16,7 +14,7 @@
 				transition: opacity .3s var(--ease-in);
 			}
 			&:hover {
-				--_svg-opacity: .8;
+				--_svg-opacity: 1;
 			}
 		}
 

@@ -1,19 +1,11 @@
-import Instagram from "../Icons/Instagram";
-import Facebook from "../Icons/Facebook";
-import YouTube from "../Icons/YouTube";
+import { Icon } from "../Icons/Icons";
 import styles from "./Social.module.scss";
 
-const iconComponents = {
-  Instagram,
-  YouTube,
-	Facebook
-};
 
 const Social = ({ items }) => {
 	return (
 		<div className={styles.social}>
 			{items.map(item => {
-				const Icon = iconComponents[item.iconName];
 				return (
 					<a
 						href={item.url}
@@ -22,7 +14,7 @@ const Social = ({ items }) => {
 						rel={item.external ? "noopener noreferrer" : undefined}
 						title={item.name}
 					>
-						<Icon />
+						<Icon size="1.5em" name={item.iconName} />
 					</a>
 				)
 			})}

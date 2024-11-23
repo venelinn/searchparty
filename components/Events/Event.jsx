@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useState } from "react";
-import { Clock } from "lucide-react";
 import {FormattedDate, FormattedTime} from "../../utils/DateFormat";
 import { getOptimizedImage } from "../../utils/common";
 import { Modal } from "../Modal/Modal";
 import { Button } from "../Button/Button.jsx";
+import { Icon } from "../Icons/Icons";
 import styles from "./Event.module.scss";
 
 function generateGoogleMapsURL(lat, lng, placeName) {
@@ -50,7 +50,7 @@ const Event = ({ event, type, locale }) => {
       <div className={styles.event__content}>
 				<div className={styles.event__venue}>{event.venue}</div>
 				<div className={styles.event__hour}>
-					<Clock /> <FormattedTime dateStr={event.date} locale={locale} />
+					<Icon name="Clock" /> <FormattedTime dateStr={event.date} locale={locale} />
 				</div>
 				{event.doorsOpen && <p className="ui-caption">Doors open at <FormattedTime dateStr={event.doorsOpen} locale={locale} /></p>}
 				{logo && (

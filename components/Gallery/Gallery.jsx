@@ -2,7 +2,7 @@ import React from "react";
 import { chunk, sum } from "lodash";
 import LightGallery from "lightgallery/react";
 import Image from "next/image";
-import YouTube from "../Icons/YouTube";
+import { Icon } from "../Icons/Icons";
 import styles from "./Gallery.module.scss";
 
 // If you want you can use SCSS instead of css
@@ -80,7 +80,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
 								width={thumb.width}
 								height={thumb.height}
 								/>
-								{full[i].isVideo && <YouTube />}
+								{full[i].isVideo && <Icon name="Youtube" size="7em" /> }
             </a>
           );
         })}
