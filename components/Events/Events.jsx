@@ -1,10 +1,8 @@
-import { useEffect, useMemo } from "react";
-import gsap from "gsap";
+import {useMemo } from "react";
 import { Section } from "../Section";
 import { Heading } from "../Headings";
 import { Event } from "./Event";
 import { Icon } from "../Icons/Icons";
-import useReduceMotion from "../../hooks/useReduceMotion";
 import styles from "./Events.module.scss";
 
 const renderEvents = (events, type, locale) => {
@@ -17,7 +15,6 @@ const renderEvents = (events, type, locale) => {
   ));
 };
 export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcoming }) => {
-  const reduceMotion = useReduceMotion();
 
    // Memoize the event categorization to avoid unnecessary recalculations
 	 const { upcomingEvents, pastEvents } = useMemo(() => {
@@ -45,25 +42,6 @@ export const Events = ({ id, events, columns, layout, heading, locale, onlyUpcom
 		return { upcomingEvents: upcoming, pastEvents: past };
 	}, [events]);
 
-
-
-	const eventsAnimation = () => {
-		gsap.from(`[data-anim='events']`, {
-      duration: 1.5,
-      opacity: 0,
-      delay: 1.5,
-			ease: "power4.out",
-    });
-  };
-
-	useEffect(() => {
-		let ctx = gsap.context(() => {
-			if (!reduceMotion) {
-				eventsAnimation();
-			}
-		});
-		return () => ctx.revert(); // <- cleanup!
-	}, [reduceMotion]);
 
   return (
     <Section id={id} heading={heading} animationID="events">

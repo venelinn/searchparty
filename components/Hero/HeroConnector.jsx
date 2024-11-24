@@ -9,7 +9,8 @@ const HeroConnector = (props) => {
 		locale={props?.locale}
 		animationID={props?.animationID}
 		content={renderRichTextContent(props?.content)}
-		size={props?.size}
+		height={props?.height}
+		imageAlignment={props?.imageAlignment}
 	/>
 )}
 

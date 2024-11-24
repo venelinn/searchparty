@@ -5,19 +5,19 @@ import { Icon } from "../Icons/Icons";
 import styles from "./Button.module.scss";
 
 const Button = ({
-  label,
+	label,
   href,
   isExternal,
   externalHref,
-  type,
+  type = "button",
   onClick,
   disabled,
-  className,
+  className = "",
   wrapperClassName,
-	variant,
-	size,
-	animationID,
-	icon,
+  variant = "secondary",
+  size = "lg",
+  animationID,
+  icon,
 }) => {
 	const classes = cx(styles.btn, {
 		[styles["is-disabled"]]: disabled,
@@ -69,11 +69,12 @@ const Button = ({
           onClick={onClick}
           disabled={disabled}
         >
-					 {renderContent()}
+					{renderContent()}
         </button>
       </div>
     );
   }
+	return null; // Ensure the component always returns something
 }
 
 Button.propTypes = {
@@ -83,14 +84,6 @@ Button.propTypes = {
 	size: PropTypes.oneOf(["lg", "md"]),
 	icon: PropTypes.string,
 };
-
-Button.defaultProps = {
-  className: "",
-  type: "button",
-	variant: "secondary",
-	size: "lg",
-};
-
 
 export default Button;
 export { Button };

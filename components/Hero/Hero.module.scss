@@ -1,7 +1,6 @@
 // <Section> classes
 
 .main {
-	--section-min-height: 100dvh;
 	--section-max-width: 100%;
 	isolation: isolate;
 	display: grid;
@@ -26,10 +25,6 @@
 	&--right {
 		text-align: right;
 	}
-}
-
-.imageTop {
-	object-position: top;
 }
 
 .hero__container {

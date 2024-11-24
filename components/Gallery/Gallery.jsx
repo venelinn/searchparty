@@ -99,7 +99,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
             >
               <Image
 								src={thumb.src}
-								alt={thumb?.alt || thumb.title}
+								alt={thumb?.title || thumb?.alt}
 								width={thumb.width}
 								height={thumb.height}
 								/>

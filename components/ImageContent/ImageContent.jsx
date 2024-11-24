@@ -67,11 +67,7 @@ export const ImageContent = ({
   return (
     <Section
       animationID={animationID}
-      subHeading={subHeading}
       heading={heading}
-      fullHeight={fullHeight}
-      isolation={isolation}
-      theme={theme}
     >
       <div className={styles.module} data-order={order} ref={containerRef}>
         {isContentFirst ? (

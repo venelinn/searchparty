@@ -26,12 +26,11 @@ const heroAnimation = (animationID, onComplete) => {
 };
 
 const Hero = ({
-	id,
 	images,
 	content,
-	imagePriority,
 	animationID = "undefined",
-	size,
+	height,
+	imageAlignment,
 }) => {
 	const reduceMotion = useReduceMotion();
 	const image = images?.[0].image[0];
@@ -49,14 +48,13 @@ const Hero = ({
   return (
     <Section
       image={image}
-			imagePriority={imagePriority}
       animationID={animationID}
-			size={size}
+			height={height}
+			imageAlignment={imageAlignment}
       classNames={{
         main: styles.main,
         inner: styles.inner,
         heading: styles.heading,
-				imageImg: styles.imageTop
       }}
     >
 			<div className={styles.hero__content} data-anim="hero-content">

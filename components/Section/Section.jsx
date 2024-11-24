@@ -1,34 +1,11 @@
 import PropTypes from "prop-types";
-import {
-	useRef,
-	// useEffect
-} from "react";
-// import { useRouter } from "next/router";
+import { useRef, useEffect } from "react";
+import { useRouter } from "next/router";
 import cx from "classnames";
 import Image from "next/image";
 import gsap from "gsap";
-// import useReduceMotion from "../../hooks/useReduceMotion";
-// import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicLayoutEffect";
 import { Heading } from "../Headings";
 import styles from  "./Section.module.scss";
-
-
-const animateSectionTitle = (element, animationID) => {
-  if (animationID) {
-    gsap.from(`[data-anim=${animationID}] [data-anim='section-title']`, {
-      opacity: 0,
-      duration: animationID === "home-hero" ? 1.5 : 1,
-      y: 40,
-      scale: animationID === "home-hero" ? 1.1 : 1,
-      delay: animationID === "home-hero" ? 1.5 : 0,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: element,
-        start: "top 60%",
-      },
-    });
-  }
-};
 
 export const Section = ({
 	id = "",
@@ -38,46 +15,76 @@ export const Section = ({
   image = undefined,
 	animationID = null,
 	heading = {},
-	subHeading = "",
-	fullHeight = false,
 	size = "fixed",
 	height = undefined,
-	contentAlign = undefined,
+	imageAlignment = undefined,
   ...props
 }) => {
-	// const reduceMotion = useReduceMotion();
-	// const router = useRouter();
-	const element = useRef();
-  const classes = cx(styles.section, classNames?.main, {
-		[styles["section--full"]]: size === "full",
-		[styles["section--full-height"]]: fullHeight,
-		[styles[`section--${contentAlign}`]]: contentAlign,
-    [className]: className,
+	const sectionRef = useRef(null);
+
+	useEffect(() => {
+    if (!sectionRef.current || !animationID) return;
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 85%", // Adjust trigger position as needed
+        toggleActions: "play none none none",
+      },
+    });
+
+    timeline
+      .from(
+        `[data-anim=${animationID}] [data-anim='section-title']`,
+        {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          ease: "power4.out",
+        },
+        0 // Start immediately
+      )
+      .from(
+        `[data-anim=${animationID}] [data-anim='section-img']`,
+        {
+          opacity: 0,
+          scale: 1.1,
+          duration: 1,
+          ease: "power4.out",
+        },
+        0.3 // Delay slightly after the title starts
+      )
+      .from(
+        `[data-anim=${animationID}] .${styles.section__inner}`,
+        {
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          ease: "power4.out",
+        },
+        0.6 // Delay after the image starts
+      );
+
+    return () => {
+      if (timeline.scrollTrigger) {
+        timeline.scrollTrigger.kill();
+      }
+      timeline.kill();
+    };
+  }, [animationID]);
+
+	const classes = cx(styles.section, classNames?.main, {
+		[styles["section--full-width"]]: size === "full",
+		[styles[`section--${height}-height`]]: height,
+		[className]: className,
 		"rel": image,
   });
-
-	// useIsomorphicLayoutEffect(() => {
-  //   animateSectionTitle(element.current, animationID, reduceMotion);
-  // }, [animationID, reduceMotion]);
-
-  // useEffect(() => {
-  //   const handleRouteChange = () => {
-  //     animateSectionTitle(element.current, animationID, reduceMotion);
-  //   };
-
-  //   router.events.on("routeChangeComplete", handleRouteChange);
-
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleRouteChange);
-  //   };
-  // }, [router, animationID, reduceMotion]);
 
 	return (
 		<section
 			className={classes}
-			data-size={size}
 			data-anim={animationID}
-			ref={element}
+			ref={sectionRef}
 			{...props}
 		>
 
@@ -88,16 +95,15 @@ export const Section = ({
 						alt={image.alt}
 						fill
 						data-anim="section-img"
-						className={cx(styles.section__image__img, classNames?.imageImg)}
+						className={cx(styles.section__image__img, classNames?.imageImg, {
+							[styles[`hero-${imageAlignment}`]]: imageAlignment,
+						})}
 					/>
 				</div>
 			)}
 			<div
 				className={cx(styles.section__inner, classNames?.inner)}
 				>
-			{subHeading && (
-				<span className={cx(styles.section__subHeading, classNames?.subHeading)}>{subHeading}</span>
-			)}
 			{heading?.heading && (
 				<Heading
 					as={heading?.as}
@@ -128,8 +134,9 @@ Section.propTypes = {
 		imageImg: PropTypes.string,
 		heading: PropTypes.string,
 	}),
-  size: PropTypes.oneOf(["fixed", "full", "quarter"]),
+  size: PropTypes.oneOf(["fixed", "full"]),
   height: PropTypes.oneOf(["full", "half", "quarter"]),
+	imageAlignment: PropTypes.oneOf(["top", "bottom"]),
   image: PropTypes.object,
 	animationID: PropTypes.string,
 };

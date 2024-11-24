@@ -22,14 +22,14 @@ const HeadingSizeRaw: HeadingTag[] = ["h1", "h2", "h3", "h4", "h5"];
 const HeadingSize: HeadingSizeValue[] = [...HeadingSizeRaw, "hero", "base" ];
 
 const Heading: React.FC<HeadingProps> = ({
-  uppercase,
-  as,
-  size,
-  className,
-  children,
-  center,
-  animationID,
-	highlight,
+  uppercase = true,
+  as = "h2",
+  size = "h2",
+  className = undefined,
+  children = undefined,
+  center = false,
+  animationID = undefined,
+  highlight = undefined,
 	...props
 }) => {
 	const Tag = as as HeadingTag;
@@ -49,16 +49,6 @@ const Heading: React.FC<HeadingProps> = ({
       {children}
     </Tag>
   );
-};
-
-Heading.defaultProps = {
-  uppercase: true,
-  size: "h2",
-  as: "h2",
-  className: undefined,
-  center: false,
-  children: undefined,
-  animationID: undefined,
 };
 
 export default Heading;

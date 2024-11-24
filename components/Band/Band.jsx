@@ -36,12 +36,9 @@ const Band = ({ heading = {}, items = [] }) => {
 			animationID="gallery-grid"
 
 		>
-			<div data-anim="brands" ref={containerRef}>
+			<div data-anim="brands">
 				{items && items.length > 0 && (
-					<div
-						className={styles.band}
-						data-anim="gallery-grid-items"
-						>
+					<div className={styles.band} ref={containerRef}>
 						{items.map((item, index) => <Member data-anim-item data={item} key={index} tabIndex={index} /> )}
 					</div>
 				)}
@@ -52,19 +49,7 @@ const Band = ({ heading = {}, items = [] }) => {
 
 Band.propTypes = {
 	heading: PropTypes.object,
-	subHeading: PropTypes.string,
 	items: PropTypes.arrayOf(PropTypes.object),
-	theme: PropTypes.shape({
-		color: PropTypes.string,
-	}),
-	link: PropTypes.shape({
-		href: PropTypes.string,
-		title: PropTypes.string,
-		buttonVariant: PropTypes.string,
-	}),
-	labels: PropTypes.shape({
-		learnMore: PropTypes.string,
-	}),
 };
 
 export default Band;

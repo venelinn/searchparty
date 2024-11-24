@@ -7,7 +7,6 @@ import { FormattedDate } from "../../utils/DateFormat";
 import { Section } from "../../components/Section";
 import { Gallery } from "../../components/Gallery";
 
-
 export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navigationLinks, slug, videos }) {
 	const [isClient, setIsClient] = useState(false);
 	useEffect(() => {
@@ -75,6 +74,7 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 							width,
 							height,
 							isVideo: false,
+							title: img?.title || mediaItem.title,
 						};
 					}),
 				]}
