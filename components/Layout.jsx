@@ -29,7 +29,11 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 				{/* {siteConfig.backgroundImage && (
           <html data-has-bgr />
         )} */}
-				<MetaData title={seo?.pageTitle} description={seo?.pageDescription} keywords={seo?.keywords} />
+				<MetaData
+					title={seo?.pageTitle}
+					description={seo?.pageDescription}
+					keywords={seo?.keywords}
+				/>
 			</Head>
 			<Navigation
 				pageLocale={page.locale}
