@@ -11,6 +11,7 @@ const heroAnimation = (animationID) => {
 	const timeline = gsap.timeline();
 	const sectionSelector = `[data-anim="${animationID}"] [data-anim="section-img-wrap"]`;
   const heroContentSelector = `[data-anim="${animationID}"] [data-anim="hero-content"]`;
+  const heroAnchor = `[data-anim="${animationID}"] [data-anim="hero-anchor"]`;
 
   timeline.from(sectionSelector, {
     duration: 1.5,
@@ -24,7 +25,12 @@ const heroAnimation = (animationID) => {
     opacity: 0,
     duration: 1,
     ease: "power4.out",
-  }, "-=0.5");
+  }, "-=0.5")
+	.from(heroAnchor, {
+		opacity: 0,
+		duration: 1,
+		ease: "power4.out",
+	}, "-=0.5");
 };
 
 const Hero = ({
@@ -76,7 +82,7 @@ const Hero = ({
 				{content}
 			</div>
 			{(anchorToNext && height === "full" && nextSectionId) && (
-        <a href={nextSectionId} className={styles.hero__down} data-anim="hero-content" title="Scroll to next section">
+        <a href={nextSectionId} className={styles.hero__down} data-anim="hero-anchor" title="Scroll to next section">
           <Icon name="ChevronsDown" size="3em" color="#ffffff" />
         </a>
       )}
