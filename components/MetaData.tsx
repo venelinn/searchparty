@@ -13,6 +13,7 @@ export default function MetaData({ title, description, keywords, image, type, da
   // const frenchRoute = "/fr" + (router.asPath);
 	// const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
 	// const route = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
+	const route = process.env.NEXT_PUBLIC_BASE_URL;
   // const frenchRoute = router.locale === "fr" ? "/fr" + router.asPath : null;
 
   const meta = {
@@ -21,7 +22,6 @@ export default function MetaData({ title, description, keywords, image, type, da
 		keywords: keywords || "band, rock band, band 80s",
     image: image || `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.jpg`,
     type: type || "website",
-		date: date || "", // Add the date property here
     ...customMeta,
   };
 
@@ -34,21 +34,13 @@ export default function MetaData({ title, description, keywords, image, type, da
       <meta name="description" content={meta.description} />
 			<meta name="keywords" content={meta.keywords} />
       <meta property="og:title" content={meta.title} />
-      <meta property="og:description" content={meta.description} />
-      {/* <meta property="og:url" content={route} /> */}
-
-      <meta
-        property="og:site_name"
-        content={process.env.NEXT_PUBLIC_SITE_NAME || ""}
-      />
       <meta property="og:type" content={meta.type} />
       <meta property="og:image" content={meta.image} />
-      {meta.date && (
-        <meta property="article:published_time" content={meta.date} />
-      )}
+      <meta property="og:url" content={route} />
+      <meta property="og:description" content={meta.description} />
       <meta name="robots" content="follow, index" />
-      {/* <link rel="canonical" href={route} /> */}
 			<meta name="color-scheme" content="light dark" />
+      {/* <link rel="canonical" href={route} /> */}
     </>
   );
 }
