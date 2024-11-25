@@ -7,8 +7,8 @@ import styles from "./Hero.module.scss";
 import { Link } from "lucide-react";
 import Icon from "../Icons/Icons";
 
-const heroAnimation = (animationID, onComplete) => {
-	const timeline = gsap.timeline({ onComplete });
+const heroAnimation = (animationID) => {
+	const timeline = gsap.timeline();
 	const sectionSelector = `[data-anim="${animationID}"] [data-anim="section-img-wrap"]`;
   const heroContentSelector = `[data-anim="${animationID}"] [data-anim="hero-content"]`;
 
