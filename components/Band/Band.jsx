@@ -5,7 +5,7 @@ import { Section } from "../Section";
 import { Member } from "./Variants/Member";
 import styles from "./Band.module.scss";
 
-const Band = ({ heading = {}, items = [] }) => {
+const Band = ({ heading = {}, items = [] }, id) => {
   const containerRef = useRef(null);
 	useEffect(() => {
     if (containerRef.current) {

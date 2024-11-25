@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, forwardRef } from "react";
 import { useRouter } from "next/router";
 import cx from "classnames";
 import Image from "next/image";
@@ -7,19 +7,24 @@ import gsap from "gsap";
 import { Heading } from "../Headings";
 import styles from  "./Section.module.scss";
 
-export const Section = ({
-	id = "",
-  children = null,
-  className = "",
-  classNames = {},
-  image = undefined,
-	animationID = null,
-	heading = {},
-	size = "fixed",
-	height = undefined,
-	imageAlignment = undefined,
-  ...props
-}) => {
+// eslint-disable-next-line react/display-name
+export const Section = forwardRef(
+  (
+    {
+      id = "",
+      children = null,
+      className = "",
+      classNames = {},
+      image = undefined,
+      animationID = null,
+      heading = {},
+      size = "fixed",
+      height = undefined,
+      imageAlignment = undefined,
+      ...props
+    },
+    ref
+  ) => {
 	const sectionRef = useRef(null);
 
 	useEffect(() => {
@@ -82,9 +87,10 @@ export const Section = ({
 
 	return (
 		<section
+			id={id}
 			className={classes}
 			data-anim={animationID}
-			ref={sectionRef}
+			ref={ref}
 			{...props}
 		>
 
@@ -119,8 +125,9 @@ export const Section = ({
 				{children}
 			</div>
 		</section>
-  );
-};
+    );
+  }
+);
 
 Section.propTypes = {
   children: PropTypes.node,

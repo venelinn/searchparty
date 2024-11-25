@@ -11,6 +11,7 @@ const HeroConnector = (props) => {
 		content={renderRichTextContent(props?.content)}
 		height={props?.height}
 		imageAlignment={props?.imageAlignment}
+		anchorToNext={props?.anchorToNext}
 	/>
 )}
 

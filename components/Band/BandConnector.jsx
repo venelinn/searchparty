@@ -6,6 +6,7 @@ const BandConnector = (props) => {
 		<Band
 			heading={props?.heading}
 			items={props?.members}
+			id={props?.id}
 		/>
 	);
 };

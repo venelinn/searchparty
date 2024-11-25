@@ -42,6 +42,7 @@ export const ImageContent = ({
   fullHeight,
   isolation,
   isContentFirst,
+	id,
 }) => {
 	const containerRef = useRef(null);
 	useEffect(() => {
@@ -68,6 +69,7 @@ export const ImageContent = ({
     <Section
       animationID={animationID}
       heading={heading}
+			id={id}
     >
       <div className={styles.module} data-order={order} ref={containerRef}>
         {isContentFirst ? (

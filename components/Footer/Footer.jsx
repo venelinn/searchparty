@@ -41,7 +41,9 @@ export default function Footer({siteConfig, links, pageLocale}) {
 			}}>
 			<div className={styles.footer} ref={element}>
 					<div className={styles.footer__fineprint}>
-						<span>{siteConfig?.copyright} &copy; {new Date().getFullYear()} {siteConfig?.fineprint} </span>
+						<span>
+						&copy; {new Date().getFullYear()} {siteConfig?.copyright} {siteConfig?.fineprint}  | Crafted by <a href="https://venelin.ca" target="_blank" rel="noopener noreferrer">Venelin.ca</a>
+						</span>
 					</div>
 					{Array.isArray(links) && links.length > 0 && (
 						<div className={styles.footer__nav}>
