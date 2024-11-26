@@ -3,12 +3,13 @@ interface MetaDataProps {
   title?: string;
   description?: string;
   image?: string;
+  logo?: string;
   type?: string;
   date?: string;
 	keywords?: string;
 }
 
-export default function MetaData({ title, description, keywords, image, type, date, ...customMeta }: MetaDataProps) {
+export default function MetaData({ title, description, keywords, image, logo, type, date, ...customMeta }: MetaDataProps) {
 	// const router = useRouter()
   // const frenchRoute = "/fr" + (router.asPath);
 	// const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
@@ -21,6 +22,7 @@ export default function MetaData({ title, description, keywords, image, type, da
     description: description || "Search Party | searchpartyottawa.ca",
 		keywords: keywords || "band, rock band, band 80s",
     image: image || `${process.env.NEXT_PUBLIC_BASE_URL}/static/og-image.jpg`,
+    logo: logo || `${process.env.NEXT_PUBLIC_BASE_URL}/static/logo.png`,
     type: type || "website",
     ...customMeta,
   };
@@ -36,11 +38,12 @@ export default function MetaData({ title, description, keywords, image, type, da
       <meta property="og:title" content={meta.title} />
       <meta property="og:type" content={meta.type} />
       <meta property="og:image" content={meta.image} />
+			<meta property="og:logo" content={meta.logo} />
       <meta property="og:url" content={route} />
       <meta property="og:description" content={meta.description} />
       <meta name="robots" content="follow, index" />
 			<meta name="color-scheme" content="light dark" />
-      {/* <link rel="canonical" href={route} /> */}
+      <link rel="canonical" href={route} />
     </>
   );
 }
