@@ -17,20 +17,15 @@
     "gsap": "^3.12.2",
     "lightgallery": "^2.7.2",
     "lucide-react": "^0.460.0",
-    "markdown-to-jsx": "^7.2.1",
     "next": "^14.2.3",
     "next-share": "^0.25.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "swiper": "^9.3.0",
-    "universal-cookie": "^6.1.1"
+    "swiper": "^9.3.0"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
     "@contentful/rich-text-react-renderer": "^15.17.1",
     "@netlify/plugin-nextjs": "^5.8.1",
-    "@stackbit/cms-contentful": "^0.4.7",
-    "@stackbit/types": "^0.9.1",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
     "@storybook/addon-links": "^8.4.2",
