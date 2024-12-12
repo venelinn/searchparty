@@ -1,8 +1,8 @@
 .events {
 	margin-bottom: 4rem;
 	&__heading {
-		margin-top: 2rem;
-		margin-bottom: 1rem;
+		--heading-top: 2rem;
+		--heading-bottom: 1rem;
 		padding-bottom: .5rem;
 	}
 }
