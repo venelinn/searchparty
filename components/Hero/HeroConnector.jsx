@@ -1,5 +1,5 @@
 import { Hero } from "./Hero";
-import { renderRichTextContent, renderEmbeddedEntryBlock } from "../../utils/RichText";
+import { renderRichTextContent } from "../../utils/RichText";
 
 const HeroConnector = (props) => {
 	return (

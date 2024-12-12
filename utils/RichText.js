@@ -16,6 +16,7 @@ function getCloudinaryImageURL(url) {
 // Use your `getCloudinaryImageURL` function to preprocess Cloudinary URLs
 export const renderEmbeddedEntryBlock = (node) => {
 	const heading = node.data.target.fields;
+	const seoHeading = heading?.isHidden;
     // Render the Heading component with dynamic props
 	return (
 		<Heading
@@ -25,8 +26,9 @@ export const renderEmbeddedEntryBlock = (node) => {
 			alignment={heading?.alignment}
 			animationID={heading?.animationID}
 			highlight={heading?.highlight}
+			isHidden={heading?.isHidden}
 		>
-			{heading?.heading}
+			{seoHeading ? <span className="sr-only">{heading?.heading}</span> : heading?.heading}
 		</Heading>
 	);
 

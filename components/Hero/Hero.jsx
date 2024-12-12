@@ -4,7 +4,6 @@ import gsap from "gsap";
 import useReduceMotion from "../../hooks/useReduceMotion";
 import { Section } from "../Section";
 import styles from "./Hero.module.scss";
-import { Link } from "lucide-react";
 import Icon from "../Icons/Icons";
 
 const heroAnimation = (animationID) => {
