@@ -10,6 +10,7 @@ interface HeadingProps {
   center?: boolean;
   animationID?: string;
 	highlight?: string;
+	isHidden?: boolean;
 }
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "div";
@@ -30,6 +31,7 @@ const Heading: React.FC<HeadingProps> = ({
   center = false,
   animationID = undefined,
   highlight = undefined,
+	isHidden = false,
 	...props
 }) => {
 	const Tag = as as HeadingTag;
