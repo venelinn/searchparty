@@ -1,4 +1,5 @@
-// import { useRouter } from "next/router";
+import Head from "next/head";
+import { useRouter } from "next/router";
 interface MetaDataProps {
   title?: string;
   description?: string;
@@ -10,11 +11,11 @@ interface MetaDataProps {
 }
 
 export default function MetaData({ title, description, keywords, image, logo, type, date, ...customMeta }: MetaDataProps) {
-	// const router = useRouter()
+	const router = useRouter()
   // const frenchRoute = "/fr" + (router.asPath);
 	// const route = process.env.NEXT_PUBLIC_BASE_URL + (router.locale === "fr" ? frenchRoute : router.asPath);
-	// const route = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
-	const route = process.env.NEXT_PUBLIC_BASE_URL;
+	const route = process.env.NEXT_PUBLIC_BASE_URL + router.asPath;
+	// const route = process.env.NEXT_PUBLIC_BASE_URL;
   // const frenchRoute = router.locale === "fr" ? "/fr" + router.asPath : null;
 
   const meta = {
@@ -28,7 +29,7 @@ export default function MetaData({ title, description, keywords, image, logo, ty
   };
 
   return (
-    <>
+    <Head>
       {/* <title>{meta.title}</title> */}
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -44,6 +45,6 @@ export default function MetaData({ title, description, keywords, image, logo, ty
       <meta name="robots" content="follow, index" />
 			<meta name="color-scheme" content="light dark" />
       <link rel="canonical" href={route} />
-    </>
+    </Head>
   );
 }
