@@ -26,15 +26,12 @@ function Layout({ page, siteConfig, navigationLinks, children }) {
 		<>
 			<Head>
 				<title>{seo?.pageTitle || page.pageName}</title>
-				{/* {siteConfig.backgroundImage && (
-          <html data-has-bgr />
-        )} */}
-				<MetaData
-					title={seo?.pageTitle}
-					description={seo?.pageDescription}
-					keywords={seo?.keywords}
-				/>
 			</Head>
+			<MetaData
+				title={seo?.pageTitle}
+				description={seo?.pageDescription}
+				keywords={seo?.keywords}
+			/>
 			<Navigation
 				pageLocale={page.locale}
 				allLinks={allLinks}
