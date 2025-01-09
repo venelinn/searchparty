@@ -31,6 +31,11 @@ const nextConfig = {
 				hostname: "i.ytimg.com",
 				pathname: "**",
 			},
+			{
+				protocol: "https",
+				hostname: "*.cdninstagram.com",
+				pathname: "**",
+			},
 		],
 	},
 	sassOptions: {

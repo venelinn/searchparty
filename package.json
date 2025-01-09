@@ -7,6 +7,7 @@
     "build": "npm run build-dictionary && next build && storybook build --output-dir ./.next/storybook",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
+		"postbuild": "next-sitemap",
     "build-storybook": "storybook build --output-dir ./.next/storybook",
     "build-dictionary": "style-dictionary build -c ./tokens/config.js"
   },
@@ -19,6 +20,7 @@
     "lucide-react": "^0.460.0",
     "next": "^14.2.3",
     "next-share": "^0.25.0",
+    "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "swiper": "^9.3.0"

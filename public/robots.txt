@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://searchpartyottawa.ca
+
+# Sitemaps
+Sitemap: https://searchpartyottawa.ca/sitemap.xml
