@@ -1,3 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-</sitemapindex>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://searchpartyottawa.ca/</loc>
+	<lastmod>2025-01-09T19:40:13+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/about-us</loc>
+	<lastmod>2025-01-09T19:40:13+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/media</loc>
+	<lastmod>2025-01-09T19:40:13+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/events</loc>
+	<lastmod>2025-01-09T19:40:13+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/contacts</loc>
+	<lastmod>2025-01-09T19:40:13+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/media/hotarg</loc>
+	<lastmod>2025-01-09T19:40:13+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/media/videos</loc>
+	<lastmod>2025-01-09T19:40:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://searchpartyottawa.ca/media/barley-mow</loc>
+	<lastmod>2025-01-09T19:40:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+</urlset>
