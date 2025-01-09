@@ -45,6 +45,7 @@ export default function MetaData({ title, description, keywords, image, logo, ty
       <meta name="robots" content="follow, index" />
 			<meta name="color-scheme" content="light dark" />
       <link rel="canonical" href={route} />
+			<meta name="google-site-verification" content="nUA_iL8L_0u8UoXtxBhLE8dSuJ6e04s1dFv2UZSBRBc" />
     </Head>
   );
 }
