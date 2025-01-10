@@ -92,8 +92,13 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
                 "--thumb-width": rowAspectRatioSumsByBreakpoints.map((rowAspectRatioSums, j) => {
                   const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j]);
                   const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
+                  let itemRatio = aspectRatios[i] / rowAspectRatioSum;
+                  
+                  if( itemRatio > 0.8 ) {
+                    itemRatio = itemRatio / itemsPerRow;
+                  };
 
-                  return `calc(${(aspectRatios[i] / rowAspectRatioSum) * 100}% - 5px)`;
+                  return `calc(${itemRatio * 100}% - 5px)`;
                 })[0],
               }}
             >

@@ -78,7 +78,7 @@ export default function MediaItemPage({ pageLocale, mediaItem, siteConfig, navig
 						};
 					}),
 				]}
-				itemsPerRow={4}
+				itemsPerRow={5}
 				slug={slug}
 			/>
 			</Section>
