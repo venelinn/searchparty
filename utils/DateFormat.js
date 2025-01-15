@@ -31,7 +31,7 @@ export const FormattedDate = ({ dateStr, locale, includeYear = true }) => {
 };
 
 // Function to format the time (hours and minutes)
-export const FormattedTime = ({ dateStr, locale }) => {
+export const FormattedTime = ({ dateStr, locale, timezone = "-05:00" }) => {
   if (!dateStr) {
     return null;
   }
@@ -40,10 +40,10 @@ export const FormattedTime = ({ dateStr, locale }) => {
   const selectedLocale = locales[locale] || enCA;
 
   // Parse the date as a zoned time
-  const zonedDate = utcToZonedTime(dateStr, "-04:00"); // Replace "-04:00" if needed dynamically
+  const zonedDate = utcToZonedTime(dateStr, timezone);
 
-  // Format the time
-  const formattedTime = format(zonedDate, "HH:mm", { locale: selectedLocale });
+  // Format the time in 12-hour format with AM/PM
+  const formattedTime = format(zonedDate, "hh:mm a", { locale: selectedLocale });
 
   return <>{formattedTime}</>;
 };
