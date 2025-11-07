@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "pnpm build-dictionary && next dev",
-    "build": "pnpm run build-dictionary && next build && storybook build --output-dir ./.next/storybook",
+    "build1": "pnpm run build-dictionary && next build && storybook build --output-dir ./.next/storybook",
+    "build": "pnpm run build-dictionary && next build",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
     "postbuild": "next-sitemap",
