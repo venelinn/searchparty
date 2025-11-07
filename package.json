@@ -3,15 +3,16 @@
   "version": "0.5.0",
   "private": true,
   "scripts": {
-    "dev": "npm run build-dictionary && next dev",
-    "build": "npm run build-dictionary && next build && storybook build --output-dir ./.next/storybook",
+    "dev": "pnpm build-dictionary && next dev",
+    "build": "pnpm run build-dictionary && next build && storybook build --output-dir ./.next/storybook",
     "start": "next start",
     "storybook": "storybook dev -p 6006",
-		"postbuild": "next-sitemap",
+    "postbuild": "next-sitemap",
     "build-storybook": "storybook build --output-dir ./.next/storybook",
     "build-dictionary": "style-dictionary build -c ./tokens/config.js"
   },
   "dependencies": {
+    "@biomejs/biome": "^2.3.4",
     "contentful-clean-space": "^0.9.0",
     "date-fns": "^2.22.1",
     "date-fns-tz": "^2.0.0",

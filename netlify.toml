@@ -1,4 +1,4 @@
 
 [build]
   publish = ".next"
-  command = "npm run build"
+  command = "pnpm build"

@@ -1,36 +1,39 @@
-import { useRef, useEffect } from "react";
-import { chunk, sum } from "lodash";
-import LightGallery from "lightgallery/react";
-import Image from "next/image";
-import gsap from "gsap";
-import { Icon } from "../Icons/Icons";
-import styles from "./Gallery.module.scss";
+import gsap from 'gsap';
+import LightGallery from 'lightgallery/react';
+import { chunk, sum } from 'lodash';
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import { Icon } from '../Icons/Icons';
+import styles from './Gallery.module.scss';
 
 // If you want you can use SCSS instead of css
-import "lightgallery/scss/lightgallery.scss";
-import "lightgallery/scss/lg-zoom.scss";
-import "lightgallery/scss/lg-autoplay.scss";
-import "lightgallery/scss/lg-fullscreen.scss";
-import "lightgallery/scss/lg-share.scss";
-import "lightgallery/scss/lg-video.scss";
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-autoplay.css';
+import 'lightgallery/css/lg-fullscreen.css';
+import 'lightgallery/css/lg-share.css';
+import 'lightgallery/css/lg-video.css';
 
-import lgZoom from "lightgallery/plugins/zoom";
-import lgAutoplay from "lightgallery/plugins/autoplay";
-import lgFullscreen from "lightgallery/plugins/fullscreen";
-import lgShare from "lightgallery/plugins/share";
-import lgHash from "lightgallery/plugins/hash";
-import lgVdeo from "lightgallery/plugins/video";
+import lgAutoplay from 'lightgallery/plugins/autoplay';
+import lgFullscreen from 'lightgallery/plugins/fullscreen';
+import lgHash from 'lightgallery/plugins/hash';
+import lgShare from 'lightgallery/plugins/share';
+import lgVdeo from 'lightgallery/plugins/video';
+import lgZoom from 'lightgallery/plugins/zoom';
 
 const Gallery = ({ thumbs, full, itemsPerRow }) => {
-	const galleryItemsRef = useRef([]);
+  const galleryItemsRef = useRef([]);
 
-  let itemsPerRowByBreakpoints = [itemsPerRow]; // use it as an array
-  const aspectRatios = thumbs.map((image) => image.width / image.height);
-  const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map((itemsPerRow) =>
-    chunk(aspectRatios, itemsPerRow).map((rowAspectRatios) => sum(rowAspectRatios)),
+  const itemsPerRowByBreakpoints = [itemsPerRow]; // use it as an array
+  const aspectRatios = thumbs.map(image => image.width / image.height);
+  const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
+    itemsPerRow =>
+      chunk(aspectRatios, itemsPerRow).map(rowAspectRatios =>
+        sum(rowAspectRatios)
+      )
   );
 
-	// GSAP Stagger Effect
+  // GSAP Stagger Effect
   useEffect(() => {
     const galleryItems = galleryItemsRef.current;
     if (galleryItems.length) {
@@ -42,7 +45,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
           y: 0,
           stagger: 0.1,
           duration: 0.4,
-          ease: "power2.out",
+          ease: 'power2.out',
         }
       );
     }
@@ -53,7 +56,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
   return (
     <div className={styles.gallery}>
       <LightGallery
-				data={full}
+        data={full}
         onInit={onInit}
         speed={500}
         download={false}
@@ -66,49 +69,56 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
         share={{
           facebook: true,
           x: true,
-					getShareUrl: (index) => {
-						const image = full[index];
-						const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-						const shareUrl = `${baseUrl}/image/${image.id}`;
+          getShareUrl: index => {
+            const image = full[index];
+            const baseUrl =
+              process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+            const shareUrl = `${baseUrl}/image/${image.id}`;
 
-						// Ensure the URL starts with the protocol
-						return shareUrl.startsWith("http") ? shareUrl : `https://${shareUrl}`;
-					},
-					getShareTitle: (index) => {
-						const image = full[index];
-						return image.alt || "Check out this image!";
-					},
+            // Ensure the URL starts with the protocol
+            return shareUrl.startsWith('http')
+              ? shareUrl
+              : `https://${shareUrl}`;
+          },
+          getShareTitle: index => {
+            const image = full[index];
+            return image.alt || 'Check out this image!';
+          },
         }}
       >
         {thumbs.map((thumb, i) => {
           return (
             <a
-							ref={(el) => (galleryItemsRef.current[i] = el)}
-							data-src={full[i].isVideo ? full[i].src : full[i].src}
-							data-poster={full[i].isVideo ? full[i].poster : undefined}
+              ref={el => (galleryItemsRef.current[i] = el)}
+              data-src={full[i].isVideo ? full[i].src : full[i].src}
+              data-poster={full[i].isVideo ? full[i].poster : undefined}
               className={styles.galleryItem}
               key={i}
               style={{
-                "--thumb-width": rowAspectRatioSumsByBreakpoints.map((rowAspectRatioSums, j) => {
-                  const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j]);
-                  const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
-                  let itemRatio = aspectRatios[i] / rowAspectRatioSum;
-                  
-                  if( itemRatio > 0.8 ) {
-                    itemRatio = itemRatio / itemsPerRow;
-                  };
+                '--thumb-width': rowAspectRatioSumsByBreakpoints.map(
+                  (rowAspectRatioSums, j) => {
+                    const rowIndex = Math.floor(
+                      i / itemsPerRowByBreakpoints[j]
+                    );
+                    const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
+                    let itemRatio = aspectRatios[i] / rowAspectRatioSum;
 
-                  return `calc(${itemRatio * 100}% - 5px)`;
-                })[0],
+                    if (itemRatio > 0.8) {
+                      itemRatio = itemRatio / itemsPerRow;
+                    }
+
+                    return `calc(${itemRatio * 100}% - 5px)`;
+                  }
+                )[0],
               }}
             >
               <Image
-								src={thumb.src}
-								alt={thumb?.title || thumb?.alt}
-								width={thumb.width}
-								height={thumb.height}
-								/>
-								{full[i].isVideo && <Icon name="Youtube" size="7em" /> }
+                src={thumb.src}
+                alt={thumb?.title || thumb?.alt}
+                width={thumb.width}
+                height={thumb.height}
+              />
+              {full[i].isVideo && <Icon name='Youtube' size='7em' />}
             </a>
           );
         })}
