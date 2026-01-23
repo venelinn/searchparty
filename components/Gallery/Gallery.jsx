@@ -29,8 +29,8 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
   const rowAspectRatioSumsByBreakpoints = itemsPerRowByBreakpoints.map(
     itemsPerRow =>
       chunk(aspectRatios, itemsPerRow).map(rowAspectRatios =>
-        sum(rowAspectRatios)
-      )
+        sum(rowAspectRatios),
+      ),
   );
 
   // GSAP Stagger Effect
@@ -46,7 +46,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
           stagger: 0.1,
           duration: 0.4,
           ease: 'power2.out',
-        }
+        },
       );
     }
   }, [thumbs]);
@@ -93,12 +93,13 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
               data-src={full[i].isVideo ? full[i].src : full[i].src}
               data-poster={full[i].isVideo ? full[i].poster : undefined}
               className={styles.galleryItem}
+              data-media-type={full[i].isVideo ? 'video' : 'image'}
               key={i}
               style={{
                 '--thumb-width': rowAspectRatioSumsByBreakpoints.map(
                   (rowAspectRatioSums, j) => {
                     const rowIndex = Math.floor(
-                      i / itemsPerRowByBreakpoints[j]
+                      i / itemsPerRowByBreakpoints[j],
                     );
                     const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
                     let itemRatio = aspectRatios[i] / rowAspectRatioSum;
@@ -107,8 +108,8 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
                       itemRatio = itemRatio / itemsPerRow;
                     }
 
-                    return `calc(${itemRatio * 100}% - 5px)`;
-                  }
+                    return `calc(${itemRatio * 100}% - var(--gallery-gap, 5px))`;
+                  },
                 )[0],
               }}
             >
@@ -118,7 +119,7 @@ const Gallery = ({ thumbs, full, itemsPerRow }) => {
                 width={thumb.width}
                 height={thumb.height}
               />
-              {full[i].isVideo && <Icon name='Youtube' size='7em' />}
+              {full[i].isVideo && <span>{thumb?.title || thumb?.alt}</span>}
             </a>
           );
         })}

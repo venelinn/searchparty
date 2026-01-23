@@ -1,34 +1,47 @@
 .gallery {
+  --gallery-gap: 10px;
   &Item {
     position: relative;
-		cursor: pointer;
-		&[data-poster] {
-			svg {
-				position: absolute;
-				z-index: 10;
-				opacity: var(--_svg-opacity, .7);
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50px);
-				pointer-events: none;
-				transition: opacity .3s var(--ease-in);
-			}
-			&:hover {
-				--_svg-opacity: 1;
-			}
-		}
-
+    cursor: pointer;
+    &[data-media-type='video'] {
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 8px;
+      padding-bottom: 0.5rem;
+      cursor: pointer;
+      border: 1px solid var(--_gallery-border, var(--color-grey-dark));
+      border-radius: 4px;
+      transition: border 0.3s ease;
+      img {
+        border-radius: inherit;
+        filter: var(--_gallery-img-filter, grayscale(1));
+        transition: filter 0.3s ease;
+      }
+      span {
+        justify-self: center;
+        opacity: var(--_svg-opacity, 0.5);
+        transition: opacity 0.3s ease;
+      }
+    }
+    &[data-poster] {
+      &:hover {
+        --_gallery-img-filter: grayscale(0);
+        --_gallery-border: var(--color-grey);
+        --_svg-opacity: 1;
+      }
+    }
   }
-	img {
+  img {
     width: 100%;
-		height: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
-		object-fit: cover;
-	}
+    object-fit: cover;
+  }
   > div {
-    gap: var(--space, 5px);
-    @media (min-width: 601px) {
+    gap: var(--gallery-gap);
+    @media (width > 601px) {
       display: flex;
       flex-wrap: wrap;
       .galleryItem {
@@ -40,11 +53,10 @@
       display: grid;
       grid-gap: var(--space);
     }
-
   }
   &__link {
     position: absolute;
-		inset: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     z-index: 2;
