@@ -31,7 +31,7 @@ export const FormattedDate = ({ dateStr, locale, includeYear = true }) => {
 };
 
 // Function to format the time (hours and minutes)
-export const FormattedTime = ({ dateStr, locale, timezone = "-05:00" }) => {
+export const FormattedTime = ({ dateStr, locale, timezone = "America/Toronto" }) => {
   if (!dateStr) {
     return null;
   }

@@ -1,0 +1,46 @@
+---
+description: Core project conventions and coding standards for boats-web
+alwaysApply: true
+---
+
+# Project Conventions
+
+## Stack
+
+- TypeScript 5.9, React 19, Next.js 16 (App Router)
+- SCSS Modules for styling, clsx for class composition
+- next-intl for i18n (messages in `messages/{en,fr,es}.json`)
+- lucide-react for icons (via `components/Icon`)
+- Contentful as CMS (data fetched in server components)
+- amazon-cognito-identity-js for auth
+
+## Architecture
+
+- **Server Components** for data fetching (`app/[lang]/` pages, layout)
+- **Client Components** marked with `"use client"` for interactivity
+- Component files: `components/ComponentName/ComponentName.tsx` + `.module.scss`
+- Utils in `utils/` — pure functions, no React imports
+- Hooks in `hooks/` — client-side only
+
+## Code Style
+
+- Never use `!important` in CSS
+- Never add comments that just narrate what code does
+- Use `clsx` (imported as `cx` or `clsx`) for conditional class names
+- Translations: use `useTranslations()` from next-intl, keys in `messages/*.json`
+- All three locale files (en, fr, es) must stay in sync when adding translations
+- Prefer editing existing files over creating new ones
+
+## Contentful Data
+
+- Menu data: `extractMenuColumns()` from `utils/menuHelpers.ts`
+- Links: `contentfulItemToLink()` from `utils/linkHelpers.ts`
+- Pages: `getPageBySlug()` from `utils/content.ts`
+- Locales: `getContentfulLocale()` maps app locale to Contentful locale
+
+## Component Patterns
+
+- Icons: `<Icon name="IconName" size={24} />` — name is PascalCase or kebab-case
+- Buttons: `<Button variant="primary" size="sm" />` — variants: primary, secondary, toggle, danger, warning, link
+- Sections: wrap in `<SectionConnector>` with section props from Contentful
+- Headings: `<Heading as="h1" size="h1">` — `as` is semantic, `size` is visual

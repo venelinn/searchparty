@@ -1,0 +1,127 @@
+---
+description: HTML element rules and component usage conventions for boats-web
+globs: "**/*.{tsx,jsx}"
+alwaysApply: false
+---
+
+# HTML & Component Rules
+
+## Headings
+
+- **Never use raw `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` elements** — always use the `<Heading>` component from `@/components/Headings`
+- The `<Heading>` component provides consistent typography, styling, and animation support
+- Use `as` for the semantic HTML element and `size` for the visual size (they can differ)
+
+```tsx
+import { Heading } from "@/components/Headings"
+
+// Page title
+<Heading as="h1" size="h2">Page Title</Heading>
+
+// Section headings
+<Heading as="h2" size="h3">Section Title</Heading>
+
+// Subsection headings
+<Heading as="h3" size="h4">Subsection Title</Heading>
+```
+
+### Heading Props Reference
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `as` | `"h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "div"` | `"h2"` | Semantic HTML element |
+| `size` | `"hero" \| "h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "base"` | `"h2"` | Visual size |
+| `className` | `string` | — | Additional CSS class |
+| `uppercase` | `boolean` | `false` | Uppercase text transform |
+| `center` | `boolean` | `false` | Center-aligned text |
+| `animationID` | `string` | — | Animation identifier |
+| `isHidden` | `boolean` | `false` | Visually hidden |
+
+## Buttons
+
+- **Never use raw `<button>` elements** — always use the `<Button>` component from `@/components/Button`
+- The `<Button>` component handles variants, sizes, icons, links, and accessibility
+
+```tsx
+import { Button } from "@/components/Button"
+
+// Standard action button
+<Button label="Submit" variant="primary" onClick={handleSubmit} />
+
+// Button with icon
+<Button label="Add item" variant="secondary" icon="Plus" />
+
+// Link styled as button
+<Button label="View details" variant="primary" href="/details" />
+
+// Icon-only button (provide aria-label via label prop or wrapper)
+<Button icon="X" variant="secondary" onClick={handleClose} />
+```
+
+### Button Props Reference
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Button text (omit for icon-only) |
+| `variant` | `"primary" \| "secondary" \| "success" \| "danger" \| "warning" \| "toggle" \| "request" \| "link"` | `"secondary"` | Visual variant |
+| `href` | `string` | — | Renders as `<Link>` when provided |
+| `type` | `"button" \| "submit" \| "reset"` | `"button"` | HTML button type |
+| `icon` | `string` | — | Lucide icon name (left position by default) |
+| `iconAfter` | `string` | — | Lucide icon name after label |
+| `iconPosition` | `"left" \| "right"` | `"left"` | Icon placement |
+| `size` | `FormElementSize` | `"md"` | Button size |
+| `outlined` | `boolean` | `false` | Outlined variant |
+| `isRounded` | `boolean` | `false` | Rounded corners |
+| `disabled` | `boolean` | `false` | Disabled state |
+
+## Page Structure (`app/` files)
+
+- **Pages should only contain data fetching and wrapper `<div>` elements** — all UI must be delegated to components
+- Never put complex HTML structures (grids, lists, cards, forms) directly in page files
+- Pages fetch data, transform it, and pass it as props to components
+- Wrapper `<div>` elements for layout (e.g., applying a page-level CSS class) are acceptable
+
+```tsx
+// Good: page.tsx passes data to components
+export default async function BoatPage({ params }) {
+  const boat = await fetchBoat(params.id)
+  return (
+    <div className={styles.page}>
+      <BoatHeader name={boat.name} year={boat.year} />
+      <BoatSpecs specs={boat.specifications} />
+      <BoatAmenities specs={boat.specifications} />
+    </div>
+  )
+}
+
+// Bad: page.tsx contains inline HTML structure
+export default async function BoatPage({ params }) {
+  const boat = await fetchBoat(params.id)
+  return (
+    <div>
+      <div className={styles.header}>
+        <h1>{boat.name}</h1>
+        <div className={styles.specGrid}>
+          <div className={styles.spec}>
+            <span>{boat.specs.length}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+```
+
+## Semantic HTML
+
+- Use `<main>` for the primary content area (already in layout.tsx)
+- Use `<section>` for distinct content sections, prefer the `<Section>` component from `@/components/Section`
+- Use `<nav>` for navigation regions
+- Use `<Button>` for actions, `<Link>` for navigation — never the reverse
+- All interactive elements must have accessible names (`aria-label`, visible text, or `aria-labelledby`)
+
+## Storybook
+
+- Every reusable component in `components/` must have a colocated `.stories.tsx` file
+- Stories use `@storybook/nextjs` framework with `Meta` and `StoryObj` types
+- Provide meaningful mock data in story args to demonstrate component states

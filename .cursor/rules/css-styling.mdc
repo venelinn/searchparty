@@ -1,0 +1,104 @@
+---
+description: CSS/SCSS styling rules and conventions for boats-web
+globs: "**/*.{scss,css,module.scss}"
+alwaysApply: false
+---
+
+# CSS/SCSS Styling Rules
+
+## Absolute Rules
+
+- **Never use `!important`** — fix specificity issues properly
+- **Never use inline styles in components** — use CSS Modules or SCSS classes
+- **Never use hardcoded colors** (`#fff`, `#0b57d0`, `rgba(...)`, `hsl(...)`) — always use design token variables (`var(--color-*)`, `var(--system-*)`, `base.$color-*`)
+- CSS variables use `--_` prefix for private/scoped vars (e.g. `--_btn-color`)
+
+## Design Tokens
+
+- All values come from Style Dictionary (`tokens/*.json` → `styles/_base-variables.scss` + `styles/_css-variables.css`)
+- Use `var(--spacing-*)`, `var(--color-*)`, `var(--font-*)` for all spacing, colors, and typography
+- SCSS breakpoints: `base.$breakpoint-sm` (36rem), `base.$breakpoint-md` (48rem), `base.$breakpoint-lg` (62rem), `base.$breakpoint-xl` (75rem)
+- Each breakpoint has a `-max` variant (e.g. `$breakpoint-md-max: 47.9375rem`)
+
+## CSS Modules
+
+- One `.module.scss` per component, colocated with the component
+- Import as `import styles from "./Component.module.scss"`
+- Use `clsx` or `cx` for conditional classes — never string concatenation for multiple classes
+
+## BEM Methodology
+
+- Follow BEM (Block Element Modifier) for all class naming and HTML structure
+- **Block**: the component root (`.search`, `.card`, `.footer`)
+- **Element**: a child part of the block, using `__` (`.search__form`, `.card__title`)
+- **Modifier**: a variation or state, using `--` (`.card--featured`, `.search--sm`)
+- In SCSS modules, use nesting with `&`:
+
+```scss
+.search {
+  &__form { ... }
+  &__input { ... }
+  &--sm { ... }
+}
+```
+
+- In JSX, reference as `styles.search__form`, `styles['search--sm']`
+- Keep nesting flat — max 2 levels (block > element). Never nest elements inside elements (`&__form__input` is wrong)
+- Use data attributes for dynamic states instead of BEM modifiers when toggled by JS: `data-size="sm"`, `data-variant="dark"`
+
+## Responsive
+
+- Mobile-first: default styles are mobile, use `@media (min-width: base.$breakpoint-md)` to add desktop styles
+- Prefer `@container` queries over `@media` when the component is inside a resizable container
+- Container queries require `container-type: inline-size` on a parent
+
+## Layout Patterns
+
+- Use CSS Grid (`content-grid` pattern) for page layout
+- Use Flexbox for component internals
+- When using flex: always set `min-width: 0` on children that need to shrink below content size (inputs, text)
+- Use `flex: 0 0 auto` for fixed-size flex children (icons, buttons)
+
+## Units
+
+- Spacing: `var(--spacing-*)` tokens or `rem`
+- Font sizes: `var(--ui-*-font-size)` or `var(--heading-size-*-font-size)` tokens
+- Breakpoints: SCSS variables only (`base.$breakpoint-md`), not hardcoded px
+- Icon sizes in components: prefer `rem` or numeric px values, avoid `em` (parent-dependent)
+
+## Color & Opacity
+
+- **Never use `rgba(var(--color-*), alpha)`** — our tokens are full `hsl(...)` values, not comma-separated RGB channels. `rgba()` expects three numbers and will produce invalid CSS
+- **Use `color-mix()` for transparency**: `color-mix(in srgb, var(--color-black) 60%, transparent)` — works with any color format (hsl, rgb, hex)
+- **Use `color-mix()` to darken/lighten**: `color-mix(in srgb, var(--color-blue), black 25%)` — preferred over manual hsl adjustments
+
+```scss
+// ❌ BAD — fails with hsl() variables
+background: rgba(var(--color-black), 0.6);
+
+// ✅ GOOD — works with any color format
+background: color-mix(in srgb, var(--color-black) 60%, transparent);
+```
+
+## Accessibility (WCAG)
+
+- **White text on colored backgrounds must have 4.5:1 contrast ratio** (WCAG AA for normal text). Use a contrast checker when choosing color-mix percentages
+- **Primary buttons**: darken the base color enough — `color-mix(in srgb, var(--color-blue), black 25%)` passes; `black 10%` does not
+- **Never rely on color alone** to convey meaning — use icons, text, or patterns alongside color
+
+## Cross-Browser (Safari)
+
+- **Never use `oklch(from var(...))` or relative color syntax with CSS variables** — Safari doesn't support it reliably; use `color-mix(in srgb, ...)` instead
+- **Never rely on `aspect-ratio` alone for square buttons** — set explicit `width` and `height` and zero out padding via custom properties
+- **Always add `-webkit-appearance: none` on inputs** — Safari adds default styling that changes dimensions
+- **Always add `flex-shrink: 0` on icons and fixed-size elements** — prevents Safari from shrinking them in flex containers
+
+## File Structure
+
+```scss
+@use "styles/base-variables" as base;
+@use "styles/typo-mixins" as typo;    // optional
+@use "styles/mixins" as shared;        // optional
+
+.component { ... }
+```

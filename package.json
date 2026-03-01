@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm build-dictionary && next dev",
+    "dev": "pnpm run build-dictionary && next dev -p 3018",
     "build1": "pnpm run build-dictionary && next build && storybook build --output-dir ./.next/storybook",
     "build": "pnpm run build-dictionary && next build",
     "start": "next start",
