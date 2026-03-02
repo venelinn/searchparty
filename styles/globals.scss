@@ -87,6 +87,11 @@ body {
       @media (width > base.$breakpoint-md) {
         grid-template-columns: 1fr auto;
       }
+      @media (width <= base.$breakpoint-md) {
+        [data-sidebar] {
+          order: -1;
+        }
+      }
       gap: 2rem;
       padding-bottom: 2rem;
     }

@@ -13,6 +13,9 @@
   --_select-bgr: transparent;
   --_select-border: var(--color-grey-border);
   --_select-color: inherit;
+  * {
+    background-color: var(--color-black);
+  }
 
   display: inline-grid;
   gap: 0.2rem;
@@ -20,12 +23,6 @@
 
   &.full {
     width: 100%;
-  }
-
-  &.dark {
-    --_select-bgr: var(--color-grey-dark);
-    --_select-border: var(--color-grey);
-    --_select-color: var(--color-white);
   }
 
   &__icon {
