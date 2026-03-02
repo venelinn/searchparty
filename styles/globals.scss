@@ -11,13 +11,6 @@
 
 @layer frameworks, reset, base, theme, layouts, components, utilities;
 
-@layer frameworks {
-  @import url('swiper/css');
-  @import url('swiper/css/navigation');
-  @import url('swiper/css/pagination');
-  @import url('swiper/css/zoom');
-}
-
 @layer base {
   @include layout.content;
   @include normalize.styles;
@@ -75,8 +68,6 @@ body {
   color: CanvasText;
   background-image: url('/static/bgr.webp');
   margin: 0;
-  [data-has-bgr] & {
-  }
 }
 
 .app-wrapper {
