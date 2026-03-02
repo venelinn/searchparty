@@ -3,7 +3,7 @@
 .grid {
   --_grid-gap: var(--_gap, 16px);
   --_grid-container-type: inline-size;
-  --_min-column-width: 300px;
+  --_min-column-width: 240px;
 
   display: grid;
 
@@ -39,7 +39,6 @@
   }
 
   &__no-gap {
-    --_grid-gap: 0;
-    --_grid-template-columns: repeat(var(--_grid-cols, 1), 1fr);
+    --_grid-gap: 0px;
   }
 }
