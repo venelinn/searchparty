@@ -1,9 +1,10 @@
+@use 'styles/breakpoints' as bp;
 
 .band {
-	@media (min-width: $breakpoint-min-md) {
-		display: flex;
-	}
-	@media (max-width: $breakpoint-max-md) {
-		display: grid;
-	}
+  @media (min-width: bp.$breakpoint-min-md) {
+    display: flex;
+  }
+  @media (max-width: bp.$breakpoint-max-md) {
+    display: grid;
+  }
 }

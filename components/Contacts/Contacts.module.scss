@@ -1,6 +1,7 @@
+@use 'styles/breakpoints' as bp;
 /* contact form */
 .contact-form {
-  @media (min-width: $breakpoint-min-md) {
+  @media (min-width: bp.$breakpoint-min-md) {
     width: 100%;
     margin: auto;
     max-width: 50%;
@@ -8,16 +9,15 @@
   fieldset {
     border: none;
   }
-	input::-ms-clear {
-		display: none;
-	}
+  input::-ms-clear {
+    display: none;
+  }
 }
 
-
 .form-field {
-	label {
-		display: block;
-	}
+  label {
+    display: block;
+  }
   input,
   textarea {
     display: block;
@@ -58,9 +58,9 @@
     &:focus {
       background: #336699;
     }
-		margin-top: 4rem;
-		line-height: 2.5rem;
-		font-size: 1.3rem;
+    margin-top: 4rem;
+    line-height: 2.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -91,9 +91,8 @@
   text-align: center;
   margin-top: 2rem;
   position: static;
-  color: var(--modal-status, red );
-  &[data-status="true"] {
+  color: var(--modal-status, red);
+  &[data-status='true'] {
     --modal-status: green;
   }
 }
-

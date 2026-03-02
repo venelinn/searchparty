@@ -33,5 +33,5 @@
     ".next/dev/types/**/*.ts",
     "app/[lang]/[[...slug[]/.page.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules","docs"]
 }

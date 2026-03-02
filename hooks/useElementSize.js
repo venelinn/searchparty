@@ -32,5 +32,5 @@ export default function useElementSize() {
     return () => window.removeEventListener("resize", handleSize);
   }, [handleSize]);
 
-  return [setRef, size];
+  return [setRef, size] ;
 }

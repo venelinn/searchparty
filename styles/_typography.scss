@@ -1,57 +1,44 @@
-// h1 {
-// 	@include h1;
-// }
+@use 'styles/typo-mixins' as typo;
 
-// h2 {
-// 	@include h2;
-// }
+@mixin typography {
+  .ui-body {
+    @include typo.ui-body;
+  }
 
-// h3 {
-// 	@include h3;
-// }
+  .ui-caption {
+    @include typo.ui-caption;
+  }
 
-// h4 {
-// 	@include h4;
-// }
+  .ui-small {
+    @include typo.ui-small;
+  }
 
-.ui-body {
-	@include ui-body;
-}
+  .heading-large {
+    font-size: 24px;
+  }
 
-.ui-caption {
-	@include ui-caption;
-}
+  small {
+    font-size: 14px;
+  }
 
-.ui-small {
-	@include ui-small;
-}
+  ul,
+  ol {
+    padding-left: 16px;
+  }
 
+  .align-left {
+    text-align: left;
+  }
 
-.heading-large {
-	font-size: rem(25px);
-}
+  .align-right {
+    text-align: right;
+  }
 
-small {
-	font-size: rem(14px);
-}
+  .align-center {
+    text-align: center;
+  }
 
-ul,
-ol {
-	padding-left: rem(17px);
-}
-
-.align-left {
-	text-align: left;
-}
-
-.align-right {
-	text-align: right;
-}
-
-.align-center {
-	text-align: center;
-}
-
-.uppercase {
-	text-transform: uppercase;
+  .uppercase {
+    text-transform: uppercase;
+  }
 }

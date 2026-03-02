@@ -1,95 +1,94 @@
+@use 'styles/breakpoints' as bp;
+@use 'styles/typo-mixins' as typo;
 .event {
-	--_cover-size: 250px;
-	display: grid;
-	border-top: 1px solid var(--color-grey-border);
-	grid-template-columns: var(--_event-grid);
-	gap: 1rem;
-	padding: 2rem 0;
-	font-size: 1.2em;
-	@media (min-width: $breakpoint-min-md) {
-		--_event-grid: 80px 200px 3fr auto;
-	}
-	@media (max-width: $breakpoint-max-md) {
-		text-align: center;
-	}
-	&__date {
-		text-align: center;
-		@media (min-width: $breakpoint-min-md) {
-			display: grid;
-			align-content: center;
-		}
-		@media (max-width: $breakpoint-max-md) {
-			display: flex;
-			gap: .5rem;
-			justify-content: center;
-			align-items: center;
-		}
-		> *:nth-child(2) {
-			--heading-color: var(--color-highlight);
-			@include h1;
-
-		}
-	}
-	&__hour {
-		display: flex;
-		gap: 0.5rem;
-		margin-top: 1rem;
-		align-items: center;
-		@media (max-width: $breakpoint-max-md) {
-			justify-content: center;
-		}
-	}
-	&__image {
-		text-align: center;
-		border: 1px solid var(--color-grey);
-		width: 100%;
-		@media (min-width: $breakpoint-min-md) {
-			max-width: 200px;
-			max-height: var(--_cover-size);
-		}
-		@media (max-width: $breakpoint-max-md) {
-			a {
-				pointer-events: none;
-			}
-		}
-		img {
-			width: auto;
-			height: 100%;
-			object-fit: contain;
-		}
-	}
-	&__venue {
-		--heading-color: var(--color-highlight);
-		margin-bottom: 1rem;
-		@include h2;
-	}
-	&__content {
-		&:has(.event__logo) {
-			position: relative;
-			overflow: hidden;
-		}
-		@media (max-width: $breakpoint-max-md) {
-			text-align: center;
-		}
-	}
-	&__logo {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		opacity: 0.1;
-		max-width: 300px;
-		transform: scale(1.3);
-		transform-origin: right bottom;
-		z-index: -1;
-		@media (max-width: $breakpoint-max-md) {
-			display: none;
-		}
-	}
-
+  --_cover-size: 250px;
+  display: grid;
+  border-top: 1px solid var(--color-grey-border);
+  grid-template-columns: var(--_event-grid);
+  gap: 1rem;
+  padding: 2rem 0;
+  font-size: 1.2em;
+  @media (min-width: bp.$breakpoint-min-md) {
+    --_event-grid: 80px 200px 3fr auto;
+  }
+  @media (max-width: bp.$breakpoint-max-md) {
+    text-align: center;
+  }
+  &__date {
+    text-align: center;
+    @media (min-width: bp.$breakpoint-min-md) {
+      display: grid;
+      align-content: center;
+    }
+    @media (max-width: bp.$breakpoint-max-md) {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    > *:nth-child(2) {
+      --heading-color: var(--color-highlight);
+      @include typo.h1;
+    }
+  }
+  &__hour {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    align-items: center;
+    @media (max-width: bp.$breakpoint-max-md) {
+      justify-content: center;
+    }
+  }
+  &__image {
+    text-align: center;
+    border: 1px solid var(--color-grey);
+    width: 100%;
+    @media (min-width: bp.$breakpoint-min-md) {
+      max-width: 200px;
+      max-height: var(--_cover-size);
+    }
+    @media (max-width: bp.$breakpoint-max-md) {
+      a {
+        pointer-events: none;
+      }
+    }
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__venue {
+    --heading-color: var(--color-highlight);
+    margin-bottom: 1rem;
+    @include typo.h2;
+  }
+  &__content {
+    &:has(.event__logo) {
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: bp.$breakpoint-max-md) {
+      text-align: center;
+    }
+  }
+  &__logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0.1;
+    max-width: 300px;
+    transform: scale(1.3);
+    transform-origin: right bottom;
+    z-index: -1;
+    @media (max-width: bp.$breakpoint-max-md) {
+      display: none;
+    }
+  }
 }
 
-
 .modalImage {
-	width: auto;
-	max-height: 80dvh;
+  width: auto;
+  max-height: 80dvh;
 }

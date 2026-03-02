@@ -1,3 +1,5 @@
+@use 'styles/breakpoints' as bp;
+
 /* ==========================================================================
     Navigation
 ========================================================================== */
@@ -32,7 +34,7 @@
 		}
 	}
 
-	@media (max-width: $breakpoint-max-md) {
+	@media (max-width: bp.$breakpoint-max-md) {
     --navigation-padding: var(--padding-mobile);
   }
 
@@ -43,7 +45,7 @@
 		margin: auto;
 		min-height: 30px;
 		padding: 1rem 0;
-		@media (max-width: $breakpoint-max-md) {
+		@media (max-width: bp.$breakpoint-max-md) {
 			--nav-grid: auto 1fr;
 		}
   }
@@ -72,7 +74,7 @@
     }
 		img {
 			max-width: var(--_logo-max-width, 200px);
-			@media (min-width: $breakpoint-min-md) {
+			@media (min-width: bp.$breakpoint-min-md) {
 				--_logo-max-width: 260px;
 			}
 		}
@@ -86,11 +88,11 @@
 	&__menu{
 		display: var(--_display-menu-nav, grid);
 		align-items: center;
-		@media (max-width: $breakpoint-max-md) {
+		@media (max-width: bp.$breakpoint-max-md) {
 			--_display-menu-nav: none;
 		}
 		.is-open & {
-			@media (max-width: $breakpoint-max-md) {
+			@media (max-width: bp.$breakpoint-max-md) {
 				--_display-menu-nav: grid;
 				position: fixed;
 				top: 0;
@@ -111,12 +113,12 @@
 		display: var(--_display-menu-nav, flex);
 		gap: 2rem;
 		text-transform: uppercase;
-		@media (min-width: $breakpoint-min-md) {
+		@media (min-width: bp.$breakpoint-min-md) {
 			> *:first-child {
 				display: none;
 			}
 		}
-		@media (max-width: $breakpoint-max-md) {
+		@media (max-width: bp.$breakpoint-max-md) {
 			.is-open & {
 				--_display-menu-nav: grid;
 			}
@@ -237,17 +239,17 @@
     }
   }
 
-  @media (min-width: $breakpoint-min-md) {
+  @media (min-width: bp.$breakpoint-min-md) {
     display: none;
   }
 }
 
 
 .fixedNav {
-	@media (min-width: $breakpoint-min-md) {
+	@media (min-width: bp.$breakpoint-min-md) {
 		padding-top: calc(var(--navigation-height) - 2rem);
 	}
-	@media (max-width: $breakpoint-max-md) {
+	@media (max-width: bp.$breakpoint-max-md) {
     padding-top: calc(var(--navigation-height));
   }
 }

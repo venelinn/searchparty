@@ -1,22 +1,20 @@
-* {
-	box-sizing: border-box;
-}
+@mixin styles {
+  * {
+    box-sizing: border-box;
+  }
 
-h2, h3{
-	margin: 0;
-}
+  img {
+    max-width: 100%;
+  }
 
+  button {
+    background-color: transparent;
+    border: 0;
+    font-family: inherit;
+  }
 
-img {
-	max-width: 100%;
-}
-
-button {
-	background-color: transparent;
-	border: 0;
-}
-
-figure {
-	margin: 0;
-	padding: 0;
+  figure {
+    margin: 0;
+    padding: 0;
+  }
 }

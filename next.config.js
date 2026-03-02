@@ -1,12 +1,17 @@
-const localization = require("./utils/localization");
+// const localization = require("./utils/localization")
+const path = require("path")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	i18n: {
-		locales: localization.locales,
-		defaultLocale: localization.defaultLocale,
-		localeDetection: false,
+	sassOptions: {
+		includePaths: [path.join(__dirname, ".")],
 	},
+	// i18n: {
+	// 	locales: localization.locales,
+	// 	defaultLocale: localization.defaultLocale,
+	// 	localeDetection: false,
+	// },
+	reactStrictMode: true,
 	trailingSlash: false,
 	images: {
 		// dangerouslyAllowSVG: true,
@@ -27,6 +32,11 @@ const nextConfig = {
 				pathname: "**",
 			},
 			{
+				protocol: "http",
+				hostname: "res.cloudinary.com",
+				pathname: "**",
+			},
+			{
 				protocol: "https",
 				hostname: "i.ytimg.com",
 				pathname: "**",
@@ -36,19 +46,21 @@ const nextConfig = {
 				hostname: "*.cdninstagram.com",
 				pathname: "**",
 			},
+			{
+				protocol: "https",
+				hostname: "images.unsplash.com",
+				pathname: "**",
+			},
 		],
 	},
-	sassOptions: {
-		additionalData: "@import 'styles/shared.scss';",
-	},
 	async rewrites() {
-    return [
-      {
-        source: "/storybook/:path*",
-        destination: "/_next/storybook/:path*",
-      },
-    ];
-  },
-};
+		return [
+			{
+				source: "/storybook/:path*",
+				destination: "/_next/storybook/:path*",
+			},
+		]
+	},
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

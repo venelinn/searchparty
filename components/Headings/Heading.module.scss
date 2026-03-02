@@ -1,3 +1,5 @@
+@use 'styles/typo-mixins' as typo;
+
 .heading {
   &--normal {
     --heading-weight: var(--font-regular);
@@ -11,19 +13,19 @@
 }
 
 .heading--h1 {
-	@include h1;
+	@include typo.h1;
 }
 
 .heading--h2 {
-	@include h2;
+	@include typo.h2;
 }
 
 .heading--h3 {
-	@include h3;
+	@include typo.h3;
 }
 
 .heading--h4 {
-	@include h4;
+	@include typo.h4;
 	--heading-weight: var(--font-medium);
 }
 

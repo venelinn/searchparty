@@ -1,15 +1,19 @@
+"use client";
+
 import { createContext, useContext, useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import useScrollbar from "../hooks/useScrollbar";
 import useWindowSize from "../hooks/useWindowSize";
 import useLockedScroll from "../hooks/useLockedScroll";
 
 const NavigationContext = createContext({
-  open: false,
+  ref: null,
+  setRef: (el) => {},
+  isOpen: false,
+  setIsOpen: () => {},
   sticky: false,
   fixed: false,
   stuck: false,
-  setOpen: () => {},
   toggle: () => {},
 });
 
@@ -19,7 +23,7 @@ export function NavigationContextProvider({ children }) {
   const { scrollY } = useScrollbar();
   const { windowSize, isDesktop } = useWindowSize();
   const [locked, setLocked] = useLockedScroll(false);
-  const router = useRouter();
+  const pathname = usePathname();
 
   const navigationHeight = 100; // Set the height at which the "stuck" state should be triggered
 
@@ -57,20 +61,19 @@ export function NavigationContextProvider({ children }) {
       setLocked(false);
     }
 		setIsFixedAlwaysTrue(false);
-		// Reset the fixed, sticky, and stuck values when the router changes
 		requestAnimationFrame(() => {
 			setIsSticky(false);
 			setIsStuck(false);
 		});
 
 		setIsFixedAlwaysTrue(
-			router.asPath === "/contact" ||
-			router.asPath === "/privacy-policy" ||
-			router.asPath === "/terms-and-conditions" ||
-			/^\/media(\/|$)/.test(router.asPath)
+			pathname === "/contact" ||
+			pathname === "/privacy-policy" ||
+			pathname === "/terms-and-conditions" ||
+			/^\/media(\/|$)/.test(pathname)
 		);
 
-  }, [router.asPath]);
+  }, [pathname]);
 
 	// const isFixedAlwaysTrue =
   //   router.asPath === "/privacy-policy" ||

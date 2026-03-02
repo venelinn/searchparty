@@ -1,8 +1,10 @@
+@use 'styles/breakpoints' as bp;
+
 .section {
 	background-color: var(--bgr-section-color);
   padding: var(--section-padding, calc(var(--padding-desktop)*3) var(--padding-desktop));
   min-height: var(--section-min-height);
-  @media (max-width: $breakpoint-max-md) {
+  @media (max-width: bp.$breakpoint-max-md) {
     --section-padding: var(--padding-mobile);
   }
   &__inner {

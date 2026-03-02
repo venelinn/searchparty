@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: local("Jost"), url("/fonts/jost/Jost-400-Book.woff2") format("woff2"),
+    url("/fonts/jost/Jost-400-Book.ttf") format("ttf");
+}
