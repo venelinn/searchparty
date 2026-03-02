@@ -1,17 +1,19 @@
-"use client";
+'use client';
 
+import clsx from 'clsx';
 import Image from 'next/image';
 import { useState } from 'react';
-import { FormattedDate, FormattedTime } from '../../utils/DateFormat';
-import { Button } from '../Button/Button';
-import { Icon } from '../Icons/Icons';
-import { Modal } from '../Modal/Modal';
+import { Button } from '@/components/Button';
+import { Icon } from '@/components/Icon';
+import { Modal } from '@/components/Modal';
+import { FormattedDate, FormattedTime } from '@/utils/DateFormat';
 import styles from './Event.module.scss';
 
 export interface EventProps {
   event: any;
   type: 'upcoming' | 'past';
   locale: string;
+  fallbackImage?: string;
 }
 
 function generateGoogleMapsURL(lat: number, lng: number, placeName: string) {
@@ -19,11 +21,13 @@ function generateGoogleMapsURL(lat: number, lng: number, placeName: string) {
   return `https://www.google.com/maps?q=${lat},${lng}`;
 }
 
-const fallbackImage =
+const DEFAULT_FALLBACK_IMAGE =
   'https://res.cloudinary.com/dvgvftw9u/image/upload/q_auto/v1730046867/fallback_m5m9wa';
 
-const Event = ({ event, type, locale }: EventProps) => {
+export const Event = ({ event, type, locale, fallbackImage }: EventProps) => {
   const [modalStates, setModalStates] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const effectiveFallback = fallbackImage ?? DEFAULT_FALLBACK_IMAGE;
   const handleOpenModal = () => {
     setModalStates(true);
   };
@@ -31,15 +35,17 @@ const Event = ({ event, type, locale }: EventProps) => {
   const handleCloseModal = () => {
     setModalStates(false);
   };
-  // const { url, width, height } = getOptimizedImage(event?.cover[0], 800, 100);
-  const cover =
-    event.cover && event.cover[0]
-      ? event.cover[0]
-      : { src: fallbackImage, alt: 'Fallback Cover', width: 507, height: 86 };
+
+  const hasCover = !!event.cover?.[0];
+  const cover = event.cover?.[0] ?? {
+    src: effectiveFallback,
+    alt: 'Event cover',
+    width: 507,
+    height: 86,
+  };
+  const isFallback = !hasCover || imageError;
 
   const logo = event?.venueLogo?.logo[0];
-  // const { logoUrl, logoWidth, logoHeight } = getOptimizedImage(logo, 500, 70);
-  // console.log(logo);
 
   return (
     <div className={styles.event} key={event.id}>
@@ -51,14 +57,14 @@ const Event = ({ event, type, locale }: EventProps) => {
         />
       </div>
       <figure className={styles.event__image}>
-        <a onClick={() => handleOpenModal()}>
+        <button type='button' onClick={() => handleOpenModal()}>
           <Image
             src={cover.src}
             alt={cover.alt}
             width={cover.width}
             height={cover.height}
           />
-        </a>
+        </button>
       </figure>
       <div className={styles.event__content}>
         <div className={styles.event__venue}>{event.venue}</div>
@@ -79,31 +85,34 @@ const Event = ({ event, type, locale }: EventProps) => {
               alt={logo.alt}
               width={logo.width}
               height={logo.height}
+              className={clsx(isFallback && styles.event__imageFallback)}
             />
           </figure>
         )}
       </div>
-      {type === 'upcoming' && (
-        <Button
-          variant='primary'
-          label='Location'
-          isExternal={true}
-          icon='MapPin'
-          externalHref={generateGoogleMapsURL(
-            event.address.lat,
-            event.address.lon,
-            event.venue,
-          )}
-        />
-      )}
-      {type === 'past' && event.gallery && (
-        <Button
-          href={event.gallery}
-          icon='Images'
-          variant='primary'
-          label='Gallery'
-        />
-      )}
+      <div className={styles.event__buttons}>
+        {type === 'upcoming' && (
+          <Button
+            variant='primary'
+            label='Location'
+            isExternal={true}
+            icon='MapPin'
+            externalHref={generateGoogleMapsURL(
+              event.address.lat,
+              event.address.lon,
+              event.venue,
+            )}
+          />
+        )}
+        {type === 'past' && event.gallery && (
+          <Button
+            href={event.gallery}
+            icon='Images'
+            variant='primary'
+            label='Gallery'
+          />
+        )}
+      </div>
       <Modal isOpen={modalStates} onClose={() => handleCloseModal()}>
         <Image
           src={cover.src}
@@ -116,6 +125,3 @@ const Event = ({ event, type, locale }: EventProps) => {
     </div>
   );
 };
-
-export default Event;
-export { Event };

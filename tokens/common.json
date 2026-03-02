@@ -1,8 +1,8 @@
 {
-	"border-radius": {
-		"base": { "value": "4px" }
-	},
-	"page-width": {
-		"value": "1140px"
-	}
+  "border-radius": {
+    "base": { "value": "4px" }
+  },
+  "page-width": {
+    "value": "1280px"
+  }
 }

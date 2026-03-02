@@ -5,7 +5,7 @@ import {
   type EntrySkeletonType,
 } from 'contentful';
 import { normalizeSlug, PAGE_TYPE, SITE_CONFIG_TYPE } from './common';
-import localization from './localization';
+import { localization } from './localization';
 
 const deliveryClient = createClient({
   accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || '',
@@ -162,6 +162,10 @@ export type SiteConfig = {
   fallbackNews?:
     | { src?: string; url?: string; secure_url?: string }
     | Record<string, unknown>;
+  eventsHero?: Record<string, unknown>[];
+  eventsPerPage?: number;
+  listingEvents?: number;
+  listingNews?: number;
   [key: string]: unknown;
 };
 
@@ -353,6 +357,18 @@ export async function getAllEvents(locale: string, preview?: boolean) {
   return items.map(entry => mapEntry(entry));
 }
 
+export async function getAllNews(locale: string, preview?: boolean) {
+  const contentfulLocale = getContentfulLocale(locale);
+	const { items } = await getEntries(
+    'news',
+    { locale: contentfulLocale, limit: 100 },
+    { preview },
+  );
+  return items.map(entry => mapEntry(entry));
+
+
+}
+
 /** Extracts image URL from site config fallback (Cloudinary asset or array). */
 export function getFallbackImageUrl(obj: unknown): string | null {
   if (!obj || typeof obj !== 'object') return null;
@@ -383,4 +399,101 @@ export function getFallbackImageUrl(obj: unknown): string | null {
     if (typeof imgUrl === 'string' && imgUrl) return imgUrl;
   }
   return null;
+}
+
+
+export type ListingsSection = {
+  type: "events" | "news";
+  cards: Array<{ type: string; date?: string; [key: string]: unknown }>;
+  hasMore: boolean;
+};
+
+export type ListingsDataResult = {
+  sections: ListingsSection[];
+  siteConfig: SiteConfig | null;
+};
+
+/**
+ * Fetches listing data for Page model "listings" field.
+ * Returns separate sections for events and news, each with its own limit from site config.
+ */
+export async function getListingsData(
+  listingTypes: string[],
+  locale: string,
+  options?: { limit?: number; preview?: boolean },
+): Promise<ListingsDataResult> {
+  const defaultLimit = options?.limit ?? 5;
+  const preview = options?.preview ?? false;
+  const sections: ListingsSection[] = [];
+
+  const siteConfig = await getSiteConfig(locale, preview);
+  const eventsLimit = Number(siteConfig?.listingEvents) || defaultLimit;
+  const newsLimit = Number(siteConfig?.listingNews) || defaultLimit;
+
+  for (const listingType of listingTypes) {
+    if (listingType === "events") {
+      const events = await getAllEvents(locale, preview);
+      const eventCards = events.map((e) => ({ ...e, type: "event" }));
+      const today = new Date();
+      const upcoming = eventCards
+        .filter((e) => new Date(e.date || 0) > today)
+        .sort((a, b) => new Date(a.date || 0).getTime() - new Date(b.date || 0).getTime());
+      const past = eventCards
+        .filter((e) => new Date(e.date || 0) <= today)
+        .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime());
+      const limitedUpcoming = upcoming.slice(0, eventsLimit);
+      const pastSlots = Math.max(0, eventsLimit - limitedUpcoming.length);
+      const limitedPast = past.slice(0, pastSlots);
+      const cards = [...limitedUpcoming, ...limitedPast];
+      sections.push({
+        type: "events",
+        cards,
+        hasMore: eventCards.length > eventsLimit,
+      });
+    }
+    if (listingType === "news") {
+      try {
+        const news = await getAllNews(locale, preview);
+        const newsCards = news.map((item) => ({ ...item, type: "news" }));
+        const sorted = newsCards.sort((a, b) => {
+          const dateA = new Date(a.date || 0).getTime();
+          const dateB = new Date(b.date || 0).getTime();
+          return dateB - dateA;
+        });
+        sections.push({
+          type: "news",
+          cards: sorted.slice(0, newsLimit),
+          hasMore: sorted.length > newsLimit,
+        });
+      } catch {
+        // news content type may not exist yet
+      }
+    }
+  }
+
+  return { sections, siteConfig };
+}
+
+/**
+ * Fetches only upcoming/available events (future dates)
+ * Useful for calendars and event listings that should only show future events
+ */
+export async function getAvailableEvents(locale: string, preview?: boolean) {
+  const allEvents = await getAllEvents(locale, preview);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  // Filter to only future events and sort by date ascending
+  return allEvents
+    .filter((event: any) => {
+      if (!event.date) return false;
+      const eventDate = new Date(event.date);
+      eventDate.setHours(0, 0, 0, 0);
+      return eventDate >= today;
+    })
+    .sort((a: any, b: any) => {
+      const dateA = new Date(a.date).getTime();
+      const dateB = new Date(b.date).getTime();
+      return dateA - dateB;
+    });
 }

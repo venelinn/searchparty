@@ -23,6 +23,7 @@ interface EventCalendarProps {
   onDateSelect?: (date: string) => void;
   isLoading?: boolean;
   heading?: HeadingProps;
+  linkEvents?: boolean;
 }
 
 interface CalendarDay {
@@ -54,6 +55,7 @@ export function EventCalendar({
   onDateSelect,
   heading = {},
   isLoading = false,
+  linkEvents = false,
 }: EventCalendarProps) {
   const t = useTranslations();
   const today = new Date();
@@ -177,11 +179,6 @@ export function EventCalendar({
     }
   }
 
-  function handleDayClick(day: CalendarDay) {
-    if (!day.hasEvent) return;
-    onDateSelect?.(day.date);
-  }
-
   return (
     <div className={styles.calendar}>
       <Heading as="h2" size="base" highlight className={styles.heading}>
@@ -227,8 +224,7 @@ export function EventCalendar({
                 ${selectedDate === day.date ? styles.selected : ""}
               `;
 
-              // If day has an event, render as Link
-              if (day.hasEvent && day.eventPermalink) {
+              if (linkEvents && day.hasEvent && day.eventPermalink) {
                 return (
                   <Link
                     key={day.date}
@@ -241,18 +237,14 @@ export function EventCalendar({
                 );
               }
 
-              // Otherwise render as disabled button
               return (
-                <button
+                <span
                   key={day.date}
-                  type="button"
                   className={dayClasses}
-                  onClick={() => handleDayClick(day)}
-                  disabled
-                  aria-label={`${day.dayNumber} ${MONTHS[currentMonth]}`}
+                  title={day.hasEvent ? `${day.dayNumber} ${MONTHS[currentMonth]} - has event` : undefined}
                 >
                   {dayContent}
-                </button>
+                </span>
               );
             })}
       </div>

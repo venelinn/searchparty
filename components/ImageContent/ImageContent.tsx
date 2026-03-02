@@ -71,22 +71,32 @@ export const ImageContent = ({
 }: ImageContentProps) => {
 	const containerRef = useRef<HTMLDivElement | null>(null);
 	useEffect(() => {
-    if (containerRef.current) {
-      const elements = Array.from(containerRef.current.querySelectorAll("[data-anim]"));
+    if (!containerRef.current) return;
 
-      gsap.fromTo(
-        elements,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-					y: 0,
-          stagger: 0.2, // Adds stagger effect
-          duration: 0.7,
-					delay: 1,
-          ease: "power4.out",
-        }
-      );
-    }
+    const elements = Array.from(containerRef.current.querySelectorAll("[data-anim]"));
+    gsap.set(elements, { autoAlpha: 0, y: 20 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+    });
+
+    tl.to(elements, {
+      autoAlpha: 1,
+      y: 0,
+      stagger: 0.2,
+      duration: 0.7,
+      ease: "power4.out",
+    });
+
+    return () => {
+      gsap.set(elements, { clearProps: 'all' });
+      if (tl.scrollTrigger) tl.scrollTrigger.kill();
+      tl.kill();
+    };
   }, []);
 
   const order = isContentFirst ? "content-first" : "image-first";

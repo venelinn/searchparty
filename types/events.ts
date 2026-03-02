@@ -1,5 +1,5 @@
-import type { HeadingProps } from "@/components/Headings";
-import type { SectionProps } from "@/components/Section";
+import type { HeadingProps } from '@/components/Headings';
+import type { SectionProps } from '@/types/section';
 
 type RichTextContent = Record<string, unknown> | string;
 
@@ -35,14 +35,14 @@ export type EventItem = {
   [key: string]: unknown;
 };
 
-export type EventType = "upcoming" | "past";
+export type EventType = 'upcoming' | 'past';
 
 export type EventsProps = {
   id?: string;
   events?: EventItem[];
   columns?: number | string;
   layout?: string;
-  heading?: SectionProps["heading"];
+  heading?: SectionProps['heading'];
   locale: string;
   onlyUpcoming?: boolean;
 };
@@ -55,4 +55,8 @@ export type EventProps = {
   fallbackImage?: string;
 };
 
-export type EventsConnectorProps = EventsProps & { fallbackImage?: string };
+export type EventsConnectorProps = EventsProps & {
+  fallbackImage?: string;
+  eventsPerPage?: number;
+  serverTime?: number;
+};

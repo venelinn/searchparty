@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
-import type { HeadingProps } from "@/components/Headings";
-import type { SectionProps } from "@/components/Section";
-import type { CardProps } from "./card";
+import type { ReactNode } from 'react';
+import type { HeadingProps } from '@/components/Headings';
+import type { SectionProps } from '@/types/section';
+import type { CardProps } from './card';
 
 export type SliderItemImage = {
   src: string;
@@ -12,8 +12,8 @@ export type SliderItemImage = {
 
 export type SliderItemHeading = {
   heading: string;
-  as?: HeadingProps["as"];
-  size?: HeadingProps["size"];
+  as?: HeadingProps['as'];
+  size?: HeadingProps['size'];
 };
 
 export type SliderItemName = {
@@ -49,7 +49,7 @@ export type SliderLink = {
 
 export type SliderItemType = {
   id?: string;
-  variant?: CardProps["variant"];
+  variant?: CardProps['variant'];
   content?: ReactNode;
   heading?: SliderItemHeading;
   sliderItemImage?: SliderItemImage[];
@@ -60,20 +60,20 @@ export type SliderItemType = {
 
 export type SliderProps = {
   items: SliderItemType[];
-  variant?: CardProps["variant"];
+  variant?: CardProps['variant'];
   itemsPerRow?: 1 | 2 | 3 | 4;
   instanceId?: string; // Unique ID for each slider instance
   heading?: HeadingProps;
   link?: SliderLink;
   description?: string;
-  size?: SectionProps["size"];
+  size?: SectionProps['size'];
   isOffset?: boolean;
   __sectionProps?: Partial<SectionProps>;
 };
 
 export type SliderConnectorProps = {
   items?: SliderItemType[];
-  variant?: CardProps["variant"];
+  variant?: CardProps['variant'];
   itemsPerRow?: 1 | 2 | 3 | 4;
   heading?: HeadingProps;
   description?: string;

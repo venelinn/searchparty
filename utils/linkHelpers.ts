@@ -8,7 +8,7 @@
  */
 
 import { normalizeSlug } from "./common";
-import { defaultLocale } from "./localization";
+import { localization } from "./localization";
 
 export type LinkItem = {
   id: string;
@@ -56,7 +56,7 @@ function normalizeHighlight(item: Record<string, unknown>): boolean {
  * @returns Normalized URL path (e.g., "/about-us/mission" or "/en/about-us/mission")
  */
 export function buildPageUrl(parent?: string, slug?: string, locale?: string): string {
-  const localePrefix = locale && locale !== defaultLocale ? locale : undefined;
+  const localePrefix = locale && locale !== localization.defaultLocale ? locale : undefined;
 
   if (!parent && !slug && !localePrefix) {
     return "#";

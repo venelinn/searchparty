@@ -1,11 +1,8 @@
-import React from "react";
+export {};
 
 declare module "react" {
-	interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-		// Add the popover API attributes
+	interface HTMLAttributes<T> {
 		popover?: "" | "manual";
 		popovertarget?: string;
-		// If you use popovertargetaction, you might add it here too:
-		// popovertargetaction?: "hide" | "show" | "toggle";
 	}
 }

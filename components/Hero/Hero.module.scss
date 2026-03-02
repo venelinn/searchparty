@@ -4,13 +4,14 @@
 .main {
   --section-max-width: 100%;
   isolation: isolate;
-  display: grid;
   position: relative;
   overflow: hidden;
 }
 
 .inner {
   --section-inner-min-height: 100%;
+  --_section-text-align: center;
+  --heading-color: var(--color-highlight);
   display: grid;
   place-items: var(--place-items, center);
   align-items: var(--align-items, center);

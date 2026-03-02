@@ -1,102 +1,154 @@
-"use client";
+'use client';
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import useReduceMotion from "../../hooks/useReduceMotion";
-import { Section } from "../Section";
-import styles from "./Hero.module.scss";
-import Icon from "../Icons/Icons";
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useEffect, useRef, useState } from 'react';
+import { Section } from '@/components/Section';
+import useNavigationContext from '@/context/navigationContext';
+import type { SectionProps } from '@/types/section';
+import useReduceMotion from '../../hooks/useReduceMotion';
+import Icon from '../Icons/Icons';
+import styles from './Hero.module.scss';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export interface HeroProps {
   id?: string;
   images?: any[];
   content?: any;
   animationID?: string;
-  height?: 'full' | 'half' | 'quarter';
+  height?: SectionProps['height'];
   imageAlignment?: 'top' | 'bottom';
   anchorToNext?: boolean;
-  size?: 'full' | 'half' | 'quarter';
+  size?: SectionProps['size'];
   locale?: string;
 }
 
 const heroAnimation = (animationID: string) => {
-	const timeline = gsap.timeline();
-	const sectionSelector = `[data-anim="${animationID}"] [data-anim="section-img-wrap"]`;
+  const timeline = gsap.timeline();
+  const sectionSelector = `[data-anim="${animationID}"] [data-anim="section-img-wrap"]`;
   const heroContentSelector = `[data-anim="${animationID}"] [data-anim="hero-content"]`;
   const heroAnchor = `[data-anim="${animationID}"] [data-anim="hero-anchor"]`;
 
-  timeline.from(sectionSelector, {
-    duration: 1.5,
-    opacity: 0,
-    delay: 0.5,
-    scale: 1.1,
-    ease: "power4.out",
-  })
-  .from("header", { opacity: 0, duration: 1, delay: 1 }, "-=1")
-  .from(heroContentSelector, {
-    opacity: 0,
-    duration: 1,
-    ease: "power4.out",
-  }, "-=0.5")
-	.from(heroAnchor, {
-		opacity: 0,
-		duration: 1,
-		ease: "power4.out",
-	}, "-=0.5");
+  timeline
+    .from(sectionSelector, {
+      duration: 1.5,
+      opacity: 0,
+      delay: 0.5,
+      scale: 1.1,
+      ease: 'power4.out',
+    })
+    .from('header', { opacity: 0, duration: 1, delay: 1 }, '-=1')
+    .from(
+      heroContentSelector,
+      {
+        opacity: 0,
+        duration: 1,
+        ease: 'power4.out',
+      },
+      '-=0.5',
+    )
+    .from(
+      heroAnchor,
+      {
+        opacity: 0,
+        duration: 1,
+        ease: 'power4.out',
+      },
+      '-=0.5',
+    );
 };
 
 const Hero = ({
-	images,
-	content,
-	animationID = "undefined",
-	height,
-	imageAlignment,
-	anchorToNext,
+  images,
+  content,
+  animationID = 'undefined',
+  height,
+  imageAlignment,
+  anchorToNext,
+  size = 'full',
 }: HeroProps) => {
-	const reduceMotion = useReduceMotion();
-	const image = images?.[0].image[0];
-	const [nextSectionId, setNextSectionId] = useState<string | null>(null);
+  const reduceMotion = useReduceMotion();
+  const [hasNextSection, setHasNextSection] = useState(false);
   const heroRef = useRef<HTMLElement | null>(null);
+  const { setIsLogoVisible } = useNavigationContext();
+  const heroImages =
+    images
+      ?.flatMap(item => {
+        if (Array.isArray(item?.image)) return item.image;
+        if (item && (item.src || item.url)) return [item];
+        return [];
+      })
+      .filter(Boolean) ?? [];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!reduceMotion && animationID) {
+        heroAnimation(animationID);
+      }
+    });
+    return () => ctx.revert();
+  }, [reduceMotion, animationID]);
 
-	useEffect(() => {
-		let ctx = gsap.context(() => {
-			if (!reduceMotion && animationID) {
-				heroAnimation(animationID);
-			}
-		});
-		return () => ctx.revert(); // <- cleanup!
-	}, [reduceMotion]);
+  useEffect(() => {
+    if (!heroRef.current || height !== 'full') return;
 
-	useEffect(() => {
-    if (anchorToNext && height === "full" && heroRef.current) {
-      const nextSection = heroRef.current.nextElementSibling; // Get the next sibling in the DOM
-      if (nextSection?.id) {
-        setNextSectionId(`#${nextSection.id}`); // Set the ID of the next section
+    const trigger = ScrollTrigger.create({
+      trigger: heroRef.current,
+      start: 'top top',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        setIsLogoVisible(self.progress >= 0.8);
+      },
+      onLeave: () => setIsLogoVisible(true),
+      onEnterBack: () => setIsLogoVisible(false),
+    });
+
+    return () => trigger.kill();
+  }, [height, setIsLogoVisible]);
+
+  useEffect(() => {
+    if (anchorToNext && height === 'full' && heroRef.current) {
+      const nextSection = heroRef.current.nextElementSibling;
+      if (nextSection) {
+        setHasNextSection(true);
       }
     }
   }, [anchorToNext, height]);
 
+  const scrollToNextSection = () => {
+    heroRef.current?.nextElementSibling?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <Section
-      image={image}
+      image={heroImages[0]}
       animationID={animationID}
-			height={height}
-			ref={heroRef}
-			imageAlignment={imageAlignment}
+      height={height}
+      size={size}
+      ref={heroRef}
+      imageAlignment={imageAlignment}
+      disableAnimation
       classNames={{
         main: styles.main,
         inner: styles.inner,
         heading: styles.heading,
+        image: styles.image,
       }}
     >
-			<div className={styles.hero__content} data-anim="hero-content">
-				{content}
-			</div>
-			{(anchorToNext && height === "full" && nextSectionId) && (
-        <a href={nextSectionId} className={styles.hero__down} data-anim="hero-anchor" title="Scroll to next section">
-          <Icon name="ChevronsDown" size="3em" color="#ffffff" />
-        </a>
+      <div className={styles.hero__content} data-anim='hero-content'>
+        {content}
+      </div>
+      {anchorToNext && height === 'full' && hasNextSection && (
+        <button
+          type='button'
+          className={styles.hero__down}
+          data-anim='hero-anchor'
+          title='Scroll to next section'
+          onClick={scrollToNextSection}
+        >
+          <Icon name='ChevronsDown' size='3em' color='#ffffff' />
+        </button>
       )}
     </Section>
   );

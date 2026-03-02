@@ -1,14 +1,13 @@
-import bg from "../messages/bg.json";
-import en from "../messages/en.json";
+import en from '../messages/en.json';
 
-type Locale = "en" | "bg";
+type Locale = 'en';
 
 interface Messages {
   [key: string]: unknown;
 }
 
-const messages: Record<Locale, Messages> = { en, bg };
+const messages: Record<Locale, Messages> = { en };
 
 export const getMessages = (locale: Locale | string): Messages => {
-  return messages[locale as Locale] || messages["bg"];
+  return messages[locale as Locale] || messages['en'];
 };

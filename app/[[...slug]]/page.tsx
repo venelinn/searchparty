@@ -1,90 +1,229 @@
-import { getPages, getPagePaths, getSiteConfig, getNavigationLinks } from "@/utils/content";
-import localization from "@/utils/localization";
-import { IS_DEV, normalizeSlug } from "@/utils/common";
-import { componentMap } from "@/components";
-import Layout from "@/components/Layout";
-import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { componentMap } from '@/components';
+import { ListingsConnector } from '@/components/Listings';
+import { buildMetadata } from '@/components/MetaData';
+import { PageSettings } from '@/components/PageSettings';
+import { SectionConnector } from '@/components/Section';
+import { Sidebar, SidebarWidgets } from '@/components/Sidebar';
+import type { WidgetType } from '@/types/widgets';
+import { IS_DEV } from '@/utils/common';
+import { getPageBySlug } from '@/utils/content';
+import { getContentfulLocale, localization } from '@/utils/localization';
 
-type Props = {
-	params: Promise<{ slug?: string[] }>;
+type Section = {
+  id: string;
+  type: string;
+  [key: string]: unknown;
+};
+type MappedChild = { id?: string; type?: string; [key: string]: unknown };
+type SectionWithChildren = Section & {
+  components?: MappedChild[];
+  items?: MappedChild[];
+  content?: MappedChild[];
 };
 
-export async function generateStaticParams() {
-	const locale = localization.defaultLocale;
-	const paths = await getPagePaths(locale);
-	return paths.map((path: { params: { slug: string[] } }) => ({
-		slug: path.params.slug,
-	}));
+export async function generateMetadata(props: {
+  params: Promise<{ slug?: string[] }>;
+}): Promise<Metadata> {
+  const { isEnabled } = await draftMode();
+  const { slug = [] } = await props.params;
+  const locale = localization.defaultLocale;
+
+  const path = slug.length > 0 ? slug.join('/') : '/';
+  const contentfulLocale = getContentfulLocale(locale);
+  const pageData = await getPageBySlug(path, contentfulLocale, isEnabled);
+
+  const meta = (pageData as any)?.metaData;
+
+  return buildMetadata({
+    pageTitle: meta?.pageTitle ?? null,
+    pageDescription: meta?.pageDescription ?? null,
+    keywords: meta?.keywords ?? null,
+    path,
+    locale,
+  });
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const { slug } = await params;
-	const pageSlug = "/" + (slug ?? [""]).join("/");
-	const pageLocale = localization.defaultLocale;
-	const allPages = await getPages(pageLocale);
-	const page = allPages.find((e: any) => normalizeSlug(e.slug) === pageSlug && e.locale === pageLocale);
+export default async function Page(props: {
+  params: Promise<{ slug?: string[] }>;
+}) {
+  const { isEnabled } = await draftMode();
+  const { slug = [] } = await props.params;
+  const locale = localization.defaultLocale;
 
-	if (!page) return {};
+  const path = slug.length > 0 ? slug.join('/') : '/';
+  const contentfulLocale = getContentfulLocale(locale);
 
-	const seo = page?.metaData;
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  // 3. Fetch data with the preview flag
+  const pageData = await getPageBySlug(path, contentfulLocale, isEnabled);
 
-	return {
-		title: seo?.pageTitle || page.pageName,
-		description: seo?.pageDescription,
-		keywords: seo?.keywords,
-		openGraph: {
-			title: seo?.pageTitle || page.pageName,
-			description: seo?.pageDescription,
-			url: `${baseUrl}/${(slug ?? []).join("/")}`,
-		},
-		alternates: {
-			canonical: `${baseUrl}/${(slug ?? []).join("/")}`,
-		},
-	};
-}
+  if (!pageData) return notFound();
 
-export default async function ComposablePage({ params }: Props) {
-	const { slug } = await params;
-	const pageSlug = "/" + (slug ?? [""]).join("/");
-	const pageLocale = localization.defaultLocale;
+  const page = pageData as {
+    sections?: Section[];
+    sidebar?: boolean;
+    widgets?: WidgetType[];
+    listings?: ('events' | 'news')[];
+    isLogoVisible?: boolean;
+    isNavigationVisible?: boolean;
+  };
 
-	const [siteConfig, allPages] = await Promise.all([
-		getSiteConfig(pageLocale),
-		getPages(pageLocale),
-	]);
+  // Determine if sidebar should be shown
+  const listings = Array.isArray(page.listings) ? page.listings : [];
+  const hasSidebarContent = page.sidebar === true || listings.length > 0;
+  const widgets = Array.isArray(page.widgets) ? page.widgets : [];
+  const shouldShowSidebar = hasSidebarContent;
 
-	const page = allPages.find((e: any) => normalizeSlug(e.slug) === pageSlug && e.locale === pageLocale);
+  const firstSection = page.sections?.[0];
+  const firstSectionChildren =
+    firstSection?.type === 'section'
+      ? (Array.isArray((firstSection as SectionWithChildren).components) &&
+          (firstSection as SectionWithChildren).components) ||
+        (Array.isArray((firstSection as SectionWithChildren).items) &&
+          (firstSection as SectionWithChildren).items) ||
+        (Array.isArray((firstSection as SectionWithChildren).content) &&
+          (firstSection as SectionWithChildren).content) ||
+        []
+      : [];
 
-	if (!page) {
-		notFound();
-	}
+  const hasHeroAsFirstSection =
+    firstSection?.type === 'hero' || firstSectionChildren?.[0]?.type === 'hero';
 
-	const navigationLinks = await getNavigationLinks(allPages, pageLocale);
+  // Separate hero section from other sections
+  const heroSection = hasHeroAsFirstSection ? page.sections?.[0] : null;
+  const otherSections = hasHeroAsFirstSection
+    ? page.sections?.slice(1)
+    : page.sections;
 
-	return (
-		<Layout page={page} siteConfig={siteConfig} navigationLinks={navigationLinks}>
-			{page.sections?.length ? (
-				page.sections.map((section: any) => {
-					const Component = componentMap[section.type];
-					if (!Component) return null;
-					return <Component key={section.id} {...section} pageName={page?.pageName} />;
-				})
-			) : (
-				IS_DEV ? <EmptyState /> : null
-			)}
-		</Layout>
-	);
+  const mainContent = (
+    <>
+      {listings.length > 0 && (
+        <ListingsConnector
+          listings={listings}
+          locale={locale}
+          limit={3}
+          preview={isEnabled}
+        />
+      )}
+      {otherSections?.length ? (
+        otherSections.map(section => {
+          const Component = componentMap[section.type];
+          if (!Component) return null;
+
+          if (section.type === 'section') {
+            const sec = section as SectionWithChildren;
+            const childrenArray: MappedChild[] =
+              (Array.isArray(sec.components) && sec.components) ||
+              (Array.isArray(sec.items) && sec.items) ||
+              (Array.isArray(sec.content) && sec.content) ||
+              [];
+
+            const computedSectionProps: Record<string, unknown> = {};
+
+            const renderedChildren = childrenArray.map((child: MappedChild) => {
+              const Child = child?.type
+                ? (
+                    componentMap as Record<
+                      string,
+                      React.ComponentType<Record<string, unknown>>
+                    >
+                  )[child.type]
+                : null;
+              if (!Child) return null;
+
+              return <Child key={child.id} {...child} />;
+            });
+
+            return (
+              <SectionConnector
+                key={section.id}
+                {...section}
+                sectionProps={computedSectionProps}
+              >
+                {renderedChildren}
+              </SectionConnector>
+            );
+          }
+
+          return <Component key={section.id} {...section} />;
+        })
+      ) : !heroSection ? (
+        <EmptyState />
+      ) : null}
+    </>
+  );
+
+  return (
+    <>
+      <PageSettings isLogoVisible={page.isLogoVisible} />
+      {/* Render Hero section first, full width */}
+      {heroSection &&
+        (() => {
+          const Component = componentMap[heroSection.type];
+          if (!Component) return null;
+
+          if (heroSection.type === 'section') {
+            const sec = heroSection as SectionWithChildren;
+            const childrenArray: MappedChild[] =
+              (Array.isArray(sec.components) && sec.components) ||
+              (Array.isArray(sec.items) && sec.items) ||
+              (Array.isArray(sec.content) && sec.content) ||
+              [];
+
+            const computedSectionProps: Record<string, unknown> = {};
+
+            const renderedChildren = childrenArray.map((child: MappedChild) => {
+              const Child = child?.type
+                ? (
+                    componentMap as Record<
+                      string,
+                      React.ComponentType<Record<string, unknown>>
+                    >
+                  )[child.type]
+                : null;
+              if (!Child) return null;
+
+              return <Child key={child.id} {...child} />;
+            });
+
+            return (
+              <SectionConnector
+                key={heroSection.id}
+                {...sec}
+                sectionProps={computedSectionProps}
+              >
+                {renderedChildren}
+              </SectionConnector>
+            );
+          }
+
+          return <Component key={heroSection.id} {...heroSection} />;
+        })()}
+
+      {/* Main content with sidebar */}
+      {shouldShowSidebar ? (
+        <div className='page__with-sidebar' data-has-sidebar>
+          <div className='page__main'>{mainContent}</div>
+          <Sidebar>
+            <SidebarWidgets widgets={widgets} locale={locale} />
+          </Sidebar>
+        </div>
+      ) : (
+        mainContent
+      )}
+    </>
+  );
 }
 
 function EmptyState() {
-	return (
-		<div className="flex items-center justify-center w-full py-32">
-			<div className="border-4 border-gray-400 rounded p-16 border-dashed flex flex-col gap-2 items-center">
-				<span className="text-2xl">Empty page! add sections.</span>
-				<span>(this message does not appear in production)</span>
-			</div>
-		</div>
-	);
+  return IS_DEV ? (
+    <div className='flex items-center justify-center w-full py-32'>
+      <div className='border-4 border-gray-400 rounded p-16 border-dashed flex flex-col gap-2 items-center'>
+        <span className='text-2xl'>Empty page! Add sections.</span>
+        <span>(this message does not appear in production)</span>
+      </div>
+    </div>
+  ) : null;
 }

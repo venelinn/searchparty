@@ -1,1 +1,39 @@
-{}
+{
+  "Contact": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send Message"
+  },
+  "Events": {
+    "sectionTitle": "Events",
+    "upcomingEvents": "Upcoming Events",
+    "pastEvents": "Past Events",
+    "noEventsAvailable": "No events available.",
+    "filterByYear": "Filter by year",
+    "allYears": "All Years",
+    "eventsCalendar": "Events Calendar",
+    "viewAll": "View All"
+  },
+  "News": {
+    "sectionTitle": "News",
+    "viewAll": "View All"
+  },
+  "Subscribe": {
+    "title": "Subscribe",
+    "emailPlaceholder": "Email",
+    "firstNamePlaceholder": "First Name",
+    "lastNamePlaceholder": "Last Name",
+    "button": "Subscribe",
+    "subscribing": "Subscribing...",
+    "successMessage": "You're subscribed!",
+    "errorMessage": "Something went wrong. Please try again."
+  },
+  "Pagination": {
+    "first": "First",
+    "last": "Last",
+    "back": "Back",
+    "next": "Next",
+    "of": "of"
+  }
+}

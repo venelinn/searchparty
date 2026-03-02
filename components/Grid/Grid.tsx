@@ -1,12 +1,12 @@
-import clsx from "clsx";
-import React, { forwardRef, isValidElement, type ReactElement, type ReactNode } from "react";
-import styles from "./Grid.module.scss";
+import clsx from 'clsx';
+import React, { forwardRef, type ReactNode } from 'react';
+import styles from './Grid.module.scss';
 
 export type RowProps = {
   className?: string;
   cols?: number;
   customCols?: string;
-  children: ReactElement<CellProps> | ReactElement<CellProps>[];
+  children: ReactNode;
   gap?: boolean;
   minWidth?: string;
 };
@@ -20,38 +20,51 @@ export type CellProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 const Row = forwardRef<HTMLDivElement, RowProps>(
-  ({ className, cols = 1, minWidth, customCols, children, gap = true, ...props }, ref) => {
+  (
+    {
+      className,
+      cols = 1,
+      minWidth,
+      customCols,
+      children,
+      gap = true,
+      ...props
+    },
+    ref,
+  ) => {
     const dynamicClassName = customCols || styles[`grid--${cols}`];
     const inlineStyles = {
-      ...(cols && { "--_grid-cols": cols }),
-      ...(minWidth && { "--_min-column-width": minWidth }),
+      ...(cols && { '--_grid-cols': cols }),
+      ...(minWidth && { '--_min-column-width': minWidth }),
     } as React.CSSProperties;
     return (
       <div
         data-cols={customCols || cols}
         className={clsx(styles.grid, dynamicClassName, className, {
-          [styles["grid__no-gap"]]: !gap,
+          [styles['grid__no-gap']]: !gap,
         })}
         ref={ref}
         style={inlineStyles}
         {...props}
       >
-        {React.Children.toArray(children).map((child) => {
-          if (!isValidElement(child) || child.type !== Cell) {
-            throw new Error("Children of <Row> must be of type Cell");
-          }
-          return child;
-        })}
+        {children}
       </div>
     );
   },
 );
 
-Row.displayName = "Row";
+Row.displayName = 'Row';
 
-const Cell = ({ className, children, cellNormal = false, asCard = false, span, ...props }: CellProps) => {
+const Cell = ({
+  className,
+  children,
+  cellNormal = false,
+  asCard = false,
+  span,
+  ...props
+}: CellProps) => {
   const inlineStyles = {
-    ...(span && { "--_span": span }),
+    ...(span && { '--_span': span }),
   } as React.CSSProperties;
   return (
     <div
@@ -67,6 +80,6 @@ const Cell = ({ className, children, cellNormal = false, asCard = false, span, .
   );
 };
 
-Cell.displayName = "Cell";
+Cell.displayName = 'Cell';
 
 export { Row, Cell };

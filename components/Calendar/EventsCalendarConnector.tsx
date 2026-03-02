@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { getEventPermalink } from "@/utils/common";
 import { getAllEvents } from "@/utils/content";
 import type { HeadingProps } from "../Headings";
@@ -10,6 +12,11 @@ interface EventsCalendarConnectorProps {
   heading?: HeadingProps;
 }
 
+function hasEventDetailPages(): boolean {
+  const slugRoute = path.join(process.cwd(), "app", "events", "[slug]");
+  return fs.existsSync(slugRoute);
+}
+
 export async function EventsCalendarConnector({
   locale,
   heading,
@@ -19,20 +26,21 @@ export async function EventsCalendarConnector({
   const events = (await getAllEvents(locale)) as any[];
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+  const linkEvents = hasEventDetailPages();
 
-  // Map events to calendar events with permalinks and past/upcoming status
   const calendarEvents: CalendarEvent[] = events.map((event) => {
-    const bulgarianHeading = (event as any).bgHeading || event.heading?.heading || "event";
-    const permalink = getEventPermalink({ locale, title: bulgarianHeading });
+    const eventHeading = event.heading?.heading || "event";
+    const permalink = linkEvents
+      ? getEventPermalink({ locale, title: eventHeading })
+      : "";
     const eventDate = new Date(event.date);
     eventDate.setHours(0, 0, 0, 0);
 
-    // Normalize date to YYYY-MM-DD format to match calendar format
     const normalizedDate = event.date.includes("T") ? event.date.split("T")[0] : event.date;
 
     return {
       date: normalizedDate,
-      title: event.heading?.heading || bulgarianHeading,
+      title: eventHeading,
       permalink,
       isPastEvent: eventDate < today,
     };
@@ -45,6 +53,7 @@ export async function EventsCalendarConnector({
       heading={heading}
       selectedDate={selectedDate}
       onDateSelect={onDateSelect}
+      linkEvents={linkEvents}
     />
   );
 }

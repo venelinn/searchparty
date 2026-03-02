@@ -1,0 +1,9 @@
+@use 'styles/mixins' as mx;
+
+.form {
+  @include mx.asBox;
+}
+
+.heading {
+  margin: 0 0 var(--spacing-6) 0;
+}

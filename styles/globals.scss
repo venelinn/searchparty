@@ -68,27 +68,8 @@ body {
   color: CanvasText;
   background-image: url('/static/bgr.webp');
   margin: 0;
-}
-
-.app-wrapper {
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  > header {
-    flex: 0 0 auto;
-  }
-  .page {
-    flex: 1 0 auto;
-    > section:first-child {
-      padding-top: var(--_body-padding-top, 4rem);
-    }
-    @media (min-width: base.$breakpoint-md) {
-      --_body-padding-top: calc(var(--navigation-height) + 2rem);
-    }
+  &:has([data-hero]) {
+    --_navigation-position: fixed;
   }
 }
 
@@ -96,6 +77,24 @@ body {
     Global
 ========================================================================== */
 @layer utilities {
+  .page {
+    flex: 1 0 auto;
+    display: grid;
+    align-content: start;
+    &__with-sidebar {
+      display: grid;
+      margin-top: var(--spacing-6);
+      @media (width > base.$breakpoint-md) {
+        grid-template-columns: 1fr auto;
+      }
+      gap: 2rem;
+      padding-bottom: 2rem;
+    }
+    &__main {
+      container-type: inline-size;
+      container-name: page__main;
+    }
+  }
   .rel {
     position: relative;
   }

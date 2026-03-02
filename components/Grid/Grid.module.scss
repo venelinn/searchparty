@@ -1,7 +1,7 @@
-@use "styles/base-variables" as base;
+@use 'styles/base-variables' as base;
 
 .grid {
-  --_grid-gap: 24px;
+  --_grid-gap: var(--_gap, 16px);
   --_grid-container-type: inline-size;
   --_min-column-width: 300px;
 
@@ -12,7 +12,13 @@
     repeat(
       auto-fill,
       minmax(
-        max(var(--_min-column-width), calc((100% - (var(--_grid-cols) - 1) * var(--_grid-gap)) / var(--_grid-cols))),
+        max(
+          var(--_min-column-width),
+          calc(
+            (100% - (var(--_grid-cols) - 1) * var(--_grid-gap)) /
+              var(--_grid-cols)
+          )
+        ),
         1fr
       )
     )
@@ -34,5 +40,6 @@
 
   &__no-gap {
     --_grid-gap: 0;
+    --_grid-template-columns: repeat(var(--_grid-cols, 1), 1fr);
   }
 }

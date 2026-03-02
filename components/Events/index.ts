@@ -1,3 +1,2 @@
-export * from "./Event";
-export * from "./Events";
-export * from "./EventsConnector";
+export * from './Event';
+export * from './EventsConnector';
