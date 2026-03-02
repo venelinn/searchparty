@@ -1,17 +1,18 @@
+@use 'styles/typo-mixins' as typo;
 .body {
-	@include ui-body;
+  @include typo.ui-body;
 }
 
 .meta {
-	// @include ui-meta;
+  // @include ui-meta;
 }
 
 .small {
-	// @include ui-small;
+  // @include ui-small;
 }
 
 .list {
-	// @include ui-list;
+  // @include ui-list;
 }
 
 @keyframes activeLink {
