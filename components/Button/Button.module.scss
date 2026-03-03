@@ -3,92 +3,90 @@
 ========================================================================== */
 
 .btn {
-	--btn-padding-tb: .7rem;
-	--btn-padding-lr: 1rem;
-	display: inline-flex;
-	align-items: center;
-	gap: .4rem;
-	justify-content: center;
-	text-align: center;
-	position: relative;
+  --btn-padding-tb: 0.7rem;
+  --btn-padding-lr: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  text-align: center;
+  position: relative;
   isolation: isolate;
   overflow: hidden;
-	outline: none;
-	background-color: var(--btn-bg-color);
-	border: 1px solid var(--btn-border-color);
-	color: var(--btn-color, inherit);
-	font-weight: var(--font-weight-bold);
-	padding: var(--btn-padding-tb) var(--btn-padding-lr);
-	border-radius: var(--btn-border-radius, 4px);
-	min-width: var(--btn-min-width, 180px);
-	font-family: inherit;
-	font-size: var(--ui-body-font-size);
-	cursor: pointer;
-	text-decoration: none;
-	@media (prefers-reduced-motion: no-preference) {
-		transition: color .6s var(--ease-in);
-	}
-	&:before {
-		content: "";
-		position: absolute;
-		z-index: -1;
-		background-color: var(--btn-hover-bg-color);
-		width: 10%;
-		aspect-ratio: 1;
-		border-radius: 50%;
-		inset: 0;
-		margin: auto;
-		opacity: 0;
-		@media (prefers-reduced-motion: no-preference) {
-			transition: transform 600ms, opacity 1200ms;
-		}
-	}
-	.icon {
-		opacity: .7;
-	}
+  outline: none;
+  background-color: var(--btn-bg-color);
+  border: 1px solid var(--btn-border-color);
+  color: var(--btn-color, inherit);
+  font-weight: var(--font-weight-bold);
+  padding: var(--btn-padding-tb) var(--btn-padding-lr);
+  border-radius: var(--btn-border-radius, 4px);
+  min-width: var(--btn-min-width, 180px);
+  font-family: inherit;
+  font-size: var(--ui-body-font-size);
+  cursor: pointer;
+  text-decoration: none;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 0.6s var(--ease-in);
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    background-color: var(--btn-hover-bg-color);
+    width: 10%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    inset: 0;
+    margin: auto;
+    opacity: 0;
+    @media (prefers-reduced-motion: no-preference) {
+      transition:
+        transform 600ms,
+        opacity 1200ms;
+    }
+  }
+  .icon {
+    opacity: 0.7;
+  }
 
-	&:hover,
-	&:focus-visible {
-		--btn-color: var(--btn-hover-color);
-		--btn-border-color: var(--btn-hover-border-color);
-		&::before {
-			transform: scale(20);
-			opacity: 1;
-			@media (prefers-reduced-motion: no-preference) {
-				transition: transform 1200ms, opacity 600ms;
-			}
-		}
-	}
+  &:hover,
+  &:focus-visible {
+    --btn-color: var(--btn-hover-color);
+    --btn-border-color: var(--btn-hover-border-color);
+    &::before {
+      transform: scale(20);
+      opacity: 1;
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          transform 1200ms,
+          opacity 600ms;
+      }
+    }
+  }
 
-	@media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
+  }
 
-	}
-
-	&[disabled] {
-		opacity: .5;
-		pointer-events: none;
-	}
-
-	&--md {
-
-	}
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
   &--primary {
     --btn-bg-color: transparent;
-		--btn-border-color: var(--color-white);
+    --btn-border-color: var(--color-white);
     --btn-hover-bg-color: var(--color-white);
-		--btn-hover-border-color: var(--color-black);
-		--btn-color: var(--color-white);
-		--btn-hover-color: var(--color-black);
+    --btn-hover-border-color: var(--color-black);
+    --btn-color: var(--color-white);
+    --btn-hover-color: var(--color-black);
   }
 
   &--secondary {
-		--btn-bg-color: var(--color-white);
+    --btn-bg-color: var(--color-white);
     --btn-border-color: var(--color-white);
     --btn-hover-bg-color: var(--color-highlight);
     --btn-hover-border-color: var(--color-highlight);
-		--btn-color: var(--color-black);
-		--btn-hover-color: var(--color-white);
-
+    --btn-color: var(--color-black);
+    --btn-hover-color: var(--color-white);
   }
 }

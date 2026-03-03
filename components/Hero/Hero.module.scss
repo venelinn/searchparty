@@ -1,48 +1,50 @@
-// <Section> classes
+@use 'styles/breakpoints' as bp;
+@use 'styles/typo-mixins' as typo;
 
 .main {
-	--section-max-width: 100%;
-	isolation: isolate;
-	display: grid;
-	position: relative;
-	overflow: hidden;
+  --section-max-width: 100%;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
 }
 
 .inner {
-	--section-inner-min-height: 100%;
-	display: grid;
-	place-items: var(--place-items, center);
-	align-items: var(--align-items, center);
-	color: inherit;
-	gap: 1rem;
+  --section-inner-min-height: 100%;
+  --_section-text-align: center;
+  --heading-color: var(--color-highlight);
+  display: grid;
+  place-items: var(--place-items, center);
+  align-items: var(--align-items, center);
+  color: inherit;
+  gap: 1rem;
 }
 
 .hero__title {
-	--heading-case: uppercase;
-	&--center {
-		--heading-align: center;
-	}
-	&--right {
-		text-align: right;
-	}
+  --heading-case: uppercase;
+  &--center {
+    --heading-align: center;
+  }
+  &--right {
+    text-align: right;
+  }
 }
 
 .hero__container {
-	width: 100%;
-	display: grid;
-	gap: 1rem;
-	margin-bottom: 1rem
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .hero__desc {
-	@include h4;
+  @include typo.h4;
 }
 
 .hero__down {
-	position: absolute;
-	bottom: 1rem;
-	opacity: .6;
-	animation: jump 1.5s infinite;
+  position: absolute;
+  bottom: 1rem;
+  opacity: 0.6;
+  animation: jump 1.5s infinite;
 }
 
 @keyframes jump {

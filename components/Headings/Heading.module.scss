@@ -1,4 +1,15 @@
+@use 'styles/typo-mixins' as typo;
+
 .heading {
+  &:has(svg) {
+    display: flex;
+    align-items: center;
+    gap: var(--_heading-icon-gap, var(--spacing-3));
+    svg {
+      aspect-ratio: 1;
+      font-size: var(--_svg-size, 1.4em);
+    }
+  }
   &--normal {
     --heading-weight: var(--font-regular);
   }
@@ -8,35 +19,38 @@
   &--uppercase {
     --heading-case: uppercase;
   }
+  &--highlight {
+    --heading-color: var(--color-highlight);
+  }
 }
 
 .heading--h1 {
-	@include h1;
+  @include typo.h1;
 }
 
 .heading--h2 {
-	@include h2;
+  @include typo.h2;
 }
 
 .heading--h3 {
-	@include h3;
+  @include typo.h3;
 }
 
 .heading--h4 {
-	@include h4;
-	--heading-weight: var(--font-medium);
+  @include typo.h4;
+  --heading-weight: var(--font-medium);
 }
 
 .heading--hero {
-	--heading-size: calc(16px + 9vw);
+  --heading-size: calc(16px + 9vw);
 }
 
 .heading--base {
-	--heading-size: var(--font-base);
-	--heading-weight:  var(--font-black);
-	--heading-line-height: 24px;
+  --heading-size: var(--font-base);
+  --heading-weight: var(--font-black);
+  --heading-line-height: 24px;
 }
 
 .heading--center {
-	--heading-align: center;
+  --heading-align: center;
 }

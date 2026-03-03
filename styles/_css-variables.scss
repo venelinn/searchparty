@@ -32,13 +32,27 @@
   --font-size-base: 1rem;
   --font-family-heading: 'BebasKai', sans-serif;
   --font-family-base: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',  sans-serif;
-  --spacing-xl: 5rem;
-  --spacing-l: 3.5rem;
-  --spacing-m: 2.5rem;
-  --spacing-s: 1.5rem;
-  --spacing-xs: 1rem;
-  --spacing-micro: 0.5rem;
-  --page-width: 71.25rem;
+  --spacing-8-5: 2.125rem; /* 34px */
+  --spacing-7-5: 1.875rem; /* 30px */
+  --spacing-6-5: 1.625rem; /* 26px */
+  --spacing-5-5: 1.375rem; /* 22px */
+  --spacing-4-5: 1.125rem; /* 18px */
+  --spacing-2-5: 0.625rem; /* 10px */
+  --spacing-1-5: 0.375rem; /* 6px */
+  --spacing-0-5: 0.125rem; /* 2px */
+  --spacing-18: 4.5rem; /* 72px */
+  --spacing-14: 3.75rem; /* 60px */
+  --spacing-12: 3rem; /* 48px */
+  --spacing-10: 2.5rem; /* 40px */
+  --spacing-8: 2rem; /* 32px */
+  --spacing-7: 1.75rem; /* 28px */
+  --spacing-6: 1.5rem; /* 24px */
+  --spacing-5: 1.25rem; /* 20px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-1: 0.25rem; /* 4px */
+  --page-width: 80rem;
   --border-radius-base: 0.25rem;
   --color-grey-border: #cccccc;
   --color-grey-mid: #999999;
@@ -57,14 +71,14 @@
   --system-success: #046239;
   --system-error-light: #fff2f2;
   --system-error: #b3002f;
-  --breakpoint-max-xl: 74.9375rem;
-  --breakpoint-max-lg: 61.9375rem;
-  --breakpoint-max-md: 47.9375rem;
-  --breakpoint-max-sm: 35.9375rem;
-  --breakpoint-min-xl: 75rem;
-  --breakpoint-min-lg: 62rem;
-  --breakpoint-min-md: 48rem;
-  --breakpoint-min-sm: 36rem;
+  --breakpoint-xl-max: 74.9375rem;
+  --breakpoint-xl: 75rem;
+  --breakpoint-lg-max: 61.9375rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-md-max: 47.9375rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-sm-max: 35.9375rem;
+  --breakpoint-sm: 36rem;
   --body-font-size: var(--font-size-base);
   --body-font-family: var(--font-family-base);
   --ui-small-font-weight: var(--font-weight-light);

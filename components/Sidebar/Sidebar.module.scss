@@ -1,0 +1,23 @@
+@use 'styles/base-variables' as base;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 320px;
+  @media (width > base.$breakpoint-md) {
+    position: sticky;
+    top: 0;
+  }
+
+  @media (width <= base.$breakpoint-md) {
+    max-width: 100%;
+  }
+}
+
+.widgetTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}

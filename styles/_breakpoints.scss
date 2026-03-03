@@ -1,0 +1,10 @@
+@use 'base-variables' as base;
+
+$breakpoint-min-sm: base.$breakpoint-sm;
+$breakpoint-max-sm: base.$breakpoint-sm-max;
+$breakpoint-min-md: base.$breakpoint-md;
+$breakpoint-max-md: base.$breakpoint-md-max;
+$breakpoint-min-lg: base.$breakpoint-lg;
+$breakpoint-max-lg: base.$breakpoint-lg-max;
+$breakpoint-min-xl: base.$breakpoint-xl;
+$breakpoint-max-xl: base.$breakpoint-xl-max;

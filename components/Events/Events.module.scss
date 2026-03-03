@@ -1,9 +1,25 @@
 .events {
-	margin-bottom: 4rem;
-	&__heading {
-		--heading-top: 2rem;
-		--heading-bottom: 1rem;
-		padding-bottom: .5rem;
-	}
-}
+  &__heading {
+    --heading-top: var(--spacing-8);
+    --heading-bottom: var(--spacing-2);
+    padding-bottom: var(--spacing-2);
+    margin: 0;
+  }
 
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-4);
+    padding-top: var(--spacing-8);
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__yearFilter {
+    justify-self: end;
+  }
+}

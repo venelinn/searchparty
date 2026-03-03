@@ -1,6 +1,6 @@
-/* contact form */
-.contact-form {
-  @media (min-width: $breakpoint-min-md) {
+@use 'styles/base-variables' as base;
+.contact {
+  @media (min-width: base.$breakpoint-md) {
     width: 100%;
     margin: auto;
     max-width: 50%;
@@ -8,27 +8,30 @@
   fieldset {
     border: none;
   }
-	input::-ms-clear {
-		display: none;
-	}
+  input::-ms-clear {
+    display: none;
+  }
 }
 
-
-.form-field {
-	label {
-		display: block;
-	}
+.contact__item {
+  label {
+    display: block;
+  }
   input,
   textarea {
     display: block;
     border: 0;
     outline: none;
     max-width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-grey-border);
+    border-radius: var(--spacing-3);
     transition: all 0.3s ease-in-out;
     width: 100%;
     margin-bottom: 0;
     padding: 1.5rem 1rem;
+    font-family: var(--body-font-family);
+    font-size: var(--ui-body-font-size);
+    background-color: transparent;
     &:focus {
       border-color: var(--base-color);
     }
@@ -41,26 +44,10 @@
     text-indent: -9999px;
   }
   textarea {
-    min-height: 10rem;
+    field-sizing: content;
   }
-  .submitform {
-    display: block;
-    letter-spacing: 0.2rem;
-    width: 100%;
-    text-transform: uppercase;
-    text-align: center;
-    border: none;
-    border-radius: 8px;
-    transition: all 0.3s ease-in-out;
-    font-weight: bold;
-    padding: 0.5rem;
-    &:hover,
-    &:focus {
-      background: #336699;
-    }
-		margin-top: 4rem;
-		line-height: 2.5rem;
-		font-size: 1.3rem;
+  &--right {
+    justify-self: end;
   }
 }
 
@@ -91,9 +78,8 @@
   text-align: center;
   margin-top: 2rem;
   position: static;
-  color: var(--modal-status, red );
-  &[data-status="true"] {
+  color: var(--modal-status, red);
+  &[data-status='true'] {
     --modal-status: green;
   }
 }
-
