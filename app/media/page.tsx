@@ -13,7 +13,7 @@ import {
 } from '@/utils/content';
 import { localization } from '@/utils/localization';
 
-export const revalidate = 60;
+export const revalidate = 86400;
 
 export async function generateMetadata(): Promise<Metadata> {
   const pageLocale = localization.defaultLocale;

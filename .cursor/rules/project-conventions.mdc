@@ -44,3 +44,13 @@ alwaysApply: true
 - Buttons: `<Button variant="primary" size="sm" />` — variants: primary, secondary, toggle, danger, warning, link
 - Sections: wrap in `<SectionConnector>` with section props from Contentful
 - Headings: `<Heading as="h1" size="h1">` — `as` is semantic, `size` is visual
+
+## Caching & Revalidation
+
+- Pages that display events (`app/events/page.tsx`, `app/[[...slug]]/page.tsx`) use `revalidate = 3600` (1 hour) — homepage shows event listings
+- Media and other static pages (`app/media/`) use `revalidate = 86400` (24 hours) — content rarely changes
+- Keep revalidate high to stay within Contentful's free-tier API limit (100k calls/month)
+- Layout fetches shared data (header, footer, nav) on every page regeneration — high TTLs prevent excessive API calls
+- For immediate content updates, use the preview/draft mode or consider on-demand revalidation via Contentful webhooks
+- Hosted on Netlify with `@netlify/plugin-nextjs` — do not set `publish` in `netlify.toml`
+

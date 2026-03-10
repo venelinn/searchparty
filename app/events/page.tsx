@@ -14,7 +14,7 @@ import {
 } from '@/utils/content';
 import { localization } from '@/utils/localization';
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('Events');
