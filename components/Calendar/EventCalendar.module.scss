@@ -168,6 +168,26 @@
   }
 }
 
+// Selected event panel
+.selectedEvent {
+  margin-top: var(--spacing-6);
+  padding: var(--spacing-1) 0 var(--spacing-1) var(--spacing-4);
+  border-left: 4px solid var(--color-highlight);
+}
+
+.selectedEventTitle {
+  @include typo.ui-body;
+  margin: 0 0 var(--spacing-1) 0;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+}
+
+.selectedEventDate {
+  @include typo.ui-caption;
+  text-transform: capitalize;
+  opacity: 0.7;
+}
+
 // Loading skeleton
 .daySkeleton {
   aspect-ratio: 1;

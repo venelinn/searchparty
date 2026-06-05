@@ -6,11 +6,14 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { Icon } from "@/components/Icon";
+import { FormattedTime } from "@/utils/DateFormat";
 import { Heading, type HeadingProps } from "../Headings";
 import styles from "./EventCalendar.module.scss";
 
 export interface CalendarEvent {
   date: string;
+  /** Full original datetime string (incl. time), used for display */
+  datetime?: string;
   title: string;
   permalink: string;
   isPastEvent: boolean;
@@ -79,14 +82,11 @@ export function EventCalendar({
     });
   }, [selectedLocale]);
 
-  // Create a map of dates to event data (permalink and isPastEvent status)
+  // Create a map of dates to event data
   const eventMap = useMemo(() => {
-    const map = new Map<string, { permalink: string; isPastEvent: boolean }>();
+    const map = new Map<string, CalendarEvent>();
     calendarEvents.forEach((event) => {
-      map.set(event.date, {
-        permalink: event.permalink,
-        isPastEvent: event.isPastEvent,
-      });
+      map.set(event.date, event);
     });
     return map;
   }, [calendarEvents]);
@@ -94,6 +94,14 @@ export function EventCalendar({
 
   const [currentMonth, setCurrentMonth] = useState(today.getMonth());
   const [currentYear, setCurrentYear] = useState(today.getFullYear());
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+
+  function handleDayClick(dateKey: string) {
+    const event = eventMap.get(dateKey);
+    if (!event) return;
+    setSelectedEvent(event);
+    onDateSelect?.(dateKey);
+  }
 
   // Create set for quick lookup
   const eventSet = useMemo(() => new Set(calendarEvents.map((e) => e.date)), [calendarEvents]);
@@ -237,17 +245,39 @@ export function EventCalendar({
                 );
               }
 
+              if (day.hasEvent) {
+                return (
+                  <button
+                    type="button"
+                    key={day.date}
+                    className={dayClasses}
+                    onClick={() => handleDayClick(day.date)}
+                    aria-label={`${day.dayNumber} ${MONTHS[currentMonth]} - has event`}
+                  >
+                    {dayContent}
+                  </button>
+                );
+              }
+
               return (
-                <span
-                  key={day.date}
-                  className={dayClasses}
-                  title={day.hasEvent ? `${day.dayNumber} ${MONTHS[currentMonth]} - has event` : undefined}
-                >
+                <span key={day.date} className={dayClasses}>
                   {dayContent}
                 </span>
               );
             })}
       </div>
+
+      {selectedEvent && (
+        <div className={styles.selectedEvent}>
+          <h3 className={styles.selectedEventTitle}>{selectedEvent.title}</h3>
+          <span className={styles.selectedEventDate}>
+            {format(new Date(selectedEvent.datetime ?? selectedEvent.date), "MMMM d", {
+              locale: selectedLocale,
+            })}
+            , <FormattedTime dateStr={selectedEvent.datetime ?? selectedEvent.date} locale={locale} />
+          </span>
+        </div>
+      )}
     </div>
   );
 }

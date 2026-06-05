@@ -29,9 +29,9 @@ export async function EventsCalendarConnector({
   const linkEvents = hasEventDetailPages();
 
   const calendarEvents: CalendarEvent[] = events.map((event) => {
-    const eventHeading = event.heading?.heading || "event";
+    const eventName = event.venue || event.heading?.heading || "Event";
     const permalink = linkEvents
-      ? getEventPermalink({ locale, title: eventHeading })
+      ? getEventPermalink({ locale, title: eventName })
       : "";
     const eventDate = new Date(event.date);
     eventDate.setHours(0, 0, 0, 0);
@@ -40,7 +40,8 @@ export async function EventsCalendarConnector({
 
     return {
       date: normalizedDate,
-      title: eventHeading,
+      datetime: event.date,
+      title: eventName,
       permalink,
       isPastEvent: eventDate < today,
     };
