@@ -35,3 +35,5 @@ yarn-error.log*
 .stackbit/cache
 # Local Netlify folder
 .netlify
+
+memory.md
