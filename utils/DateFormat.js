@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { utcToZonedTime } from "date-fns-tz";
+import { toZonedTime } from "date-fns-tz";
 import { enCA, frCA } from "date-fns/locale";
 
 // Shared locale configuration
@@ -40,7 +40,7 @@ export const FormattedTime = ({ dateStr, locale, timezone = "America/Toronto" })
   const selectedLocale = locales[locale] || enCA;
 
   // Parse the date as a zoned time
-  const zonedDate = utcToZonedTime(dateStr, timezone);
+  const zonedDate = toZonedTime(dateStr, timezone);
 
   // Format the time in 12-hour format with AM/PM
   const formattedTime = format(zonedDate, "hh:mm a", { locale: selectedLocale });

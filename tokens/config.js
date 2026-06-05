@@ -5,22 +5,20 @@ const customFileHeader = [
 
 module.exports = {
 	source: ["./tokens/**/*.json"],
-	transform: {
-		// removeColorNamespace: {
-		// 	type: "name",
-		// 	transformer: token => token.path.filter((t, i) => !(i === 0 && t === "color")).join("-"),
-		// },
-		pxToRem: {
-			type: "value",
-			matcher: token => /\d*\.?\d*px/i.test(token.value),
-			transformer: token => {
-				const floatVal = parseFloat(token.value);
+	hooks: {
+		transforms: {
+			pxToRem: {
+				type: "value",
+				filter: token => /\d*\.?\d*px/i.test(token.value),
+				transform: token => {
+					const floatVal = parseFloat(token.value);
 
-				if (floatVal === 0) {
-					return "0";
-				}
+					if (floatVal === 0) {
+						return "0";
+					}
 
-				return `${floatVal / 16}rem`;
+					return `${floatVal / 16}rem`;
+				},
 			},
 		},
 	},
@@ -29,12 +27,11 @@ module.exports = {
 			buildPath: "styles/",
 			transforms: [
 				"attribute/cti",
-				"name/cti/kebab",
+				"name/kebab",
 				"time/seconds",
-				"content/icon",
+				"html/icon",
 				"size/rem",
 				"color/css",
-				// "removeColorNamespace",
 				"pxToRem",
 			],
 			files: [
@@ -58,7 +55,7 @@ module.exports = {
 		},
 		js: {
 			buildPath: "./styles/",
-			transforms: ["attribute/cti", "name/cti/pascal", "size/rem", "color/hex", "pxToRem"],
+			transforms: ["attribute/cti", "name/pascal", "size/rem", "color/hex", "pxToRem"],
 			files: [
 				{
 					destination: "variables.js",
