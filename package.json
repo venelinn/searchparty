@@ -2,7 +2,7 @@
   "name": "search-party",
   "version": "0.5.0",
   "engines": {
-    "node": ">=20.19.0"
+    "node": ">=22.22.2"
   },
   "private": true,
   "scripts": {
