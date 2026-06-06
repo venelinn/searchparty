@@ -460,14 +460,18 @@ export async function getListingsData(
 			const events = await getAllEvents(locale, preview)
 			const eventCards = events.map((e) => ({ ...e, type: "event" }))
 			const today = new Date()
+			// Keep an event in the upcoming/current list for 5 hours after its
+			// start time before moving it to past events.
+			const EVENT_GRACE_PERIOD_MS = 5 * 60 * 60 * 1000
+			const cutoff = today.getTime() - EVENT_GRACE_PERIOD_MS
 			const upcoming = eventCards
-				.filter((e) => new Date(e.date || 0) > today)
+				.filter((e) => new Date(e.date || 0).getTime() > cutoff)
 				.sort(
 					(a, b) =>
 						new Date(a.date || 0).getTime() - new Date(b.date || 0).getTime(),
 				)
 			const past = eventCards
-				.filter((e) => new Date(e.date || 0) <= today)
+				.filter((e) => new Date(e.date || 0).getTime() <= cutoff)
 				.sort(
 					(a, b) =>
 						new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime(),

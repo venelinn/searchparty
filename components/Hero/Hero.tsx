@@ -30,25 +30,28 @@ const heroAnimation = (animationID: string) => {
   const heroContentSelector = `[data-anim="${animationID}"] [data-anim="hero-content"]`;
   const heroAnchor = `[data-anim="${animationID}"] [data-anim="hero-anchor"]`;
 
-  timeline
-    .from(sectionSelector, {
-      duration: 1.5,
-      opacity: 0,
-      delay: 0.5,
-      scale: 1.1,
-      ease: 'power4.out',
-    })
-    .from('header', { opacity: 0, duration: 1, delay: 1 }, '-=1')
-    .from(
+  // Only tween targets that exist; the hero anchor renders conditionally.
+  const exists = (selector: string) => gsap.utils.toArray(selector).length > 0;
+
+  if (exists(sectionSelector)) {
+    timeline.fromTo(
+      sectionSelector,
+      { opacity: 0, scale: 1.1 },
+      { opacity: 1, scale: 1, duration: 1.5, delay: 0.5, ease: 'power4.out' },
+    );
+  }
+
+  if (exists(heroContentSelector)) {
+    timeline.fromTo(
       heroContentSelector,
-      {
-        opacity: 0,
-        duration: 1,
-        ease: 'power4.out',
-      },
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: 'power4.out' },
       '-=0.5',
-    )
-    .from(
+    );
+  }
+
+  if (exists(heroAnchor)) {
+    timeline.from(
       heroAnchor,
       {
         opacity: 0,
@@ -57,12 +60,13 @@ const heroAnimation = (animationID: string) => {
       },
       '-=0.5',
     );
+  }
 };
 
 const Hero = ({
   images,
   content,
-  animationID = 'undefined',
+  animationID,
   height,
   imageAlignment,
   anchorToNext,

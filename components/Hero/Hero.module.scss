@@ -8,6 +8,21 @@
   overflow: hidden;
 }
 
+// Hide the hero's animated elements from the first paint so there's no flash
+// of fully-rendered content before GSAP's entrance kicks in (it runs in an
+// effect, after the browser's initial paint). GSAP fades these back in.
+// Scoped to animated heroes only ([data-anim] present) and skipped for users
+// who prefer reduced motion (the JS animation is skipped for them too), so a
+// non-animated hero or a reduced-motion visitor never stays hidden.
+@media (prefers-reduced-motion: no-preference) {
+  [data-anim] {
+    .image,
+    .hero__content {
+      opacity: 0;
+    }
+  }
+}
+
 .inner {
   --section-inner-min-height: 100%;
   --_section-text-align: center;

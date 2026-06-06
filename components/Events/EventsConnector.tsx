@@ -53,6 +53,9 @@ export const EventsConnector = ({
 
   const { upcomingEvents, pastEvents, years } = useMemo(() => {
     const currentDate = serverTime ? new Date(serverTime) : new Date();
+    // Keep an event in the current/upcoming list for 5 hours after its start
+    // time before moving it to past events.
+    const EVENT_GRACE_PERIOD_MS = 5 * 60 * 60 * 1000;
 
     const upcoming: EventItem[] = [];
     const past: EventItem[] = [];
@@ -60,7 +63,7 @@ export const EventsConnector = ({
 
     events.forEach(event => {
       const eventDate = new Date(event.date);
-      if (eventDate > currentDate) {
+      if (eventDate.getTime() + EVENT_GRACE_PERIOD_MS > currentDate.getTime()) {
         upcoming.push(event);
       } else {
         past.push(event);

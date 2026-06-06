@@ -7,10 +7,15 @@ import { Heading } from "../components/Headings";
 
 // Utility function to adjust Cloudinary URLs
 function getCloudinaryImageURL(url) {
-  if (url.includes(".svg")) {
-    return url.replace("/f_auto", "");
+  // Force https. Contentful/Cloudinary sometimes returns `http://` or a
+  // protocol-relative `//` URL, which triggers mixed-content fetches and, for
+  // priority images, prevents next/image's preload from matching the rendered
+  // <img> src (so the image is fetched twice and the priority hint is wasted).
+  const httpsUrl = url.startsWith("//") ? `https:${url}` : url.replace(/^http:\/\//, "https://");
+  if (httpsUrl.includes(".svg")) {
+    return httpsUrl.replace("/f_auto", "");
   }
-  return url;
+  return httpsUrl;
 }
 
 // Use your `getCloudinaryImageURL` function to preprocess Cloudinary URLs
@@ -35,7 +40,7 @@ export const renderEmbeddedEntryBlock = (node) => {
 };
 
 // Function to render embedded assets like images
-export const renderEmbeddedAssetBlock = (node) => {
+export const renderEmbeddedAssetBlock = (node, { priority = false } = {}) => {
 	const asset = node.data.target.fields;
 
 	return (
@@ -44,13 +49,17 @@ export const renderEmbeddedAssetBlock = (node) => {
 			alt={asset.alt}
 			width={asset.image[0].width}
 			height={asset.image[0].height}
-			// priority
-
+			priority={priority}
 		/>
 	);
 };
-// Main function to render rich text content
-export const renderRichTextContent = (content) => {
+// Main function to render rich text content.
+// Pass `{ priorityFirstImage: true }` for above-the-fold content (e.g. the
+// hero) so the first embedded image loads eagerly instead of lazily — it's
+// typically the Largest Contentful Paint element, and lazy-loading it delays
+// LCP. Only the first image is prioritized; later ones stay lazy.
+export const renderRichTextContent = (content, { priorityFirstImage = false } = {}) => {
+  let firstImageRendered = false;
 
   const richTextOptions = {
     renderNode: {
@@ -59,7 +68,9 @@ export const renderRichTextContent = (content) => {
 				if (node.data.target.sys.contentType.sys.id === "heading") {
           return renderEmbeddedEntryBlock(node);
 				} else if  (node.data.target.sys.contentType.sys.id === "cloudinaryAsset") {
-					return renderEmbeddedAssetBlock(node);
+					const priority = priorityFirstImage && !firstImageRendered;
+					firstImageRendered = true;
+					return renderEmbeddedAssetBlock(node, { priority });
         } else if (node.data.target.sys.contentType.sys.id === "button") {
           return renderButton(node);
         }

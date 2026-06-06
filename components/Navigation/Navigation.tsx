@@ -41,7 +41,6 @@ interface NavigationProps {
 }
 
 export const Navigation = ({
-  pageLocale,
   siteConfig,
   links,
   isNavigationVisible,
@@ -58,7 +57,6 @@ export const Navigation = ({
   const pathname = usePathname();
   const headerText = siteConfig?.headerText; // This value is field-localized
   const logo = siteConfig?.logo[0];
-  const locale = pageLocale.split('-')[0];
   useEffect(() => {
     if (fixed) {
       document.body.classList.add(styles.fixedNav);
@@ -117,7 +115,6 @@ export const Navigation = ({
                       key={link.slug}
                       href={link.slug}
                       target={link?.target}
-                      locale={locale}
                       className={cx(styles.link, {
                         [styles.link__active]: isActive,
                       })}
@@ -135,12 +132,13 @@ export const Navigation = ({
             })}
           >
             {headerText && (
-              <Link href='/' locale={pageLocale}>
+              <Link href='/'>
                 <Image
                   src={getCloudinaryAsSvg(logo.src)}
                   alt={logo.alt}
                   width={logo.width}
                   height={logo.height}
+                  priority
                 />
               </Link>
             )}

@@ -8,7 +8,7 @@ export const HeroConnector = (props: any) => {
       images={props?.media}
       locale={props?.locale}
       animationID={props?.animationID}
-      content={renderRichTextContent(props?.content)}
+      content={renderRichTextContent(props?.content, { priorityFirstImage: true })}
       height={props?.height}
       size={props?.size}
       imageAlignment={props?.imageAlignment}
