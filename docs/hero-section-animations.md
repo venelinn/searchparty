@@ -1,6 +1,6 @@
 # Hero & Section Entrance Animations
 
-**Files**: `components/Hero/Hero.tsx`, `components/Hero/Hero.module.scss`, `components/Section/Section.tsx`, `components/Hero/HeroConnector.tsx`, `utils/RichText.js`
+**Files**: `components/Hero/Hero.tsx`, `components/Hero/Hero.module.scss`, `components/Section/Section.tsx`, `components/Hero/HeroConnector.tsx`, `utils/RichText.js`, `styles/globals.scss`
 **Created**: 2026-06-06
 
 ## Overview
@@ -28,18 +28,24 @@ The animated elements are set to `opacity: 0` **in CSS** so the very first paint
 | Element | Hidden by | Selector |
 |---------|-----------|----------|
 | Hero image wrap (`.image`) + content (`.hero__content`) | `Hero.module.scss` | `[data-anim] .image`, `[data-anim] .hero__content` |
+| Global `<header>` | `styles/globals.scss` | `body:has([data-anim] [data-anim='hero-content']) header` |
 
-The rule is wrapped in `@media (prefers-reduced-motion: no-preference)` so reduced-motion visitors — for whom the JS animation never runs — are never left with permanently hidden content.
+Both rules are wrapped in `@media (prefers-reduced-motion: no-preference)` so reduced-motion visitors — for whom the JS animation never runs — are never left with permanently hidden content.
 
 ### Scoping (why these exact selectors)
 
 The CSS hide must only apply when GSAP **will** run and reveal the element again — otherwise content gets stuck invisible.
 
 - The animated elements live inside the hero's `Section`, which carries `data-anim="<animationID>"` **only when the hero has an `animationID`** → guarantees the hero timeline actually runs. A hero without an `animationID` has no `[data-anim]` ancestor, so it is never hidden.
+- The global header lives in the layout (outside the hero), so it can't be reached by the hero's scoped module CSS — hence the `body:has(...)` rule in `globals.scss`, keyed on the hero-only `[data-anim='hero-content']` marker.
 
-### The header is NOT animated (LCP)
+### The header fade and LCP
 
-An earlier version also faded the global `<header>` in via the timeline (hidden through a `body:has(...) header` rule in `globals.scss`). **This was removed** — the band logo is the page's Largest Contentful Paint element, and hiding/fading the header pushed LCP out to ~2.9s. The header now renders immediately at full opacity (no entrance fade, no flash, fast LCP). If you reintroduce a header entrance animation, expect an LCP regression and measure it.
+The global `<header>` fades in as part of the entrance timeline. This is **LCP-safe but timing-sensitive**:
+
+- The header logo is **not** the LCP element — the larger band logo embedded in the hero *content* is. So fading the header doesn't change which element LCP measures.
+- What *does* matter is timeline ordering: the header tween carries `delay: 1` and sits **before** `hero-content` in the timeline, so it pushes the content fade (and therefore the LCP paint) out to ~2.9s. That's an accepted tradeoff for the choreographed entrance the design calls for. The LCP **warning** stays away because the content image is eager-loaded (see below) — the warning is about lazy-loading, not timing.
+- If you ever need a faster LCP, move the header tween so it runs concurrently with the image (don't let its `delay` gate the content), rather than removing the fade.
 
 ## `.from()` vs `.fromTo()` — important
 
@@ -60,8 +66,9 @@ timeline.fromTo(
 The hero entrance timeline (`heroAnimation` in `Hero.tsx`) animates, in order:
 
 1. `section-img-wrap` (the hero background image) — `fromTo`
-2. `hero-content` — `fromTo`
-3. `hero-anchor` (scroll-down chevron, rendered conditionally) — `from` (not CSS-hidden, so `from` is fine)
+2. `header` — `fromTo`
+3. `hero-content` — `fromTo`
+4. `hero-anchor` (scroll-down chevron, rendered conditionally) — `from` (not CSS-hidden, so `from` is fine)
 
 Each tween is guarded by an `exists()` check so conditionally-rendered targets don't throw.
 
@@ -91,7 +98,7 @@ Two things keep it fast and warning-free:
 - **Eager loading**: `renderRichTextContent(content, { priorityFirstImage: true })` makes the **first** embedded image render with next/image `priority` (eager + preload) instead of lazy. `HeroConnector` passes this flag; other rich-text callers leave it off so below-the-fold images stay lazy. Without it, Next logs *"… was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property …"*.
 - **`https` normalization**: `getCloudinaryImageURL()` rewrites `http://` and protocol-relative `//` Cloudinary URLs to `https://`. A protocol mismatch between the preload and the rendered `<img>` makes the browser fetch the image twice and wastes the priority hint.
 
-> **Tradeoff**: the LCP image lives inside `hero-content`, which fades in, so LCP is recorded when the fade begins (~1.5–1.8s) rather than at first paint. That's within the "good" LCP range, but it's the cost of the entrance animation. To make LCP earlier you'd have to stop fading the hero content (or move the LCP image out of the faded container).
+> **Tradeoff**: the LCP image lives inside `hero-content`, which fades in late in the timeline (after the image and header tweens), so LCP is recorded when that fade begins (~2.5–2.9s) rather than at first paint. `priority` only controls when the image is *fetched* (eagerly, up front), not when the animation *reveals* it. This is the accepted cost of the choreographed entrance; to make LCP earlier, bring the `hero-content` tween forward in the timeline (see "The header fade and LCP" above) or stop fading the content.
 
 ## Adding a new animated element
 

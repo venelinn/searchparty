@@ -218,4 +218,17 @@ body {
   }
 }
 
+// Hide the global header from first paint on pages with an animated hero so it
+// doesn't flash visible before the hero's GSAP entrance fades it in.
+// `[data-anim='hero-content']` is rendered only by the Hero, and the wrapping
+// `[data-anim]` exists only when the hero has an animationID (so the timeline
+// runs and reveals the header). Skipped for reduced motion. The header logo is
+// NOT the LCP element (the larger hero-content logo is), so fading the header
+// is LCP-neutral as long as the content image stays eager — see RichText.js.
+@media (prefers-reduced-motion: no-preference) {
+  body:has([data-anim] [data-anim='hero-content']) header {
+    opacity: 0;
+  }
+}
+
 // logo
