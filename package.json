@@ -13,7 +13,8 @@
     "storybook": "storybook dev -p 6006",
     "postbuild": "next-sitemap",
     "build-storybook": "storybook build --output-dir ./.next/storybook",
-    "build-dictionary": "style-dictionary build -c ./tokens/config.js"
+    "build-dictionary": "style-dictionary build -c ./tokens/config.js",
+    "purge-cache": "node scripts/purge-cache.js"
   },
   "dependencies": {
     "@biomejs/biome": "^2.4.16",

@@ -9,6 +9,8 @@
 - Revalidation logic: `utils/revalidation.ts`
 - Webhook endpoint: `app/api/revalidate/route.ts`
 - Env template: `.env.example` — `CONTENTFUL_REVALIDATE_SECRET`
+- Health probe: `app/api/health/route.ts`
+- Manual purge: `scripts/purge-cache.js` (`pnpm purge-cache`)
 
 ## Overview
 
@@ -158,6 +160,50 @@ redeploy**. Without it, the indefinite cache refreshes on **rebuild only**, so a
 publish stays invisible on the live site until the next deploy. The cache works
 fine either way; the route just returns `500 "not configured"` when the secret
 is unset (fail-closed, safe). If real people edit content in Contentful, set it.
+
+## Checking and forcing it
+
+Two tools, because the failure mode here is **silent**.
+`isRevalidationConfigured()` is checked *before* auth in the route, so if
+`CONTENTFUL_REVALIDATE_SECRET` is not set **on the deployment**, every caller —
+the Contentful webhook included — gets `500 "Revalidation is not configured"`
+and nothing surfaces it. Combined with `revalidate: false`, the site then serves
+whatever it first cached, indefinitely. A sibling project ran that way for
+months; an unpublished page stayed live and a redeploy did not fix it.
+
+**Is this deployment able to refresh at all?**
+
+```bash
+curl -s https://searchpartyottawa.ca/api/health
+# {"ok":true,"revalidation":"configured"}   ← good
+# {"ok":true,"revalidation":"missing"}      ← the webhook is failing silently
+```
+
+`app/api/health/route.ts` reports presence only, never the value, and keeps
+`ok: true` either way so it still works as a plain liveness probe.
+
+A quicker one-off check without deploying anything: POST to `/api/revalidate`
+with **no** secret. `401` means the secret is configured (auth simply rejected
+you); `500 "not configured"` means it is missing.
+
+**Force a refresh** when an edit or unpublish does not appear to land:
+
+```bash
+pnpm purge-cache                                # ⚠ defaults to PRODUCTION
+PURGE_URL=http://localhost:3018 pnpm purge-cache
+```
+
+`scripts/purge-cache.js` POSTs to `/api/revalidate` with the secret from `.env`,
+exits non-zero on failure, and explains the two common failures (500 → secret
+missing on the deployment; 401 → local secret does not match).
+
+Two limits worth knowing:
+
+- **It does not refresh `sitemap.xml`.** `next-sitemap` generates that in
+  `postbuild`, so the sitemap only changes on a redeploy.
+- **It does nothing useful against `next dev`.** Development memoizes reads
+  in-process (the `devMemo` in `utils/contentful-cache.ts`), and that memo is
+  not reachable from a route handler — restart the dev server instead.
 
 ## Guardrails — do not regress
 
