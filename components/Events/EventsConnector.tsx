@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Select } from '@/components/Forms/Select';
 import { Icon } from '@/components/Icon';
 import { Pagination } from '@/components/Pagination';
@@ -51,8 +51,16 @@ export const EventsConnector = ({
   const pastSectionRef = useRef<HTMLDivElement>(null);
   const pageSize = eventsPerPage ?? DEFAULT_PER_PAGE;
 
+  // The page is statically cached, so `serverTime` is frozen at render time and
+  // can be days old. Use it for the first render (matches SSR HTML, no
+  // hydration mismatch), then switch to the visitor's real clock after mount.
+  const [now, setNow] = useState<number | undefined>(serverTime);
+  useEffect(() => {
+    setNow(Date.now());
+  }, []);
+
   const { upcomingEvents, pastEvents, years } = useMemo(() => {
-    const currentDate = serverTime ? new Date(serverTime) : new Date();
+    const currentDate = now ? new Date(now) : new Date();
     // Keep an event in the current/upcoming list for 5 hours after its start
     // time before moving it to past events.
     const EVENT_GRACE_PERIOD_MS = 5 * 60 * 60 * 1000;
@@ -81,7 +89,7 @@ export const EventsConnector = ({
     const years = Array.from(yearSet).sort((a, b) => b - a);
 
     return { upcomingEvents: upcoming, pastEvents: past, years };
-  }, [events, serverTime]);
+  }, [events, now]);
 
   const filteredPastEvents = useMemo(() => {
     if (selectedYear === 'all') return pastEvents;

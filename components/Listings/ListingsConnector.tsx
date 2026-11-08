@@ -53,12 +53,21 @@ function ListingsSection({
   const href = `/${section.type}`;
 
   if (section.type === "events") {
-    const events = section.cards as EventItem[];
+    const events = section.cards as (EventItem & { isUpcoming?: boolean })[];
+    const hasUpcoming = events.some((event) => event.isUpcoming)
+    const upcomingEvents = events.filter((event) => event.isUpcoming)
+    const pastEvents = events.filter((event) => !event.isUpcoming)
     return (
       <section>
-        <ListingsSectionHeading type="events" />
-        {events.map((event) => (
+        <ListingsSectionHeading type="events" variant={hasUpcoming ? "upcoming" : "past"} />
+        {upcomingEvents.map((event) => (
           <Event key={event.id} event={event} type="upcoming" locale={locale} fallbackImage={fallbackImage} />
+        ))}
+        {hasUpcoming && pastEvents.length > 0 && (
+          <ListingsSectionHeading type="events" variant="past" />
+        )}
+        {pastEvents.map((event) => (
+          <Event key={event.id} event={event} type="past" locale={locale} fallbackImage={fallbackImage} />
         ))}
         {section.hasMore && (
           <div className="mt-4 text-center">

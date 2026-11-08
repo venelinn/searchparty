@@ -479,7 +479,10 @@ export async function getListingsData(
 			const limitedUpcoming = upcoming.slice(0, eventsLimit)
 			const pastSlots = Math.max(0, eventsLimit - limitedUpcoming.length)
 			const limitedPast = past.slice(0, pastSlots)
-			const cards = [...limitedUpcoming, ...limitedPast]
+			const cards = [
+				...limitedUpcoming.map((e) => ({ ...e, isUpcoming: true })),
+				...limitedPast.map((e) => ({ ...e, isUpcoming: false })),
+			]
 			sections.push({
 				type: "events",
 				cards,

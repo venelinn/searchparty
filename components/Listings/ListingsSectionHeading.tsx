@@ -7,11 +7,12 @@ import { Icon } from "@/components/Icon";
 
 type ListingsSectionHeadingProps = {
   type: "events" | "news";
+  variant?: "upcoming" | "past";
 };
 
-export function ListingsSectionHeading({ type }: ListingsSectionHeadingProps) {
+export function ListingsSectionHeading({ type, variant = "upcoming" }: ListingsSectionHeadingProps) {
   const t = useTranslations(type === "events" ? "Events" : "News");
-  const title = type === "events" ? t("upcomingEvents") : t("sectionTitle");
+  const title = type === "events" ? t(variant === "past" ? "pastEvents" : "upcomingEvents") : t("sectionTitle");
   return (
     <Heading as="h2" size="h2" className={eventsStyles.events__heading}>
       {type === "events" && <Icon name="Guitar" />}
